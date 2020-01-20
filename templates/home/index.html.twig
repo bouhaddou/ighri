@@ -1,0 +1,287 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue chez Nous Ighri!{% endblock %}
+{% block body %}
+{% set xz = ''  %}
+{% include "home/menu.html.twig" with { xz : 'accuiel'  }  %}
+
+<section id="home-section" class="hero">
+	<div class="home-slider owl-carousel">
+		<div class="slider-item" style="background-size: cover; background-image:url('{{ asset("./images/ighrii.png") }}');">
+			<div class="overlay"></div>
+			<div class="container">
+				<div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
+
+					<div class="col-sm-12 ftco-animate text-center">
+						<h4 class="mb-2 text-light font-weight-bold text">IGHRI TALIOUINE OFFICIAL</h4>
+						<h4 class="subheading mb-4">Bienvenu dans notre site de safran taliouine boi 100%</h4>
+						<p>
+							<a href="{{ path('postpage') }}" class="btn btn-primary">savoir plus -></a>
+						</p>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<div class="slider-item" style="background-size: cover; background-image:url('{{ asset("./images/ighriii.jpg") }}');">
+			<div class="overlay"></div>
+			<div class="container">
+				<div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
+
+					<div class="col-sm-12 ftco-animate text-center">
+						<h4 class="mb-2 text-light font-weight-bold text">IGHRI TALIOUINE OFFICIAL</h4>
+						<h4 class="subheading mb-4">Bienvenu dans notre site de safran taliouine boi 100%</h4>
+						<p>
+							<a href="{{ path('postpage') }}" class="btn btn-primary">savoir plus -></a>
+						</p>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<div class="slider-item" style="background-size: cover; background-image:url('{{ asset("./images/ighriiii.jpg") }}');">
+			<div class="overlay"></div>
+			<div class="container">
+				<div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
+
+					<div class="col-sm-12 ftco-animate text-center">
+						<h4 class="mb-2 text-light font-weight-bold text">IGHRI TALIOUINE OFFICIAL</h4>
+						<h4 class="subheading mb-4">Bienvenu dans notre site de safran taliouine boi 100%</h4>
+						<p>
+							<a href="{{ path('postpage') }}" class="btn btn-primary">savoir plus -></a>
+						</p>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+</section>
+<!-- END nav -->
+
+<section class="ftco-section p-0 mt-2">
+	<div class="container">
+		<div class="row justify-content-center mb-3 pb-3">
+          <div class="col-md-12 heading-section text-center ftco-animate">
+          	<span class="subheading text-dark"> Bienvenue </span>
+            <h2 class="mb-4 text-primary">IGHRI TALIOUINE Official</h2>
+            <p>Vous êtes Ighrioui ou d'origine de Taliouine au d'autres origines bienvenu sur notre site <strong class="text-primary">IGHRI إغري </strong><br>vous êtes 
+			dans le bon endroit pour découvrir  notre Blade <span class="text-primary">IGHRI</span>  </p>
+          </div>
+        </div>   		
+
+		<div class="row no-gutters ftco-services ">
+		 {% if app.user %}
+          <div class="col-md-4 text-center d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services mb-md-0 mb-4">
+             <a href="{{ path('postpage') }}"> <div class="icon bg-color-2 d-flex justify-content-center align-items-center mb-2">
+            	 	<span><i class="fas fa-photo-video"></i></span>
+              </div></a>
+              <div class="media-body">
+                <h3 class="heading"><a href="{{ path('postpage') }}"> Découvrir Ighri</a></h3>
+                <span>...</span>
+              </div>
+            </div>    
+		  </div>
+		  <div class="col-md-4 text-center d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services mb-md-0 mb-4">
+				<a	href="{{ path('newpostpage') }}">
+					<div class="icon bg-color-3 d-flex justify-content-center align-items-center mb-2">
+							<span><i class="far fa-edit"></i></span>
+					</div>
+			  </a>
+              <div class="media-body">
+                <h3 class="heading"><a	href="{{ path('newpostpage') }}">Créer une publication</a></h3>
+                <span>...</span>
+              </div>
+            </div>      
+          </div>
+          <div class="col-md-4 text-center d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services mb-md-0 mb-4">
+				<a href="{{ path('showprofileuser',{'id': app.user.id }) }}">
+					<div class="icon bg-color-4 d-flex justify-content-center align-items-center mb-2">
+							<span ><i class="fas fa-id-card"></i></span>
+					</div>
+				</a>
+              <div class="media-body">
+                <h3 class="heading"><a href="{{ path('showprofileuser',{'id': app.user.id }) }}">Mon Profile</a></h3>
+                <span>...</span>
+              </div>
+            </div>      
+          </div>
+        </div>
+		{% else %}
+		<div class="col-md-3 text-center d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services mb-md-0 mb-4">
+             <a href="{{ path('postpage') }}"> <div class="icon bg-color-2 d-flex justify-content-center align-items-center mb-2">
+            	 	<span><i class="fas fa-photo-video"></i></span>
+              </div></a>
+              <div class="media-body">
+                <h3 class="heading"><a href="{{ path('postpage') }}"> Découvrir Ighri</a></h3>
+                <span>...</span>
+              </div>
+            </div>    
+		  </div>
+		  <div class="col-md-3 text-center d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services mb-md-0 mb-4">
+				<a	href="{{ path('newpostpage') }}">
+					<div class="icon bg-color-3 d-flex justify-content-center align-items-center mb-2">
+							<span><i class="far fa-edit"></i></span>
+					</div>
+			  </a>
+              <div class="media-body">
+                <h3 class="heading"><a	href="{{ path('newpostpage') }}">Créer une publication</a></h3>
+                <span>...</span>
+              </div>
+            </div>      
+          </div>
+		 <div class="col-md-3 text-center d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services mb-md-0 mb-4">
+				<a href="{{ path('account_register') }}">
+					<div class="icon bg-color-3 d-flex justify-content-center align-items-center mb-2">
+							<span><i class="far fa-user"></i></span>
+					</div>
+				</a>
+              <div class="media-body">
+                <h3 class="heading"><a href="{{ path('account_register') }}">Créer un compte</a></h3>
+                <span>...</span>
+              </div>
+            </div>      
+          </div>
+		<div class="col-md-3 text-center d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services mb-md-0 mb-4">
+				<a href="{{ path('account_login') }}">
+					<div class="icon bg-color-4 d-flex justify-content-center align-items-center mb-2">
+							<span ><i class="fas fa-sign-in-alt"></i></span>
+					</div>
+				</a>
+              <div class="media-body">
+                <h3 class="heading"><a href="{{ path('account_login') }}">Connexion</a></h3>
+                <span>...</span>
+              </div>
+            </div>      
+          </div>
+        </div>
+		{% endif %}
+	</div>
+</section>
+<section class="ftco-section ftco-no-pb ftco-no-pt bg-light mt-3">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-5 p-md-4 img img-2 d-flex justify-content-center align-items-center"  
+			style = " background-image:url({{ asset('./images/about.jpg') }})">
+				<a href="{{ path('vediopage') }}" class="icon popup-vimeo d-flex justify-content-center align-items-center">
+					<span class="icon-play"></span>
+				</a>
+			</div>
+			<div class="col-md-7 py-4 wrap-about pb-md-5 ftco-animate">
+				<div class="heading-section-bold mb-4 mt-md-5">
+					<div class="ml-md-0 text-center">
+						<h2 class="mb-4">Douar <span class="text-primary">IGHRI</span> </h2>
+					</div>
+				</div>
+				<div class="pb-md-4">
+					<p class="text-justify text-center" > <span class="text-primary">IGHRI</span> se situe au cœur de la tribu des Souktana, zone historique du safran, dans la 
+						commune rurale de Sidi Hssain. Il se situe à environ 25 Km à l’Est du Centre Urbain 
+						de Taliouine à proximité de la route nationale reliant les deux villes touristiques 
+						de Taroudant et Ouarzazate..
+					</p>
+					<p class="text-center">
+						<a href="{{ path('presentationpage') }}" class="btn btn-primary text-center"><i class="fas fa-eye"></i> Voir Plus</a>
+					</p>
+				</div>
+			</div>
+		</div>
+	
+	</div>
+</section>
+
+<section class="  ">
+	<div class="container bg-ligth">
+		<div class="row">
+			<div class="col-md-8 pt-4 ">
+				<div class="row border mt-2" style=" background-color: #e9ebee;">
+					{% include "./post/article.html.twig"    with {pos : posts ,varibales:'showpostpage' }  %}
+					<div class="col-md-12 text-center ">
+						<a class="btn btn-link text-primary" href="{{ path('postpage') }}"> Voir Plus</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 mt-2 sidebar ftco-animate  d-sm-block">
+				<div >
+                    {% include 'partials/developpeur.html.twig' %}
+                </div>
+                <div id="" class="bg-white w-100">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11767.156475079824!2d-7.7245368068703915!3d30.469997161132625!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdba77423ef11ccf%3A0xf0f65afeb31d3586!2sIghri!5e1!3m2!1sfr!2sma!4v1575934691821!5m2!1sfr!2sma" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>            
+                </div>
+            </div>
+        </div>
+		</div>
+</section>
+<hr>
+<section class="ftco-section ftco-category ftco-no-pt mt5">
+	<div class="container">
+		<div class="row mt-4">
+			<div class="col-md-8">
+				<div class="row">
+					<div class="col-md-6 mt-2 order-md-last align-items-stretch d-flex">
+						<div class="category-wrap-2 ftco-animate img align-self-stretch d-flex" style="background-image: url( {{ asset('./upload/safran/category.jpg') }});">
+							<div class="text text-center">
+								<h2>Zafran Ighri Taliouine</h2>
+								<p>zafran bio 100%</p>
+								<p>
+									<a href="{{ path('zafranpage') }}" class="btn btn-primary">Savoir plus</a>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 mt-2">
+						<div class="category-wrap ftco-animate img mb-4 d-flex align-items-end" style="background-image: url( {{ asset('upload/safran/category-1.jpeg') }});">
+							<div class="text px-3 py-1">
+								<h2 class="mb-0">
+									<a href="#">Bio 100 %</a>
+								</h2>
+							</div>
+						</div>
+						<div class="category-wrap ftco-animate img d-flex align-items-end" style="background-image: url( {{ asset('upload/safran/category-2.jpeg') }});">
+							<div class="text px-3 py-1">
+								<h2 class="mb-0">
+									<a href="#">Bio 100 %</a>
+								</h2>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-4 mt-2">
+				<div class="category-wrap ftco-animate img mb-4 d-flex align-items-end" style="background-image: url({{ asset('upload/safran/category-3.jpg') }});">
+					<div class="text px-3 py-1">
+						<h2 class="mb-0">
+							<a href="#">Bio 100 % </a>
+						</h2>
+					</div>
+				</div>
+				<div class="category-wrap ftco-animate img d-flex align-items-end" style="background-image: url({{ asset('upload/safran/category-4.jpeg') }});">
+					<div class="text px-3 py-1">
+						<h2 class="mb-0">
+							<a href="#">Bio 100 %</a>
+						</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+				
+
+
+
+	
+<!-- .section -->
+{% include 'partials/footer.html.twig' %}
+{% endblock %}
+		
+
+	  

@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %} {% block title %}Hello AmisController!{% endblock %} {% block body %} {% include "home/menu.html.twig" with {'amis' : amis } %}
+<div class="container border">
+<h3><i class="fas fa-user-friends">Amis</i></h3>
+   
+       
+        <div class="row"> 
+         {% for ami in amis %} 
+        {% if ami.getFriendEnvoi() != app.user %}
+            <div class="col-md-6 border-dark mb-2">
+              <div class="row">
+               <div class="col-md-9">
+                <img class="avatar-friend border" src="{{asset('/upload/users/' ~  ami.getFriendEnvoi().avatar ) }}">
+                <span>{{ ami.getFriendEnvoi().getFullname }}</span>
+                </div>
+            <div class="col-md-3">
+            <br>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <span class="text-righ">
+                                <a class="badge badge-light p-2  border font-weight-normal" href="">
+                                    <i class="fas fa-check"></i>
+                                    Amis</a>
+                            </span>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="#">Envoyer Message</a>                               
+                                <a class="dropdown-item" href="#">Retirer dans la list d'amis</a>
+                            </div>
+                        </li>
+                    </ul>
+            </nav>
+            </div>  
+            </div>  
+            </div>  
+            <hr>
+            {% endif %} 
+             {% endfor %}
+        </div>
+    
+</div>
+
+{% endblock %}

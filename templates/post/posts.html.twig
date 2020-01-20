@@ -1,0 +1,67 @@
+
+	<div class=" col-lg-{{xx }} col-md-6 d-flex ftco-animate text-center  ">
+	<div class="" >
+		<div class="blog-entry   border">
+			<div class="card-header text-center border">
+				Publiée Par :<small class="text-info "> {{ post.author.getFullname | slice(0,18) }}</small><br>
+			      {% if post.comments | length > 0 %}    
+					{% include "partials/rating.html.twig" with {'rating' : post.getAvgRating } %}
+				  {% else %}
+					<small>Pas encore noté</small>
+				  {% endif %}
+			</div>
+			<a href="{{ path(varibales,{'id':post.id })}}" style="max-height: 200px" >
+				<div style="height: 240px;">
+					<img  class="img-fluid h-100 w-100"  src="{{ asset("./upload/posts/"~ post.avatar) }}"/>
+				</div>
+			</a>
+			<div class="text d-block ">
+				<h3 class="heading m-1">
+					<a href="#">
+						{{ post.titre | slice(0,25) }} ....
+					</a>
+				</h3>
+				<p class="lead">
+					{{ post.content | slice(0,30)  }}<span class="text-secondary"> ....!!</span></p>
+				<p>
+					
+					{% if app.user == post.author %}
+					<a href="{{ path(varibales,{'id':post.id })}}" class="btn btn-primary py-2 px-3"> 
+					<i class="fas fa-eye"></i> </a>
+					   <a href="{{ path('editpostpage',{ 'id': post.id }) }}" class="btn btn-success  ">
+					   <i class="fas fa-edit"></i> </a>
+					   <a href="{{ path('deletepostpage',{ 'id': post.id }) }}" class="btn btn-danger  ">
+					   <i class="fas fa-trash-alt"></i> </a>
+					{% else %}
+						<a href="{{ path(varibales,{'id':post.id })}}" class="dropdown-item">
+							<i class="fas fa-eye">  savoir plus</i>
+						</a>
+					{% endif %}
+				</p>
+			</div>
+			<div class="meta text-center ">
+				<div>
+					<a href="#" class="text-danger">{{ post.datepub | date('d-m-Y') }}</a>
+				</div>
+				<div>
+					<a href="#">
+					 {% set user = 'Utilisateur'%}
+					{%  for role in post.author.roles  %}
+					  {% if role == 'ROLE_ADMIN' %}
+					  {% set user = 'admin'%}
+					  {% else %}
+					  {% endif %}
+					{% endfor %}
+					 <span class="text-info" >{{ user }}</span>
+					</a>
+				</div>
+				<div>
+					<a href="#" class="meta-chat text-primary">
+					<span class="icon-chat"></span> {{ post.comments | length }} </a>
+				</div>
+			</div>
+		</div>
+		</div>
+</div>
+
+

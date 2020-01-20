@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tous les Utilisateurs!
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<h6 class="mt-4 text-center">
+				Modifier votre  Profile!!</h6>
+		{{  form_start(form) }}
+		{{  form_widget(form) }}
+		<input class="btn btn-info" type="submit" value="Modifier un Utilisateur">
+		{{  form_end(form) }}
+	</div>
+{% endblock %}

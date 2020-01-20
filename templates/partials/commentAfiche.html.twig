@@ -1,0 +1,44 @@
+	{% for comment in post.comments | reverse %}
+                    <div class="col-12">
+						<div class="row bg-white">
+							<div class="col-2 p-2" >
+								<div class="avatar-medium">
+				<img class="avatar-ws" style="height: 40px;width: 40px;" src="{{asset('./upload/users/'~ comment.author.avatar ) }}"/>
+								</div>
+							</div>
+							<div class="col-6 p-2"style="line-height: 1.2;" >
+                                <span class="menu-pub">
+                                    <strong>{{ comment.author.getFullname }} </strong><br>
+                                </span>
+								<span class="" style="font-size: 10px; line-height: 0em;">
+									{{ comment.datepub | date('d/m/Y') }} <i class="far fa-clock"></i>
+										<a href="#" class="text-danger">
+                                        {% set user = 'Utilisateur'%}
+                                        {%  for role in comment.author.roles  %}
+                                            {% if role == 'ROLE_ADMIN' %}
+                                                {% set user = 'Admin'%}
+                                                {% else %}
+                                            {% endif %}
+                                        {% endfor %}
+                                        {{ user }}
+                                    </a>
+                                    <i class="fas fa-users"></i>
+								</span>
+							</div>
+							<div class="col-4 p-2">
+								<span  >
+									{% set rating = comment.rationg  %}
+									{% include "partials/rating.html.twig" %}
+								</span>
+							</div>
+						</div>
+                    </div>
+                    <div class="col-12  bg-white   pb-2">
+                            <p class="p-2 menu-pub-comment text-info" style="font-size: 13px ;" >{{ comment.comment }}</p>
+                    </div>
+					<div class="col-12  bg-white   ">
+						   <hr class="m-0 p-0 mt-1" >
+						  
+                    </div>
+					
+					{% endfor %}

@@ -1,0 +1,116 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon Profile !
+{% endblock %}
+
+{% block body %}
+{% set xz = ''  %}
+{% include "home/menu.html.twig" with { xz : 'profile'  }  %}
+
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12 mt-1">
+				<a href="{{path('edit_couvert',{'id': user.id})}}" >
+					<img class="avatar-profile w-100  " id="" alt="Image d’arrière-plan" src="
+					{% if user.couverture != null %}
+						{{ asset('./upload/users/' ~ user.couverture ) }}
+					{% else %}
+							{{ asset('./upload/users/couvert.jpg') }}
+					{% endif %} ">
+				</a>
+
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3 col-sm-12 col-xs-12">
+			  <div class="col-xs-6 offset-3">
+				<img style="position: relative; bottom:50px" class="img-fluid avatar-w " src="{{asset('./upload/users/'~ user.avatar) }}" alt="klnl">
+			 </div>
+			</div>
+			<div class="col-md-9  col-sm-12 col-xs-12">
+				<nav class="navbar navbar-expand-lg navbar-light bg-light ">
+					<a class="navbar-brand" href="#">Journal</a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse " id="navbarSupportedContent">
+						<ul class="nav navbar-nav ml-auto ">
+							<li class="nav-item active ">
+								<a class="nav-link" href="#">  <span class="sr-only">Mes informations</span></a>
+							</li>
+							<li class="nav-item active ">
+								<a class="nav-link" href="#"> Vous avez <span class="text-danger">{{ user.posts | length  }}</span> Annonces </a>
+							</li>
+							<li class="nav-item active ">
+								<a class="nav-link " href="{{ path('edit_password')  }}"> <span class="text-info">Edit password </span></a>
+							</li>
+							<li class="nav-item dropdown ">
+								<a class="nav-link dropdown-toggle text-info" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									{% if app.user %}
+										<img class="avatar avatar-mini" src="{{asset('./upload/users/'~ app.user.avatar) }}" alt="klnl"><span class="nom-pro">
+											{{ app.user.firstname | slice(0,3) }}
+										</span>
+									{% else %}
+										<i class="fas fa-sign-in-alt text-primary"></i>
+										Mon compte
+									{% endif %}
+								</a>
+								<div class="dropdown-menu " aria-labelledby="dropdown04">
+									{% if app.user %}
+										<a class="dropdown-item" href="{{ path('account_logout') }}">Déconnexion</a>
+									{% else %}
+										<a href="{{ path('account_login') }}" class="dropdown-item">Connexion</a>
+										<a href="{{ path('account_register') }}" class="dropdown-item">Inscription</a>
+									{% endif %}
+								</div>
+							</li>
+						</ul>
+					</div>
+					
+
+				</nav>
+				<div class="">
+					<h2>{{ user.getFullname }}</h2>
+					<h5>{{ user.slug }}</h5>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3 col-sm-12 col-xs-12">
+				<div class="mb-3 col-sm-12 col-xs-12">
+					<div class="card-header bg-transparent "><a href="{{ path('newpostpage') }}"><i class="fas fa-users"></i> Créer un publication</a></div>
+					<div class="card-header bg-transparent "><a href="{{ path('imagepage') }}"><i class="fas fa-image"></i> voir les images/vedios </a></div>
+				</div>
+			</div>
+			<div class="col-md-9 col-sm-12 col-xs-12">
+				<div class="lead">
+					{{ user.content  }}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="ftco-section ftco-no-pt ftco-no-pb py-5 bg-light mb-3 mt-2 ">
+		<div class="row pt-4 pb-4">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<div class="text-center posts">
+					<h2>Mes posts </h2>
+					<p class="lead">  Toutes mes postes Toutes mes postes Toutes mes postes Toutes mes postes Toutes mes postes</p>
+				</div>
+			</div>
+		</div>
+</section>
+<section>
+	<div class="container">
+		<div class="row text-center">
+				{%  for postss in user.posts %}
+			    {% set var = 4 %}
+					{% include "post/posts.html.twig" with { xx : var,post :postss,varibales:'showpostpage' } %}
+				{% endfor %}
+		</div>
+	</div>
+</section>
+{% include 'partials/footer.html.twig' %}
+{% endblock %}
+

@@ -1,0 +1,12 @@
+.avatar {
+    max-width: 130px;
+    max-height: 130px;
+}
+
+.avatar-mini {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vc3R5bGUuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksZ0JBQWdCO0lBQ2hCLGlCQUFpQjtBQUNyQjs7QUFFQTtJQUNJLFdBQVc7SUFDWCxZQUFZO0lBQ1osa0JBQWtCO0FBQ3RCLEMiLCJmaWxlIjoiY3NzL3N0eWxlLmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5hdmF0YXIge1xyXG4gICAgbWF4LXdpZHRoOiAxMzBweDtcclxuICAgIG1heC1oZWlnaHQ6IDEzMHB4O1xyXG59XHJcblxyXG4uYXZhdGFyLW1pbmkge1xyXG4gICAgd2lkdGg6IDMwcHg7XHJcbiAgICBoZWlnaHQ6IDMwcHg7XHJcbiAgICBib3JkZXItcmFkaXVzOiA1MCU7XHJcbn0iXSwic291cmNlUm9vdCI6IiJ9*/

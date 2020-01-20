@@ -1,0 +1,77 @@
+{% extends "base.html.twig" %}
+{% block title %}Index Page!
+{% endblock %}
+
+{%  form_theme  form  _self %}
+
+
+{% block body %}
+{% set xz = ''  %}
+{% include "home/menu.html.twig" with { xz : 'contact'  }  %}
+	<div class="container">
+		<h5 class="text-center mt-4">
+			Création d'un Nouveau Poste</h5>
+		{{ form_start(form) }}
+
+		{{ form_widget(form) }}
+		<button type="button" id="add_image" class="btn btn-info"><i class="fas fa-plus"></i> Ajouter image</button>
+		<br><br>
+		<button type="submit" class="btn btn-primary mt-2"> <i class="fas fa-plus"></i> Enregistrer un Poste</button>
+		<input type="hidden" id="compteur" value="0">
+		<a href="" class="btn btn-danger mt-2"><i class="fas fa-long-arrow-alt-left"></i> Retour</a>
+		{{ form_end(form) }}
+	</div>
+{% endblock  %}
+
+{%  block _post_images_widget %}
+	<p class="">
+		vous pouvez ajouter votre images ici !</p>
+
+	{{ form_widget(form) }}
+
+
+{% endblock  %}
+
+{%  block _post_images_entry_row %}
+<div class="row" id="block_{{id}}">
+	<div class="col-md-5">
+		{{ form_widget(form.url) }}
+	</div>
+	<div class="col-md-5">
+		{{ form_widget(form.caption) }}
+	</div>
+	<div class="col-md-2 mb-5">
+		<button type="button" data-action="delete" data-target="#block_{{id}}" class="btn btn-info mt-2">X</button>
+
+	</div>
+</div>
+{% endblock  %}
+
+{% block javascripts %}
+<script>
+	$('#add_image').click(function(){
+	         const index = +$('#compteur').val();
+	         const tmp = $('#post_images').data('prototype').replace(/__name__/g,index);
+	         $('#compteur').val(index + 1);
+	         $('#post_images').append(tmp);
+	         handlendelete();
+	     });
+	    function handlendelete(){
+	        $('button[data-action="delete"]').click(function(){
+	            const target= this.dataset.target;
+	            $(target).remove();
+	        });
+	    }
+	    function updateCompteur()
+	    {
+	        const count=+$('#post_images div.form-group').length;
+	        $('#compteur').val(count);
+	    }
+	   updateCompteur();
+	    handlendelete();
+</script>
+<div class="mt-5">
+{% include 'partials/footer.html.twig' %}
+</div>
+{% endblock %}
+

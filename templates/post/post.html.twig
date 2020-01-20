@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+{% block stylesheets %}
+
+	<link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css">
+	<link rel="stylesheet" href="/css/gallery-grid.css">
+
+{% endblock %}
+
+{% block body %}
+{% set xz = ''  %}
+{% include "home/menu.html.twig" with { xz : 'ighri'  }  %}
+<section class="container mt-3">
+   <div class="row">
+		<div class="col-md-8">
+		 <h6 class="text-center"> Opss !!  voila tu peut voir toutes les Annonces de Ighri </h6>
+		</div>
+		<div class="col-md-4">
+			<form action="#" class="search-form">
+				<div class="form-group">
+					<span class="icon ion-ios-search"></span>
+					<input type="text" class="form-control" placeholder="Search...">
+				</div>
+			</form>
+		</div>
+   </div>
+</section>
+<section >
+	<div class="container mt-3">
+		<div class="row">
+		  <div class="col-md-12">
+			<div class="dropdown-item text-center">
+				{% if app.user %}
+					   <span class="mt-1  mb-2 text-light ">
+							<a href="{{ path('newpostpage') }}" class="text-light">
+								<i class="fas fa-plus text-light"></i> Créer un publication
+							</a>
+						</span>
+				{% else %}
+					<span  class="mt-1 mb-2 text-light">
+						<a class="text-light" href="{{ path('account_login') }}">
+							<i class="fas fa-plus text-light"></i>
+							Créer un publication 
+						</a>
+					</span>
+				{% endif %}
+			</div>
+		  </div>
+		</div>
+			<div class="row mt-2">
+			{% set posts = pagination.getData %}
+				{%  for postss in posts %}
+				{% set var = 4 %}	 
+                 {% include "post/posts.html.twig" with {xx:var,post :postss ,varibales:'showpostpage' } %}
+				{% endfor %}
+			</div>
+	</div>
+</section>
+	<div class="d-flex justify-content-center mb-5">
+	{% if pagination.getData != null %}
+		{{ pagination.display()  }}
+		{% endif %}
+	</div>
+{% include "partials/footer.html.twig" %}
+
+{% endblock %}

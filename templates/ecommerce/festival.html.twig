@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Festival safran Ighri
+{% endblock %}
+
+{% block body %}
+{% set xz = ''  %}
+{% include "home/menu.html.twig" with { xz : 'ighri'  }  %}
+
+	<section class="ftco-section ftco-no-pb ftco-no-pt bg-light mt-3">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<h4 class="text-center"> À bientôt </h4>
+                </div>
+                <div class="col-12 text-center mt-5 mb-5">
+					<img src=" {{ asset('./upload/images/kariban.jpg') }}" class="img-fluid">
+                </div>
+            </div>
+        </div>
+	</section>
+	{% include 'partials/footer.html.twig' %}
+
+{% endblock  %}

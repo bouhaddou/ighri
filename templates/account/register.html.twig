@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription!
+{% endblock %}
+
+{% block body %}
+{% set xz = ''  %}
+{% include "home/menu.html.twig" with { xz : 'inscription'  }  %}
+	<div class="container mb-5">
+		<h4 class="mt-4 mb-3 text-center">Inscrivez vous </h4>
+	{{  form_start(form) }}
+		<div class="row">
+			<div class="col-md-6">
+				<div class="form-group">
+				{{  form_row(form.firstname) }}
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group">
+				{{  form_row(form.lastname) }}
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group">
+				{{  form_row(form.email) }}
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group">
+				{{  form_row(form.avatar) }}
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group">
+				{{  form_row(form.PasswordUser) }}
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group">
+				{{  form_row(form.PasswordConfirmer) }}
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group">
+				{{  form_row(form.slug) }}
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group">
+				{{  form_row(form.content) }}
+				</div>
+			</div>
+		</div>
+		<button class="btn btn-primary" type="submit" ><i class="fas fa-plus"></i>  Inscription</button>
+		{{  form_end(form) }}
+	</div>
+ {% include "partials/footer.html.twig" %} 
+{% endblock %}

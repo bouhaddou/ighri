@@ -1,0 +1,11 @@
+<small class="text-warning bg-white">
+	
+		{% for ip in 1..5   %}
+			{% if rating >= ip %}
+				<i class="fas fa-star"></i>
+			{% else %}
+				<i class="far fa-star"></i>
+			{% endif %}
+
+	{% endfor %}
+</small>

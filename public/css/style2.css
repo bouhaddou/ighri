@@ -1,0 +1,121 @@
+.avatar {
+    max-width: 138px;
+    max-height: 138px;
+    border-radius: 50%;
+}
+
+.avatar-medium {
+    max-width: 130px;
+    max-height: 130px;
+}
+.avatar-ws {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    align-content: center;
+    margin-left: 5px;
+}
+.menu-pub-comment{
+    width: 60%;
+    margin: 0px auto;
+    border-radius: 7%;
+background-color:#e9ebee;
+font-size: 11px;
+
+}
+.menu-pub{
+line-height: 1.1;  
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-style: italic;
+color:black ;
+}
+.menu-pub-titre{
+font-family: Arial, Helvetica, sans-serif;
+font-style: normal;
+align-content: center;
+font-size: 12px;
+color: black;
+}
+
+.avatar-mini {
+    max-width: 25px;
+    max-height: 25px;
+    position: relative;
+    bottom: 3px;
+}
+
+.nom-pro {
+    position: relative;
+    bottom: 2px;
+}
+
+.avatar-profile {
+    max-height: 400px;
+    height: 300px;
+   
+}
+
+.avatar-w {
+    border-radius: 50%;
+    height: 140px;
+    width: 140px;
+    align-content: center;
+}
+
+.invitation a,
+.xtime {
+    font-size: 10px;
+}
+
+.avatar-friend {
+    max-width: 138px;
+    max-height: 138px;
+    height: 100px;
+}
+.posts h2{
+    font-family: fantasy;
+    box-shadow: 0 0 5 5 ;
+    font-style: italic;
+}
+.posts p{
+    font-family:fantasy;
+    font-style: italic;
+    font-style: 11px;
+}
+
+.dropdown-item {
+    display: block;
+    width: 100%;
+    padding: 0 rem ;
+    clear: both;
+    font-weight: 300;
+    color: #ffff;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: #82ae46 ;
+    border: 0;
+}
+
+iframe {
+    border-width: 2px;
+    border-style: inset;
+    border-color: initial;
+    border-image: initial;
+    width:100%;
+}
+#comment_comment, .ok{
+    height: 20px;
+    /* border-radius: 10%; */
+    border: #999 solid 0.5px;
+    margin: 0;
+    width: 100%;
+}
+.ok{
+    width: 90%;
+    padding-left: 10px;
+    margin: 0px;
+    margin-left: 10px;
+    border-color: #999;
+    font-size: initial;
+}
+

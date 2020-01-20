@@ -1,0 +1,46 @@
+
+{% extends "base.html.twig" %}
+{% block title %}Index Page!
+{% endblock %}
+
+{%  form_theme  form  _self %}
+
+
+{% block body %}
+{% set xz = ''  %}
+{% include "home/menu.html.twig" with { xz : 'profile'  }  %}
+	<div class="container">
+		<h5 class="text-center mt-4">
+			Modifier la photos de couverture
+        </h5>
+            <div class="row">
+                <div class="col ">
+                    <h2>Votre êtes  :
+                        <strong>{{user.getFullname}}</strong>
+                    </h2>
+                    <h2>Votre Email  :
+                        <strong>{{user.email}}</strong>
+                    </h2>
+                    <p>Votre Content  :
+                        <strong>{{user.content | raw}}</strong>
+                    </p>
+                    <h2>
+                    Changer votre  Couverture
+                        
+                    </h2>
+                    {{ form_start(form) }}
+                    {{ form_widget(form) }}
+                   
+                    <button class="btn btn-primary " type="submit" value="changer">
+                        <i class="far fa-edit"></i>
+                        Enregistrer les modifications
+                    </button>
+                     {{ form_end(form) }}
+                </div>
+            </div>
+    </div>        
+	<div class="mt-5">
+		{% include 'partials/footer.html.twig' %}
+	</div>
+{% endblock %}
+

@@ -1,0 +1,9 @@
+{
+  "build/css/app.css": "/build/css/app.css",
+  "build/css/app.js": "/build/css/app.js",
+  "build/css/bootstrap.css": "/build/css/bootstrap.css",
+  "build/css/bootstrap.js": "/build/css/bootstrap.js",
+  "build/css/style.css": "/build/css/style.css",
+  "build/css/style.js": "/build/css/style.js",
+  "build/runtime.js": "/build/runtime.js"
+}

@@ -1,0 +1,566 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}zafran ighri
+{% endblock %}
+
+{% block body %}
+
+{% set xz = ''  %}
+{% include "home/menu.html.twig" with { xz : 'ighri'  }  %}
+<div class="hero-wrap hero-bread" style="max-height:400px;background-image: url( {{ asset('./upload/safran/zafran.jpeg') }});">
+	<div class="container">
+		<div class="row no-gutters slider-text align-items-center justify-content-center text-danger">
+			<div class="col-md-9 ftco-animate text-center">
+				<p class="breadcrumbs">
+					<span class="mr-2">
+						<h4 class="text-light" >SAFRAN IGHRI bio 100 %</h4>
+					</span>
+				</p>
+				<h6 class="mb-0 ">Brahim Bouhaddou</h6>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-7 border mt-5 mr-1">
+			<div class="justify-content-center mt-3 pb-3">
+				<div class="col-md-12 heading-section text-center ftco-animate bg-secondary">
+					<h3 class=" text-info pt-1"> photos de safran ighri </h3>
+					<hr>
+				</div>
+			</div>
+			<!-- slide image-->
+			<div id="carouselExampleIndicators" class="carousel slide " data-ride="carousel">
+				<ol class="carousel-indicators">
+					<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active" </li>
+					{% for safran in safrans %}
+						<li data-target="#carouselExampleIndicators" data-slide-to="{{loop.index0 + 1}}" ></li>
+					{% endfor %}
+				</ol>
+				<div class="carousel-inner">
+					{% for safran in safrans %}
+						<div class="carousel-item {% if loop.first %} active {% endif %} ">
+							<img style="max-height: 460px" src="{{ asset('./upload/safran/'~ safran.avatar ) }}" 
+							class="d-block w-100" alt="...">
+						<div class="carousel-caption d-none d-md-block">
+							<p class=" font-weight-bolder">{{ safran.titre }}....</p>
+							<h3 class=" text-danger"> publié par :{{ safran.author.getFullname }}</h3>
+						</div>
+						</div>
+					{% endfor %}
+				</div>
+				<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+				</a>
+				<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				</a>
+			</div>
+		</div>
+		<div class="col-md-4 mt-5 pt-1 border">
+			{% include 'partials/aside.html.twig' %}
+		</div>
+	</div>
+</div>
+
+<section>
+	<div class="container">
+		<div class="row justify-content-center mb-5 p-3">
+			<div class="col-md-12 heading-section ftco-animate text-center p-3">
+				<span class="subheading">الزعفران</span>
+				<h2 class="mb-4">دراسة تقنية في زراعة الزعفران'انجاز محمد بحدو'</h2>
+				<p class="text-right  text-justify">
+						يعتبر الزعفران من نباتا بصليا من عائلة السوسنيات ،وهو نبات شبه معمر تحارضي ينتج بالبرد و يدخل في كمون اثناء الحرارة ، تعتبر اعضاء التلقيح فيه اثمن تابل على وجه الارض وتسمى السمات حيث تاخد لونا احمر برائجة عميقة تنتشر في المكان،تعتبر المردودية في المغرب ادنى قيمة مسجلة في العالم لكنها اجود ايضا ،ودلك لضعف الخبرة وضعف الاهتمام بالتقنيات الفلاحية الحديثة وقلة التساقطات المطرية اقل من 180 مم (تالوين)،بالاضافة الى ضعف صبيب الابار الجوفية حيث لا يتعدى اكثر من 7 لترات/دقيقة في اغلب الابار في المنطقة ،زيادة على عامل الكسل والتخوف من كل شيى مرتبط بالتقنيات الفلاحية الحديثة خصوصا من الجانب المادي.
+				</p>
+			</div>
+			<div class="col-md-12 heading-section ftco-animate text-center ">
+				<div class="row">
+					<div class="col-md-4 ">
+						<img  style="max-height: 200px;" class="img-fluid w-100 mt-2 p-2" src="{{ asset('./upload/safran/img1.jpg' ) }}"/>
+					</div>
+					<div class="col-md-4 pl-2">
+						<img  style="max-height: 200px;" class="img-fluid w-100 mt-2 p-2" src="{{ asset('./upload/safran/img2.jpg' ) }}"/>
+					</div>
+					<div class="col-md-4 p-2">
+						<img  style="max-height: 200px;" class="img-fluid w-100 mt-2 p-2" src="{{ asset('./upload/safran/img3.jpg' ) }}"/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section>
+	<div class="container">
+		<div class="row justify-content-center mb-5 p-3">
+			<div class="col-md-12 heading-section ftco-animate text-center">
+				<span class="subheading">الزعفران</span>
+				<h2 class="mb-4">: الظروف المناخية </h2>
+				<p class="text-right  text-justify">
+					يعتبر الزعفران من المنتوجات الشتوية التي تظهر بالبرودة ، اد ينتشر في المناطق المرتفعة عن سطح
+					 البحر ب 800-2000 متر بين خطي عرض 35و45 درجة ،والتي تعرف متوسط حرارتها الدنيا خلال الشتاء اقل من 6 درجات مؤوية حيث يصل متوسطها هنا في تالوين الى 2 درجات تقريبا ويستطيع الزعفران مقاومة الصقيع الشتوي رغم تاثره به نسبيا حيث يسبب في اصفرار جزئي في قمم الاوراق ، لكن سرعان ما يزول خصوصا ادا لم تستمر موجة الصقيع لقترةطويلة ،ولم تتعد درجة الحرارة الدنيا عتبة المقاومة للبرد وتقدر ب 13- درجة مؤوية
+					  ......وادا تجاوزت دلك يتوقف الازهار والنمو الخضري دون التسبب في موت البصلة حيت تحتفظ بحيويتها 
+					 الى حين تحسن الظروف  من جديد ، تعد عدد ساعات تشميس الزعفران  الدنيا الكفيلة بانتاجه متوسطيا ب7  
+					  الى 11.5 ساعات .يؤثر الثلج بشكل ايجابي على نمو  الزعفران حيث يعتبر عازلا للحرارة وقت الصقيع 
+					 ويحفظ الابصال  من نزلات البرد القاسية لكنه يعيق الحصاد ادا ترافق  نزوله واواخر شتنبر اي
+					  وقت الازهار،يعتبر الزعفران من بين النباتات الصبورة على الماء حيث لا يختاج في ظل البيئة
+					  الاوروبية الى  ري بينما في تالوين يحتاج الى ري تكميلي،مرة كل 16الى 30 يوما حسب طبيعة 
+					 الطقس السائد كل سنة  حيث السقي ثلاث مرات في الشهر يسبب في مرض العفن،
+				</p>
+				<div class="row p-3">
+					<div class="col-md-4 ">
+						<img  style="max-height: 200px;" class="img-fluid w-100 mt-2 p-2" src="{{ asset('./upload/images/1.png' ) }}"/>
+					</div>
+					<div class="col-md-4 pl-2">
+						<img  style="max-height: 200px;" class="img-fluid w-100 mt-2 p-2" src="{{ asset('./upload/images/2.jpg' ) }}"/>
+					</div>
+					<div class="col-md-4 p-2">
+						<img  style="max-height: 200px;" class="img-fluid w-100 mt-2 p-2" src="{{ asset('./upload/images/3.jpg' ) }}"/>
+					</div>
+				</div>
+				<p class="text-right  text-justify">
+					حيث تقلل البرودة من 
+					الفقدعن طريق التبخر  وتعتبر درجة الحرارة المرتفعة  اكثر من 38 درجة مؤوية ولمدة قصيرة عتبة 
+					مقاومة الزعفران للحرارة المرتفعة خلال الصيف  حيث تنهار مقاومته بعد عدة اساسبيع من 
+					ارتفاع  الحرارة بهدا الشكل كما يتاثر الزعفران ايضا بالتساقطات المطرية  الصيفية 
+					التي تعرف بالفيضانات بعد التقلب المفاجئ في المنطقة، مما يسبب تحت ظل الشمس الحارقة
+					في تلف الابصال تحت الارض.تؤدي البرودة المنابة مع الرطوبة المتواصلة الى اطالة وقت 
+					خروج ازهار الزعفران حيث نزول المطريؤدي الى انتاج كبير في وقت وجيز وهدا يشكل
+					عبئا على   الفلاح، لكن الري المنظم يؤدي الى تقسيم فترات الازهار  بشكل يساعد
+					على حسن تدبير الاستغلال للضيغة الفلاحية ،وثم ابتكار طريقة قيمة لحفظ الورود
+					من الفساد تقضي بتجفيفها في الظل وحفظها الى اوقات مناسبة، لكن هده 
+					التقنية تفقدها جزئا من حيويتهاوتجعل عملية الفرز بعد التجفيف معقدة 
+					نوعا ما ، كما يمكن علاج المشكلة مستقبلا بوضعها في ثلاجة اصطناعية تجارية...
+				</p>
+			<div class="row p-3">
+				<div class="col-md-7 p-1">
+					<h2 class="mb-4 text-center"> :  التربة</h2>
+					<p class="text-right   text-justify">
+					، ينمو الزعفران في تربة غنية  بالمواد العضوية نوعا ما  حيث تعتبر التربية غنية  حينما تحتوي
+					على  2في المائة او اكثر من المواد العضويةلكنها تكفي ان تحتوي على اكثر من 1 في المائة كي
+					تكون صالحة لزراعة الزعفران  عكس ما هو سائد  في منطقتنا  في ان الزعفران يحب التربة  الفقيرة،
+					والتربة هنا في منطقة تالوين اغلبها فقيرة مما يفسر ضعف الانتاجية، التربية الطينية الحمراء:
+					تعتبر  هده التبرة  متماسكة جدا والصرف فيها سيئ  علما بانها تحتفظ بالماء لمدة طويلة
+					مما يسبب في اختناق ابصال الزعفران ، لونها وتماسكها يحافظ على  حرارة التربة اكثر خلال
+					الصيف مما ينقص من مواصفات الابصال عبر  الوقت حيث  يكون متوسط عيش الزعفران فيها 5  سنوات
+					على اكثر التقديرات حيث مردوده لا باس به  بعد السنة الاولى  من الزرع الى الرابعة تقريبا
+					، كما ان الابصال المنتجة  فيها بعد السنة الرابعة تكون صغيرة  جدا بعد فقدها لكميات مهمة 
+					من مياهها خلال الصيف  وانضغاط التربة  حولها ، والتربة الرملية  نفودة للماء اكثر  مما
+					يسبب تعطيشا للابصال، من هنا نستنتج ان افضل التربات  للزعفران  التربة الرملية 
+					الطينية او التربة  الطينية الكلسية العميقة ، ولا يتاثر الزعفران كثيرا بالحموضة 
+					علما انه يفضل  حيادها حيث يفضل المجال المحصور بين  القيمتين : 5.8-8.3 ل  بي اش  
+					ا حيث تصل القيمة في تالوين الى : 8.2  حسب قياسات معهد الحسن الثاني  للزراعة والبيطرة ..
+					</p>			
+				</div>	
+				<div class="col-md-5 mt-4">
+					<img  style="max-height: 250px; max-width: 500px;" class="img-fluid w-100 mt-2 p-2" src="{{ asset('./upload/images/4.jpg' ) }}"/>
+					<img  style="max-height: 250px; max-width: 500px;" class="img-fluid w-100 mt-2 p-2" src="{{ asset('./upload/images/5.jpeg' ) }}"/>
+				</div>
+			</div>
+			<div class="row p-3">
+				<div class="col-md-12">
+					<h2 class="mb-4 text-center"> :  تهييئ التربة للزرع </h2>
+					<p class="text-right   text-justify">
+						قبل زرع ابصال
+						الزعفران  وفي شهر يونيو تقريبا يتم تمشيط التربة وازالة  الاحجار منها  ويتم بعد دلك تسميدها بالسماد البلدي
+						المتخمر بقيمة 5 متر مكعب لكل(1000متر مربع) مع اضافة المركب الاساسي للسماد الكيماوي لكل(1000متر مربع)بقيم:
+						- خمس وحدات ازوت صافي
+						وهده الكمية تعادل 18 كلغ كانترو 26% او 15 كلغ نترات الامونيوم33 % (ينتشر بين  اوساط الفلاح التقليدي ان هدا النوع من السماد
+						يرفع من درجة حرارة التربة  وهدا غير صحيح  حيث يستعمل لتغدية النبات بالازوت الضروري للتكوين  الخضري والنمو ولا اثر له فيما 
+						نسب له حيث ان البوتاسيوم الوارد اسفله هو المسؤول  عن تقوية النبات لمواجهة الامراض ونزلات البرد لكن دون ان يرفع من حرارة الارض).
+						-6 وحدات فوسفور  وهده الكمية تعادل 13 كلغ من  سوبر فوسفات 46% .
+						-7 وحدات صافية من البوتاسيوم وهده الكمية  تعادل 14 كلغ من سلفات البوتاس50% وتنتجها تقريبا 3متر مكعب من السماد العضوي المتخمر جيدا.
+					</p>
+					<p class="text-right   text-justify">
+						يمكن تقسيم كمية الازوت الى دفعتين او ثلاثة لان الازوت سريع الدوبان  وسريع التنقل في التربة  ويمكن فقد نسبة مهمة منه  في حالة  السقي الجائر حيث تهبط اسفل الجدور  ولا تستفيد منها الابصال بشكل كبير، في حين ان سمادي البوتاسيوم و الفوسفور  قليلة التنقل في التربة وبالتالي الفقد فيها قليل والطمر في هده الحالة في التربة  يعتبر ضروريا  وبالتالي  وضع كامل الكمية قبل الحرث .
+						يتم قلب هده الاسمدة في التربة  قبل الزرع  بوقت  كافي بعمق 18الى 20 سنتيمتر(شهر على الاقل) مع ترك التربة تتهوى وتتحلل فيها الاسمدة حتى تعطي دفعة قوية للابصال  من اجل انتاج الجدور بوقت كافي لانتاج كمية  مناسبة  من الزعفران في اول موسم  رغم كونه قليلا ،وقلب التربة بعمق 40 سنتيمترا قبل وضع الاسمدة يساهم في  تهيئة  مكان الرقاد  للبصلة ويحد من فقد الاسمدة ومن ترسبها في الاعماق ، لهدا يفضل القلب قبل وضع الاسمدة وبعدها بعمق قليل لا يتجاوز 25 سنتيمترا.
+						تعتبر تسوية الارض  من النقاط الواجب اتباعها في حالة ةالزراعة في اثلام كما هومتعارف عليه في المنطقة، حيث ان استواء المساكب(اوزون) يضمن توزيعا متكافئا للمياه وتقليلا من ضياعها وحفاظا على تساوي المردود وارتفاعه، ويمكن تسوية  التربة في غياب تقنيات  الليزن هنا في المنطقة  بواسطة ميزان الماء او ميزان الكواتشو كما يكنى هنا، ودلك بوضع انائين مرقمين في جانبي قناة بلاستيكية مرنة  مملوئة بالماء وجر كل اناء الى جهة من جهات الحقل وتزحيف التربة  الى حين الاستواء النسبي حيث يترك5الى7 سنتيمترات انحدار للمساهمة في تدفق المياه بواسطة الجادبية بشكل اسلس واحسن عند تقسيم الارض الى اثلام او مساكب، حيث تسوى المسكبة  بتقنية  اخرى تسمى (المسا)باستعمال المعول في اطار الزرع التقليدي.
+					</p>			
+				</div>	
+			</div>
+			<div class="row p-3">
+				<div class="col-md-12 heading-section ftco-animate text-center">
+					<span class="subheading">الزعفران</span>
+					<h2 class="mb-4">:تهييئ البدرة للزرع </h2>
+				<p class="text-right  text-justify">
+				بعد فترة الاكتمال الخضري والتكاثري لبصلة الزعفران، اي اواخر شهر مارس ، تدخل الابصال  في فترة سكون صيفي يتعدى اربعة اشهر ، يتم قلع  الابصال من الاراضي القديمة  التي تجاوزت فيها الابصال3 سنوات الى 5بالنسبة  للتربة الطينية او التي تكدست فيها  الابصال لاسباب عديدة منها الاكثار من البدور في اول زراعة،فو التي رقدت فيها الابصال من 5 الى 7 سنوات بالنسبة للاراضي الصفراء المتوسطة النفودية.ويتوقف استخراج الابصال على مهارة الفلاح من حيث تحديد الابصال  الصالحة للزرع من حيث قوتها وحجمها ونقاوتها ايضا من الامراض، يستحسن ازالة قشور البدرة  الكثيرة  التي تتجاوز الستة وترك قشرة واحدة تغطي البدرة  وهدا يساعد البصلة على التاقلم بشكل سريع في الارض الجديدة، ولو ان اهالي اغري لا يقومون بهده العملية حيث يقوم بها المزارعون في مناطق اخرى مجاورة وفي  الدول المنتجة الاخرى مثل ايران واسبانيا وفرنسا، حيث يساعد على نمو سريع للبصلةوبالتالي انتاج لا باس به في في الموسم الجاري اي بعد شهرين تقريبا، حيث نلاحظ انخفاظا كبيرا في الانتاج الاول للابصال في اغري
+				</p>
+				<div class="row p-3">
+					<div class="col-md-4 ">
+						<img  style="max-height: 250px;" class="img-fluid w-100 mt-2 p-2" src="{{ asset('./upload/images/6.jpg' ) }}"/>
+					</div>
+					<div class="col-md-4 pl-2">
+						<img  style="max-height: 250px;" class="img-fluid w-100 mt-2 p-2" src="{{ asset('./upload/images/7.jpg' ) }}"/>
+					</div>
+					<div class="col-md-4 ">
+						<img  style="max-height: 250px;" class="img-fluid w-100 mt-2 p-2" src="{{ asset('./upload/images/8.jpg' ) }}"/>
+					</div>
+				</div>
+				<p class="text-right  text-justify">
+					جرت العادة هنا (كسلا)او (سوء تدبير) على جمع بدور الزعفران وتركها  لمدة طويلة قد تدوم اكثر من شهر ونصف تقريبا، مما يفقدها جزئا من حيويتها، حيث من المستحسن زرع  الزعفران في الايام الموالية لعملية القلع  بعد وقت قليل فقط ، والا تحفظ في مكان بارد وجاف .تعتبر الابصال صالحة ادا كان لونها لونا دهبيا لامعا بعد تقشيرها وليس بها اي خدوش ولا علامات لامراض مع صلابتها الملحوظةوقطر بين 1.5-2.5 سنتيمتر خلافا للمتعارف عليه وضع بدور اقل من 0.5 سنتيمتروهدا يضيع على المزارع سنتين تقريبا من الانتاج الوافر ، ومن الممكن وضع بدور اقل من سنتيمتر مثنى مثنى شريطة ملامستها بالاصابعوالتاكد من حيويتها مع انها تكون باهضة التكاليف نسبة الى انتاجها والمشكل الدي يعاني منه الفلاح التقليدي هو تركه للابصال لمدة قد تزيد عن 7 سنوات في الاراضي الطينية او 9 في الاراضي الالصفراء، وهدا يفقد البدور حجمها الصحيحواحيانا كثيرة يفقدها حيويتها ويجعلها مئاو للامراض وغير صالحة للزراعة الانتاجية، خصوصا ان احتمال ري زعفران ما بعد7 سنوات يكون اقل  حيث الاهتمام بالجديد وهدا ما يفسر بشكل جزئي انخفاض الانتاجية في المغرب .
+				</p>
+			</div>
+			</div>	
+		</div>
+	</div>
+</div>
+</section>
+
+<section>
+	<div class="container">
+		<div class="row justify-content-center mb-5 p-3">
+			<div class="col-md-12 heading-section ftco-animate text-center p-3">
+				<span class="subheading">الزعفران</span>
+				<h2 class="mb-4">:  كيفية الزرع </h2>
+				<p class="text-right  text-justify">
+					يتم سقي الارض بغزارة اواخر شهر غشت، وللزرع المبكر اواخر يوليوز(بدون سقي الارض)والزرع المبكر هدا يساهم في اعطاء الوقت الكافي للابصال من اجل انتاج الجدور وانتاج الورود بكمية كافية، وبعد جفاف التربة الجفاف المناسب 6اسام للتربة  الرملية الطينيةو8 بالنسبة للطينية حيث يفضل ترك الطينية حتى تفقد جزءا  هاما من رطوبتها تفاديا لانضغاطها اثناء المشي فوقها  وتقدير الوقت المناسب  يعود الى الفلاح نفسه.
+				</p>
+				<p class="text-right  text-justify">
+				يتم حفر خنادق طويلة طول الارض المزروعة  بواسطة المعول التقليدي ويفضل نصب خيط بين طرفي الارض كي تكون السطور مستقيمية حيث يسهل هدا عملية الخدمة  والحساب، فيضع عامل ثاني الابصال في الجورة بوضع علامات في الخيط المنصوب  من اجل الاستقامة  في كل وحدة طول تقدر به 12-20 سنتيمترا حسب نوعية التربة  وقوامها،حيث يرفع الفارق الطولي بين بصلتين في الاراضي الطينية والاراضي الخصبة وجل الاراضي شريطة وجود مياه كافية جدا حيث يصل الطول الى 19-20 من اجل افساح المجال للابصال كي تتكاثر بشكل سليم ، ومن اجل رفع المردودية اكثر ، حيث تلد كل بصلة  ثلاثة ابصال في كل سنة  وهدا ما يرفع عدد الابصال في كل نقطة وبعد ثلاث سنوات الى 24 بصلة تقريبا
+				</p>
+				<div class="row ">
+					<div class="col ">
+						<img  style="max-height: 250px;" class="img-fluid w-100 mt-2 p-2" src="{{ asset('./upload/images/9.jpg' ) }}"/>
+					</div>
+					<div class="col ">
+						<img  style="max-height: 250px;" class="img-fluid w-100 mt-2 p-2" src="{{ asset('./upload/images/10.png' ) }}"/>
+					</div>
+				</div>
+				<p class="text-right  text-justify">
+					دكرت تقارير عن معهد الحسن الثاني للزراعة والبيطرة ان الحجم  الصالح للبدر يتراوح بين2.5و3 سنتيمتر وهدا لا  يتوفر الا في الابصال الاوروبية -الاسبانية والفرنسية- او في نسب  بسيطة جدا لا تتجاوز 1 في المائة على اكثر الاحوال من الابصال المغربية ، حيث لا تتعدى الابصال في فرنسا واسبانيا مثلا 45 في كل متر مربع  كما ان الفروق  في الجدول  اعلاه ينقص منها 4 سنتيمترات في حال صعف البصلات  وصغر حجمها مع سلوك الطريقة التقليدية في الزرع  حيث تصبح في وحدة المساحة اكثر من 60 بدرة في المتر المربع الواحد وهدا يعطي انتاجية اقل
+				</p>
+				<p class="text-right  text-justify">
+				يعتبر العمق المناسب للزراعة  بين 15-20 سنتيمترا ويصل في بعض مناطق اسبانيا الى 30-25 سنتيمترا ودلك لاعطاء النبات فرصة اكبر لمقاومة  البرد والحرارة  وكدلك لتطويل مدة المكوت في الارض حيث ان الابصال  ترتفع كل سنة تقريبا2  سنتيمتر عن موضعها القديم مما يعني ضمنيا ان بصلة في عمق 20 سنتيمترا بعد خمس سنوات سوف تصبح فقط في عمق 10 سنتيمترات ، لكن العيب في العمق هدا هو طول المدة  المنتظرة لخروج النمو الخضري وكدلك لكمية المياه الزائدة اللازمة  هنا في المغرب لايصال الرطوبة  الى الجدور  عكس اوروبا التي روى فيها عادة بالمطر او الثلج.
+				</p>
+				<p class="text-right  text-justify">
+				يبعد الخط عن الاخر مسافة 12 الى 20 سنتيمترا من اجل افساح المجال للتكاثر ومن اجل ابعاد الامراض عنها ، في حالة السقي بالتنقيط يكتفئ بلم5الى ست خطوط، ثم وضع فراغ بينها يقدر ب 20الى 40 سنتيمترا من اجل مرور العمال ومنع المرور على النباتات اثناء جمع الازهار او السقي او ازالة الاعشاب، وفي حالة ري الارض بالسقاية على شكل مساكب-اوزون-، من المستحسن ان يتم زرع الزعفران في جوانب قنوات الري لا في وسطها مع الحفاظ على عرض  نسبي لكل مسكبة اقل او يساوي متر واحد مع جعل ممر سقاية واحدة لكل صف واحد، وليس ممر سقاية لكل صفين كما هو معروف هنا، ودلك من اجل  استغلال الممر للسقاية وللمرور في نفس الوقت لتفادي انضغاطية التربة وضياع المياه ايضا.
+				</p>
+			</div>
+            
+            
+			<div class="row p-3">
+				<div class="col-md-5">
+						<img  style="max-height: 300px; max-width: 500px;" class="img-fluid w-100 " src="{{ asset('./upload/images/11.jpg' ) }}"/>
+				</div>
+				<div class="col-md-7 ">
+					<h2 class="mb-4 text-center"> :  محادير عملية الزرع</h2>
+					 
+					 	<p class="text-right  text-justify">
+						 - لا يتم زرع بدور رهيفة احادية بل يتم جمعها مثنى  او اكثر واستبعاد التالفة منها.
+						</p>
+					 	<p  class="text-right  text-justify">
+						 - يعتبر البعد بين البصلتين اقل من 8 سنتيمترات طولا غير صحي للنمو.
+						 </td>
+					 	<p  class="text-right  text-justify">
+						 - لا تنثر الحبوب او البقل او اللفت او اي  شيئ عدا الزعفران في الحقل  لان تلك النباتات تهاجم البصلات وتشاركها غدائها بل احيانا تحرمها منه لان الحبوب شرهة للغداء وتتوضع جدورها فوق البصلات وبالتالي  تمنع الاسمدة خصوصا الكيماوية منها المضافة بعد الزرع من الوصول الى الاسفل حيثتمتصها وتساعد ايضا في تفقير التربة  وتسريع زوال الرطوبة  وبالتالي التقليل من امد العيش.
+						</p>
+				</div>	
+			</div>
+            
+            
+			<div class="row p-3">
+				<div class="col-md-5">
+						<img  style="max-height: 250px; max-width: 490px;" class="img-fluid w-100 mt-2 " src="{{ asset('./upload/images/12.jpg' ) }}"/>
+				</div>
+				<div class="col-md-7 ">
+					<h2 class="mb-4 text-center"> :    عمليات الخدمة</h2>
+					<p class="text-right   text-justify">
+					يتم ري الزعفران في مدة اقصاها شهر واقلها 14 يوما ، كما يمنع  ري الزعفران اكثر من 3 ريات في الشهر  لان هدا يرفع من احتمال تعرف البصلات للفعن والفطريات،ويعود اختيار وقت الري الى الفلاح نفسه وحدسه في تحديد احتيا ت النبات  في علاقة بنوع التربة  حيث التربة الطينية تحتفظ بالرطوبة اكثر من الرملة الصفراء ، يحتاج الزعفران  الى ري غزير نوعا ما  باعتبار عمق الزرع  حيث يحتاج  كل 1000 متر مربع في كل رية ما يقارب  56-66 مترا مكعبا من المياه  في حالة الري بالمساقي  التقليدية دون احتساب  الضياع في الشبكات والشبكات الثانوية ،في حين تكفي ثلثي هده الكمية فقط في حالة الري الموضعي(التنقيطgout a gout )تقريبا 16-22 مترا مكعبا، لكن التنقيط في انتاج الزعفران يعتبر مكلفا جدا  من حيث التمويل الاولي باعتبار  انبوب في كل 20 سنتيمترا لكن هدا النظام يعتبر اقتصاديا و يعطي انتاجا كبيرا وقياسيا لمن يملك مالا لدلك واقل ضياعا للمياه والاسمدة واكثر حفاظا للتربة من الغسل  ايضا.
+					</p>			
+				</div>	
+			</div>
+            
+            
+			<div class="row p-3">
+				<div class="col-md-12 ">
+					<h2 class="mb-4 text-center"> :    التعزيق </h2>
+					<p class="text-right   text-justify">
+					ان للتعزيق دورا هاما في كل المزروعات وليس فقط الزعفران  حيث له الاهمية  القصوى  من حيث تفتيت التربة والمساهمة  في تهويتها، وخفض ضغطها وتفتيتها حول الجدور مما يسهل  للنبات النمو والتكاثر، ويضعف من فقد المياه  بالتبخر حيث تكون التربة  اكثر نفودية  للمياه، ويقضي على النياتات ايضا حيث يتم ازالتها مع العزق لانها تضعف النبات المزروع وتنافسه في الغداء  والماء وتربى  عليها الطفيليات الممرضة ، وعملية العزق ضرورية اثناء تهيئة الحقل القديم  قبل الازهار من اجل تفتيت التربة  وتحسين  خاصيتها وطمر الاسمدة المضافة لها  في اول فلاحة ، وفي اواخر فبراير واوائل مارس ايضا من اجل ازالة الاعشاب الضارة بالنبات حيث ان الزعفران في هدا الوقت  في مرحلة التكاثر وبالتالي يحتاج الى المياه والمواد الاقتياتية اكثر التي تنافسه فيها النباتات الاخرى ،
+					</p>
+					<p class="text-right   text-justify">
+					وعندما تنصح احد الفلاحين هنا بضرورة العزق يجيبك بوجوب ترك  العشب لتغدية الابقار عليها ، ولا يدرك هدا المزارع المسكين ان تلك النباتات تنقص من خاصية تربة الحقل الخصوبية  ومن مردودية الزعفران واستهلاك المياه، وهدا ما سوف يكفي لانتاج محصول علف  لاقتيات الماشية والمحافظة على منتوجه من الضياع. وفي حالة  كون الارض طينية متماسكة تضاف الاسمدة العضوية  بالكمية المدكورة  سابقا في كل هعام وفي اواخر شهر غشتن ومع دلك يستوجب ان تقام لها عزقتين الى ثلاث .وتوجد مبيدات كثيرة للاعشاب وينصح معهد الحسن الثاني للزراعة والبيطرة  باستعمال  مادة (الباراكوا) بتركيز 200-400 مليلتر/1000 متر قبل خروج النباتات او بعده، ويستحسن وضع المادة بعد شهر ابريل ، مع تفادي الايام الساخنة والاحرتس من التعرض المباشر للمبيد، الا انه يعتبر ضارا لخلايا النحل ادا استعمل بطريقة عشوائية.
+					</p>			
+				</div>	
+			</div>
+            
+			<div class="row p-3">
+				<div class="col-md-12 heading-section ftco-animate text-center">
+				<span class="subheading">الزعفران</span>
+				<h2 class="mb-4">:  القطف </h2>
+				<p class="text-right  text-justify">
+				يبدا قطع محصول الزعفران في اواخر شهر اكتوبر واوائل شهر نونبر على مدى اربع او ست اسابيع حسب  رطوبة  الارض والجو وقددكرنا دلك سابقا ، حيث تخرج الزهور باستمرار  لكناه  تكثر في الصباح الباكر، حيث تجمع قبل بزوغ الشمس خوفا من دبول الشعيرات الحمراء فيها، وايضا خوفا من ان تمزقها الطيور مع العلم ان الطيور لا تاكل الشعيرات الحمراء  وانما  تاكل فقط الاسدية الصفراء، وايضا لان الورود انداك تكون مغلقة ويكون قطافها سهلا خصوصا ادا كان المجموع الخضري يرافق خروج الورود مما يعقد المهمة ، عموما  يستطيع الفرد المدرب قطف 7000-10000  وردة في الساعة الواحدة ، ويتوقف المردود على خصوبة التربة وعلى عمر البصلات ، حيث يرتفع المردود عاما بعد عام ففي العام الاول المردود هو وردة لكل  ثلاث  بصلات ، وادا كانت البدور قوية ترتفع الى  وردة لكل بصلتين ونادرا وردة لكل بصلة،، وبالتالي  يصبح المردود  تقريبا 7000-9000 وردة خلال العام الاول علما اننا زرعنا ما يقارب 20000-25000 بصلة في ال1000متر مربع ما يعني ان المحصول الجاف تقريبا 28-40 غراما في السنة الاولى  ، وفي السنة الثانية تثمر بواقع زهرة لكل بصلة اي حوالي 80-100 غرام من المحصول الجاف، وفي السنة  الثالثة 3 وردات لكل بصلة تقريبا 240-300 غرام من المحصول الجاف ، وفي الرابعة تقريبا 260-880 غراما لكل 1000 متر مربع.وهدا  يعني  مردودية سنوية  تقدر ب 5.7 كلغرام في الهكتار وهو مردود قياسي  تحت ظل الفلاحة التقليدية،
+				</p>
+				<div class="row p-3">
+					<div class="col-md-4 ">
+						<img  style="max-height: 200px;" class="img-fluid w-100 mt-2 p-2" src="{{ asset('./upload/images/13.png' ) }}"/>
+					</div>
+					<div class="col-md-4 pl-2">
+						<img  style="max-height: 200px;" class="img-fluid w-100 mt-2 p-2" src="{{ asset('./upload/images/14.jpg' ) }}"/>
+					</div>
+					<div class="col-md-4 p-2">
+						<img  style="max-height: 200px;" class="img-fluid w-100 mt-2 p-2" src="{{ asset('./upload/images/15.jpg' ) }}"/>
+					</div>
+				</div>
+				<p class="text-right  text-justify">
+				علما انه لانتاج غرام جاف من الزعفران تلزم من 250-300 وردة من الزعفران المغربي وفي  اسبانيا او فرنسا تكفي فقط 150-180 وردة لانتاج الغرام الواحدالجاف، كما لا يفوتنا ان ندكر ان معدل فرز شخص واحد مدرب خلال الساعة الواحدة 1800 زهرة.والزعفران الرطب يفقد 80 في المائة من وزنه كي يجف مما يعني انه لانتاج غرام واحد من الزعفران الجاف يلزم تقريبا 5 غرامات من  الزعفران الرطب، يتم تجفيف الزعفران هنا في المغربفي صواني حديدية تحت اشعة الشمس  وتيبس من يوم الى  يوم ونصف، كما انه يحدر  تجفيف الزعفران في الظل لانه ياخد  لونا  احمر  غامقا مما يقلل من مواصفاته التسويقية، وكدلكيقلل من مواصفاتهاثناء الخزن لانه يحتفظ بنسبة مهمة من الرطوبة يكفي  بجعله لينا اثناء الاقفال عليه في هدا الوضع. اما في مناطق زراعة اخرى - اوروبا-فيتم تجفيف الزعفران في  افران معدلة  الحرارة 35-52 درجة مؤوية لمدة 20 الى 30 دقيقة ( يحذر وضع الزعفران في الافران التقليدية لانها مرتفعة الحرارة حيث  يواجه خطر الحرق).بعده يوضع في قوارير محكمة الغلق ويصبح بعدها  جاهزا لتسويق .
+				</p>
+                </div>
+			</div>
+            
+			<div class="row p-3">
+				<div class="col-md-12 heading-section ftco-animate text-center">
+                    <span class="subheading">الزعفران</span>
+                    <h2 class="mb-4">:  دورة النبات </h2>
+                    <p class="text-right  text-justify">
+                    نبات الزعفران من الاصناف  شبه المعمرة، حيث  تمتد فترة  سكونه الى  اربعة اشهر فقط خلال  ايام الحرارة المرتفهعة ، ما بين شهر ابريل واواخر شهر غشت، بينما ينشط في الشهور الاخرى، يمتد في الارض سنوات عديدة ، لكن انتاجه بنخفض في السنوات الاخيرة. حيث ينكاثر بالابصال وينتج بالبرودة، فتخرج انبوبا ابيض في الايام الاولى من شهر  اكتوبر  هو الكفيل  بلف الزهور والمحافظة عليها  حتى  تخرج بسلام، بعد تجديرها طبعا وتعتبر جدورها  اقرب من حيث الشكل  الى  جدور البصل لكنها  تكون اقل طولا، بعد دلك تخرج الازهار  ثم بعد اسابيع يليها المجموع الخضري، الدي ياخد شكلا  خيطيا تقريبا بلون اخضر الى اخضر غامق يتوسطه ليف ابيض لا يتعدى عرضه نصف الى مليمتر واحد حيث يصل طول الاوراق خلال فترة الجيشان الربيعي  الى اكثر من 45 سنتيمترا وعرضها ما بين 3-1 مليمتر -الفصيلة المغربية- واكثر من دلك  في  بعض الفصائل الاوروبية  وطول وكثرة  المجموع  الخضري  دليل  على جودة البصلات ....
+                    </p>
+                    <div class="row">
+                        <div class="col-md-4 ">
+                            <img  style="max-height: 200px;" class="img-fluid w-100 mt-2 p-2" src="{{ asset('./upload/images/16.png' ) }}"/>
+                        </div>
+                        <div class="col-md-4 pl-2">
+                            <img  style="max-height: 200px;" class="img-fluid w-100 mt-2 p-2" src="{{ asset('./upload/images/17.jpg' ) }}"/>
+                        </div>
+                        <div class="col-md-4 p-2">
+                            <img  style="max-height: 200px;" class="img-fluid w-100 mt-2 p-2" src="{{ asset('./upload/images/18.jpg' ) }}"/>
+                        </div>
+                    </div>
+                    <p class="text-right  text-justify">
+                    وتخرج من كل بصلة  ما يقابر 6 اوراق خيطية، جيث تجف بعد اكتمال التكاثر  وبداية  الدخول  الى فترةالسبات الصيفي، خلال اواسط شهر اكتوبر، تنتج بصلات الزعفران براعم تتكون مباشرة بعد فترة الازهار وتلف البصلة  على شكل حلزوني، اي اواخر فصل الخريف، في فصل الشتاء تجمع البصلة ما يكفيها  من الغداء والماء كي تستعد لفترةالنمو الخضري الكبير الدي يتوج بتكاثر البصلة  عن طريق البراعم المنتجة سابقا وموت البصلة  الام، حيث تنتج البصلة  الواحدة بصلتين جديدتين  الى ثلاثة ابصال ، فيتم  اتفراش  البصلة  القديمة ، وهدا ما بسبب  ضمنيا  في خفض  عمق البصلات  بنحو 1.5 الى 2 سنتيترات   كل  سنة  تقريبا ،وسوف  ندرج الروم البيانية حيت الانتهاء من تصميمها بحول الله.
+                    </p>
+                    
+			     </div>
+            </div>
+			<div class="row p-3">
+				<div class="col-md-12">
+					<h2 class="mb-4 text-center"> :    ختامها مسك </h2>
+					<p class="text-right   text-justify">
+					املين ان يكون بحثنا هدا محيطا  بجل جوانب فصوله، وشافيا لغليل الباحث المجد الدي  يريدتطوير  تقنياته الفلاحية، على اسس علمية كفيلة برفع الانتاجية وتقليل الخسارة  ورفع الوعي الزراعي لدى الفلاح بما يكفل  رعاية  مصالحه الشخصية ، ومساعدته  في الحصول على القدر المهم الكافي  من ايرادات تساعده على التغلب على الصعوبات التي  تعترض  دربه الزراعي والدي من المؤكد انه صعب لمن  لم  ينل من الصبر حبلا متينا  يتشبت به  للمضي  قدما لنمض جميعا الى كسر طوق التقليد الدي  يبقينا في  كل  سلوكاتنا  خاضعين  لازمنة غابرة...  الى  اللقاء   في  نشرة  مقبلة  بحول الله  تعالى ، والله  الموفق.... محمد  بحدو  دوار  اغري
+					</p>
+				</div>	
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="ftco-section testimony-section">
+		<div class="container">
+		  <div class="row ftco-animate">
+			<div class="col-md-12">
+			  <div class="carousel-testimony owl-carousel">
+				{% for safran in safrans %}
+				<div class="item">
+				  <div class="testimony-wrap p-4 pb-5">
+					<div class="user-img mb-5" style="background-image: url( {{ asset('./upload/safran/'~ safran.avatar ) }} )">
+					  <span class="quote d-flex align-items-center justify-content-center">
+						<i class="icon-quote-left"></i>
+					  </span>
+					</div>
+					<div class="text text-center">
+					  <p class="mb-0 pl-4 line">{{ safran.titre }}</p>
+					  <p class="name">{{ safran.author.getFullname }}</p>
+					  <span class="position">{{ safran.author.slug }}</span>
+					</div>
+				  </div>
+				</div>
+				{% endfor %}
+			  </div>
+			</div>
+		  </div>
+		</div>
+</section>
+
+<section >
+	<div class="container">
+		
+			<div class="col-md-12 p-1 mt-3">
+				<h2 class="text-center  shadow-lg p-3  bg-white rounded">لشراء الزعفران</h2>
+			</div>
+	
+	</div>
+</section>
+<section class="ftco-section">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-lg-3 ftco-animate">
+				<div class="product">
+					<a href="#" class="img-prod"><img class="img-fluid" src="{{ asset('./upload/safran/produit.jpeg') }}" alt="">
+						<span class="status">30%</span>
+						<div class="overlay"></div>
+					</a>
+					<div class="text py-3 pb-4 px-3 text-center">
+						<h3>
+							<a href="#">safran</a>
+						</h3>
+						<div class="d-flex">
+							<div class="pricing">
+								<p class="price">
+									<span class="mr-2 price-dc">$12.00</span>
+									<span class="price-sale">$10.00</span>
+								</p>
+							</div>
+						</div>
+						<div class="bottom-area d-flex px-3">
+							<div class="m-auto d-flex">
+								<a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
+									<span>
+										<i class="ion-ios-menu"></i>
+									</span>
+								</a>
+								<a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
+									<span>
+										<i class="ion-ios-cart"></i>
+									</span>
+								</a>
+								<a href="#" class="heart d-flex justify-content-center align-items-center ">
+									<span>
+										<i class="ion-ios-heart"></i>
+									</span>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 col-lg-3 ftco-animate">
+				<div class="product">
+					<a href="#" class="img-prod"><img class="img-fluid" src="{{ asset('./upload/safran/category-4.jpeg') }}" alt="">
+						<span class="status">30%</span>
+						<div class="overlay"></div>
+					</a>
+					<div class="text py-3 pb-4 px-3 text-center">
+						<h3>
+							<a href="#">safran</a>
+						</h3>
+						<div class="d-flex">
+							<div class="pricing">
+								<p class="price">
+									<span class="mr-2 price-dc">$12.00</span>
+									<span class="price-sale">$10.00</span>
+								</p>
+							</div>
+						</div>
+						<div class="bottom-area d-flex px-3">
+							<div class="m-auto d-flex">
+								<a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
+									<span>
+										<i class="ion-ios-menu"></i>
+									</span>
+								</a>
+								<a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
+									<span>
+										<i class="ion-ios-cart"></i>
+									</span>
+								</a>
+								<a href="#" class="heart d-flex justify-content-center align-items-center ">
+									<span>
+										<i class="ion-ios-heart"></i>
+									</span>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 col-lg-3 ftco-animate">
+				<div class="product">
+					<a href="#" class="img-prod "><img class="img-fluid" src="{{ asset('./upload/safran/category-3.jpg')}}" alt=" safrann ighri">
+						<div class="overlay"></div>
+					</a>
+					<div class="text py-3 pb-4 px-3 text-center">
+						<h3>
+							<a href="#">safran</a>
+						</h3>
+						<div class="d-flex">
+							<div class="pricing">
+								<p class="price">
+									<span>$10.00</span>
+								</p>
+							</div>
+						</div>
+						<div class="bottom-area d-flex px-3">
+							<div class="m-auto d-flex">
+								<a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
+									<span>
+										<i class="ion-ios-menu"></i>
+									</span>
+								</a>
+								<a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
+									<span>
+										<i class="ion-ios-cart"></i>
+									</span>
+								</a>
+								<a href="#" class="heart d-flex justify-content-center align-items-center ">
+									<span>
+										<i class="ion-ios-heart"></i>
+									</span>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 col-lg-3 ftco-animate">
+				<div class="product">
+					<a href="#" class="img-prod"><img class="img-fluid" src="{{ asset('./upload/safran/category-6.jpeg')}}" alt=" safran ighri">
+						<div class="overlay"></div>
+					</a>
+					<div class="text py-3 pb-4 px-3 text-center">
+						<h3>
+							<a href="#">safran</a>
+						</h3>
+						<div class="d-flex">
+							<div class="pricing">
+								<p class="price">
+									<span>$10.00</span>
+								</p>
+							</div>
+						</div>
+						<div class="bottom-area d-flex px-3">
+							<div class="m-auto d-flex">
+								<a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
+									<span>
+										<i class="ion-ios-menu"></i>
+									</span>
+								</a>
+								<a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
+									<span>
+										<i class="ion-ios-cart"></i>
+									</span>
+								</a>
+								<a href="#" class="heart d-flex justify-content-center align-items-center ">
+									<span>
+										<i class="ion-ios-heart"></i>
+									</span>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="mb-5">
+	<div class="container">
+	<div class="bg-light text-center p-4">
+		<h3 class=" text-info">Ajouter un publication de safran</h3>
+		{% if app.user %}
+		     {{ form_start(form) }}
+		     {{ form_widget(form) }}
+			  <button type="submit" class="btn btn-primary text-center"><small><i class="fas fa-plus"></i> Ajouter un pub de safran</small></button>
+		     {{ form_end(form) }}
+		{% else %}
+		 <h6 class="text-center text-dark">Connectez vous pour que vous pouvez Ajouter des photos de safran ighri</h6>
+		 <a href="{{ path('account_register') }}" class="btn btn-primary">Inscription</a>
+		 <a href="{{ path('account_login') }}" class="btn btn-primary">Connection</a>
+		 {% endif %}
+		</div>
+	</div>
+</section>
+	{% include 'partials/footer.html.twig' %}
+
+{% endblock  %}
+

@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tous Les Posts
+{% endblock %}
+ {% block stylesheets %}
+     
+         <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet">
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css">
+         <link rel="stylesheet" href="{{ asset('css/gallery-grid.css')}}">
+
+{% endblock %}
+{% block body %}
+{% set xz = ''  %}
+{% include "home/menu.html.twig" with { xz : 'ighri'  }  %}
+
+<div class="container gallery-container">
+	<h1>Les vedios de ighri </h1>
+    <div class="row">
+	<div class="col-md-10 offset-md-1">
+	<div class="row">
+			<div class=" col-md-3 mt-1  text-center">
+				<a class="dropdown-item" href="{{ path('imagepage') }}" ><i class="far fa-image text-"></i>   Photos ighri</a>
+			</div>
+			<div class="col-md-3 mt-1 text-center">
+				<a class="dropdown-item" href="{{ path('vediopage') }}" ><i class="far fa-image "></i> Ajouter vedio </a>
+			</div>
+			<div class="col-md-3 mt-1 text-center">
+				<a class="dropdown-item" href="{{ path('zafranpage') }}" ><i class="fab fa-pagelines text-"></i> Produits Ighri</a>
+			</div>
+			<div class="col-md-3 mt-1 text-center">
+				<a class="dropdown-item" href="{{ path('zafranpage') }}" ><i class="fab fa-pagelines text-"></i> Créer un publication</a>
+			</div>
+	</div>
+	</div>
+	</div>
+	<div class="tz-gallery">
+		<div class="row">
+			 {% set vedios = pagination.getData %}
+			 {% for vedio in vedios %}
+			<div class="col-sm-12 col-md-12 col-xs-12 ">
+                <h5 class="text-center">{{ vedio.titre }}</h5>
+				<a class="lightbox w-100" cl href="{{ vedio.lien }}">
+                {{ vedio.lien | raw }}
+				</a>
+                <p class="lead text-center" style="font-size: 14px;">{{ vedio.content }}</p>
+			</div> 
+            {% endfor %}
+
+		</div>
+
+	</div>
+	<div class="row">
+		<div class="col-md-6 offset-md-3 mb-5 text-center">
+{{ pagination.display()  }}
+
+		</div>
+	</div>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
+<script>
+	baguetteBox.run('.tz-gallery');
+</script>
+
+{% include 'partials/footer.html.twig' %}
+
+{% endblock %}

@@ -1,0 +1,44 @@
+.avatar {
+    max-width: 138px;
+    max-height: 138px;
+    border-radius: 50%;
+}
+
+.avatar-medium {
+    max-width: 130px;
+    max-height: 130px;
+}
+
+.avatar-mini {
+    max-width: 25px;
+    max-height: 25px;
+    position: relative;
+    bottom: 3px;
+}
+
+.nom-pro {
+    position: relative;
+    bottom: 2px;
+}
+
+.avatar-profile {
+    max-height: 300px;
+    max-width: 100%;
+}
+
+.avatar-w {
+    border-radius: 50%;
+    position: relative;
+    bottom: 50px;
+}
+
+.invitation a,
+.xtime {
+    font-size: 10px;
+}
+
+.avatar-friend {
+    max-width: 138px;
+    max-height: 138px;
+    height: 100px;
+}
