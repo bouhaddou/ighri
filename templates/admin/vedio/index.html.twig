@@ -1,0 +1,45 @@
+{% extends 'Admin/base.html.twig' %}
+
+{% block title %}Vedio index{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1 class="mt-3 mb-2 text-center">Liste des Videos</h1>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Auteur</th>
+                <th>Titre</th>
+                <th>Content</th>
+                <th>Type</th>
+                <th>Lien</th>
+                <th>Datepub</th>
+                <th>Valider</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for vedio in vedios %}
+            <tr>
+                <td>{{ vedio.author.getFullName }}</td>
+                <td>{{ vedio.titre|slice(0,20) }}</td>
+                <td>{{ vedio.content|slice(0,20) }}</td>
+                <td>{{ vedio.type }}</td>
+                <td>{{ vedio.lien|slice(0,30) }}...</td>
+                <td>{{ vedio.datepub ? vedio.datepub|date('Y-m-d')}}</td>
+                <td> {% if vedio.valider == 1 %} True {% else %} False {% endif %}</td>
+                <td>
+                    <a class="text-primary" href="{{ path('vedio_show', {'id': vedio.id}) }}"><i class="fas fa-eye"></i> voir</a>
+                    <a class="text-success ml-1" href="{{ path('vedio_edit', {'id': vedio.id}) }}"><i class="fas fa-edit"></i> edit </a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+{% endblock %}

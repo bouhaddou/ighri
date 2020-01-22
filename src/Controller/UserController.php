@@ -13,7 +13,7 @@ class UserController extends AbstractController
 
 
     /**
-     * @Route("/profile/{id}", name="showprofile")
+     * @Route("/users/{id}", name="showprofile")
      * 
      */
     public function showprofile( $id)

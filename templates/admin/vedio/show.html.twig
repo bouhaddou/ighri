@@ -1,0 +1,52 @@
+{% extends 'Admin/base.html.twig' %}
+
+{% block title %}Vedio{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Vedio</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ vedio.id }}</td>
+            </tr>
+            <tr>
+                <th>Auteur</th>
+                <td>{{ vedio.author.getFullName }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ vedio.titre }}</td>
+            </tr>
+            <tr>
+                <th>Content</th>
+                <td>{{ vedio.content }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ vedio.type }}</td>
+            </tr>
+            <tr>
+                <th>Lien</th>
+                <td>{{ vedio.lien }}</td>
+            </tr>
+            <tr>
+                <th>Valider</th>
+                <td>{{ vedio.valider }}</td>
+            </tr>
+            <tr>
+                <th>Datepub</th>
+                <td>{{ vedio.datepub ? vedio.datepub|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary" href="{{ path('vedio_index') }}">Retour</a>
+
+    <a class="btn btn-success" href="{{ path('vedio_edit', {'id': vedio.id}) }}">edit</a>
+
+    {{ include('Admin/vedio/_delete_form.html.twig') }}
+</div>
+{% endblock %}

@@ -11,13 +11,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12 col-sm-12 col-xs-12 mt-1">
-				
-					<img class="avatar-profile w-100  " id="" alt="Image d’arrière-plan" src="
-					{% if user.couverture is null %}
-						{{ asset('./upload/users/couvert.jpg') }}
-					{% else %}
-							{{ asset('./upload/users/' ~ user.couverture ) }}
-					{% endif %} ">
+					<img class="avatar-profile w-100  " id="" alt="Image d’arrière-plan" src="{{ asset('./upload/users/' ~ user.couverture ) }} ">
 			</div>
 		</div>
 		<div class="row">
@@ -38,7 +32,7 @@
 								<a class="nav-link" href="#">  <span class="sr-only">Mes informations</span></a>
 							</li>
 							<li class="nav-item active ">
-								<a class="nav-link" href="#"> Mr. / Mme. <strong>{{ user.getFullname }} </strong> publié(e) <span class="text-danger">{{ user.posts | length  }}</span> Annonces </a>
+								<a class="nav-link" href="#"> Mr. / Mme. <strong>{{ user.getFullname }} </strong> publié(e) <span class="text-danger">{{ user.posts | length  }}</span> publications </a>
 							</li>
 							
 						</ul>

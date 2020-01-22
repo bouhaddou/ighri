@@ -17,7 +17,7 @@
 					</span>
 					
 				</p>
-				<h6 class="mb-0  lead text-light">Bienvenu dans notre site de safran taliouine boi 100%</h6>
+				<h6 class="mb-0  lead text-light">Bienvenu dans notre site de safran taliouine bio 100%</h6>
 			</div>
 		</div>
 	</div>
@@ -26,8 +26,8 @@
 <section class="mt-3 ftco-degree-bg ">
 	<div class="container ">
 		<div class="row">
-			<div class="col-lg-7 mr-1  ftco-animate ">
-				<div class="border p-1">
+			<div class="col-md-7 mr-1  mt-3 ftco-animate ">
+				<div class="border ">
 				<div class="bg-secondary">
 					<h4 class="mt-2 text-center">{{ posts.titre}}</h4>
 				</div>
@@ -60,23 +60,25 @@
 						</a>
 					</div>
 					<hr>
-				<div class="about-author d-flex p-4 bg-light">
-					<div class="bio align-self-md-center mr-3 text-center">
-						<img src="{{asset('./upload/users/'~ posts.author.avatar )}}" alt="Image placeholder" class="img-fluid avatar avatar-med  mb-1">
-						<span class="badge badge-primary mb-3 p-2  "> {{ posts.author.posts | length }} publications </span>
+				<div class="row ">
+					<div class="col ml-3 mt-2">
+						<img src="{{asset('./upload/users/'~ posts.author.avatar )}}" alt="Image placeholder" class="img-fluid avatar avatar-med  mb-1 p-1">
+						<div><span class="badge badge-primary  mt-1 p-1 "> {{ posts.author.posts | length }} publications </span></div>
 					</div>
-					<div class="desc align-self-md-center">
-						<h3>{{ posts.author.getFullname }}</h3>
-						<p><strong>{{ posts.author.slug }}</strong></p>
-						<p>{{ posts.author.content | slice(0,100) | raw }} .........</p>
-					{% if app.user == posts.author %}
-						<a href="{{ path('showprofile',{ 'id': posts.id }) }}" class="btn btn-primary disabled"><i class="fas fa-eye"></i> savoir plus</a>
-					{% else %}
-						<a href="{{ path('showprofile',{ 'id': posts.id }) }}" class="btn btn-primary"> <i class="fas fa-eye"></i> savoir plus</a>
-					{% endif %}
+					<div class="col-7 ml-2 " >
+							<h4 class=" h5" style="line-height: 1.5rem;">{{ posts.author.getFullname }}</h4>
+							<p style="line-height: 1.5rem;"><strong>{{ posts.author.slug }}</strong></p>
+							<p style="line-height: 1.5rem;">{{ posts.author.content | slice(0,70) | raw }} ...</p>
+						{% if app.user == posts.author %}
+							<a href="{{ path('showprofile',{ 'id': posts.author.id }) }}" class="btn btn-primary disabled"><i class="fas fa-eye"></i> savoir plus</a>
+						{% else %}
+							<a href="{{ path('showprofile',{ 'id': posts.author.id }) }}" class="btn btn-primary"> <i class="fas fa-eye"></i> savoir plus</a>
+						{% endif %}
 					</div>
 				</div>
-				<div class="pt-4 mt-1">
+
+
+				<div class="pt-2 mt-1 ml-2 mr-1 pb-2 mb-3">
 					<h4 class="mb-3">{{posts.comments | length }} Commentaire(s)</h4>
 					<div class=" alert alert-info">
 						<div class="alert-heading text-center">
@@ -94,9 +96,7 @@
 								</div>
 							</div>
 						</div>
-					</div>
-
-					
+					</div>					
 					{% for comment in posts.comments %}
 					<ul class="comment-list">
 						<li class="comment">
@@ -110,9 +110,7 @@
 								</h3>
 								<div class="meta">{{ comment.datepub | date('d/m/Y') }}</div>
 								<p>{{ comment.comment }}</p>
-								<p>
-									<a href="#" class="reply">jaime</a>
-								</p>
+								<hr>
 							</div>
 						</li>
 					</ul>
@@ -128,7 +126,7 @@
 						</div>
 						{{ form_end(form) }}
 					{% else %}
-						<h3 class="mb-3">Connectez ou inscriez vous pour que vous pouvez commenter cette annonce</h3>
+						<h3 class="mb-3">Connectez ou inscriez vous pour que vous pouvez commenter cette publication</h3>
 					  <small> <a href="{{ path('account_register') }}" class="btn btn-danger  ">Inscriez vous </a>
 					   <a href="{{ path('account_login') }}" class=" btn btn-info ">connectez vous </a>
 						</small>
@@ -139,7 +137,7 @@
 			</div>
 			</div
 			<!-- .col-md-8 -->
-			<div class="col-md-4 sidebar ftco-animate border mt-1">
+			<div class="col-md-4 sidebar ftco-animate  ">
 			
 		    {% include 'partials/developpeur.html.twig' %}
 

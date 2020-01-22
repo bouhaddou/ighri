@@ -88,10 +88,6 @@ class User implements UserInterface
      */
     private $couverture;
 
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Amis", mappedBy="friend_envoi", orphanRemoval=true)
-     */
-    private $amisone;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Safran", mappedBy="author")
@@ -111,6 +107,7 @@ class User implements UserInterface
     {
         if(empty($this->slug)){ $this->slug = "non indique" ; }
         if(empty($this->content)){ $this->content = "non prisez" ; }
+        if(empty($this->couverture)){ $this->couverture = "couvert.jpg" ; }
     }
         
     public function getFullname()
@@ -362,37 +359,9 @@ class User implements UserInterface
         return $this;
     }
 
-    /**
-     * @return Collection|Amis[]
-     */
-    public function getAmisone(): Collection
-    {
-        return $this->amisone;
-    }
+    
 
-    public function addAmisone(Amis $amisone): self
-    {
-        if (!$this->amisone->contains($amisone)) {
-            $this->amisone[] = $amisone;
-            $amisone->setFriendEnvoi($this);
-        }
-
-        return $this;
-    }
-
-    public function removeAmisone(Amis $amisone): self
-    {
-        if ($this->amisone->contains($amisone)) {
-            $this->amisone->removeElement($amisone);
-            // set the owning side to null (unless already changed)
-            if ($amisone->getFriendEnvoi() === $this) {
-                $amisone->setFriendEnvoi(null);
-            }
-        }
-
-        return $this;
-    }
-
+   
     /**
      * @return Collection|Safran[]
      */

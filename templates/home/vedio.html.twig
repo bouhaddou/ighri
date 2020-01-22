@@ -22,7 +22,7 @@
 				<a class="dropdown-item" href="{{ path('imagepage') }}" ><i class="far fa-image text-"></i>   Photos ighri</a>
 			</div>
 			<div class="col-md-3 mt-1 text-center">
-				<a class="dropdown-item" href="{{ path('vediopage') }}" ><i class="far fa-image "></i> Ajouter vedio </a>
+				<a class="dropdown-item" href="{{ path('vedio_new') }}" ><i class="far fa-image "></i> Ajouter vedio </a>
 			</div>
 			<div class="col-md-3 mt-1 text-center">
 				<a class="dropdown-item" href="{{ path('zafranpage') }}" ><i class="fab fa-pagelines text-"></i> Produits Ighri</a>
@@ -35,24 +35,53 @@
 	</div>
 	<div class="tz-gallery">
 		<div class="row">
-			 {% set vedios = pagination.getData %}
-			 {% for vedio in vedios %}
-			<div class="col-sm-12 col-md-12 col-xs-12 ">
-                <h5 class="text-center">{{ vedio.titre }}</h5>
-				<a class="lightbox w-100" cl href="{{ vedio.lien }}">
-                {{ vedio.lien | raw }}
-				</a>
-                <p class="lead text-center" style="font-size: 14px;">{{ vedio.content }}</p>
-			</div> 
-            {% endfor %}
+			 {% for vedio in pagination.getData %}
+			  {% if vedio.valider == true %}
+			 	<div class="col-sm-12 col-md-12 col-xs-12 ">
+					<h5 class="text-center">{{ vedio.titre }}</h5>
+			 		{% if vedio.type == "Youtube" %}
+						<iframe width="640" height="360" src="//www.youtube.com/embed/{{vedio.lien|trim|slice(32,300)|trim }}" 
+							frameborder="0" allowfullscreen>
+						</iframe> 
+					{% elseif vedio.type == "Facebook"   %}
+						{{ vedio.lien | raw}}
 
+						{% if '</iframe>' in vedio.lien %}
+						{% else %}
+						</iframe>
+						{% endif %}
+					{% else %}
+
+					{% endif %}
+				</div> 
+				{% endif %}
+			{% endfor %}
+	</div>
+	<div class="row mt-4">
+		<div class="col-md-12">
+			<div class="d-flex justify-content-center">
+				{{ pagination.display()  }}
+			</div>
 		</div>
-
 	</div>
 	<div class="row">
-		<div class="col-md-6 offset-md-3 mb-5 text-center">
-{{ pagination.display()  }}
+		<div class="col-md-12">
+		 <h1>Créer une nouvelle vidéo</h1>
 
+        {{ form_start(form) }}
+            {{ form_row(form.titre) }}
+            {{ form_row(form.content) }}
+            <div class="form-group">
+				<select name="typeName" class="form-control">
+					<option >Youtube</option>
+					<option >Facebook</option>
+					<option >Autre</option>
+				</select>
+            </div>
+            {{ form_row(form.lien) }}
+
+            <button class="btn btn-primary">{{ button_label|default('Enregistrer') }}</button>
+        {{ form_end(form) }}
 		</div>
 	</div>
 </div>

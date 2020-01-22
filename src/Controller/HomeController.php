@@ -9,6 +9,7 @@ use App\Entity\Comments;
 use App\Entity\Compteur;
 use App\Form\SafranType;
 use App\Form\CommentHomeType;
+use App\Repository\CompteurRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
 use Egulias\EmailValidator\Warning\Comment;
@@ -22,34 +23,42 @@ class HomeController extends AbstractController
     /**
      * @Route("/", name="homepage")
      */
-    public function index(ObjectManager $manger,Request $request)
+    public function index(ObjectManager $manger,Request $request,CompteurRepository $repo)
     {
         $posts =$manger->createQuery(
             'SELECT  p
             FROM App\Entity\Posts p
             ORDER BY p.id DESC '
         )->setMaxResults(5)->getResult();
-        $em = $this->getDoctrine()->getRepository(Compteur::class);
-        $cpt = $em->findOneBy(['id' => 1 ]);
-    if($this->getUser()){ $dd=$this->getUser()->getRoles() ; 
-         $cc = 0;
-         foreach ( $dd as $val) 
-         { if($val == "ROLE_ADMIN")
-            {  $cc= $cc + 1 ;  }}
-         if( $cc == 0 )
-         {
-         $zz = $this->getDoctrine()->getManager();
-         $cpt->setCpt($cpt->getCpt() + 1 );
-         $zz->persist($cpt);
-         $zz->flush();
-         }
-        }else{
-            $zz = $this->getDoctrine()->getManager();
-            $cpt->setCpt($cpt->getCpt() + 1 );
-            $zz->persist($cpt);
-            $zz->flush();
-        }
+        $compteur = $repo->findOneBy(['id' => 1 ]);
         
+        if(is_null($compteur))
+        {
+            $cpt = new Compteur();
+            $cpt->setCpt(1);
+            $manger->persist($cpt);
+            $manger->flush();
+            $compteur = $repo->findOneBy(['id' => 1 ]);
+        }else{
+            if($this->getUser()){ $dd=$this->getUser()->getRoles() ; 
+                $cc = 0;
+                foreach ( $dd as $val) 
+                { if($val == "ROLE_ADMIN")
+                    {  $cc= $cc + 1 ;  }}
+                if( $cc == 0 )
+                {
+                $zz = $this->getDoctrine()->getManager();
+                $compteur->setCpt($compteur->getCpt() + 1 );
+                $zz->persist($compteur);
+                $zz->flush();
+            }
+            }else{
+                $zz = $this->getDoctrine()->getManager();
+                $compteur->setCpt($compteur->getCpt() + 1 );
+                $zz->persist($compteur);
+                $zz->flush();
+            }
+        }
         $forms = [];
         foreach ( $posts as $post ){
             $entity = new Comments();
@@ -111,7 +120,7 @@ class HomeController extends AbstractController
     
         return $this->render('home/index.html.twig',[
             'posts' => $posts,
-            'compteur' => $cpt,
+            'compteur' => $compteur,
             'form' => $forms,
             'TopPosts' => $result,
             'users' => $resultUsers

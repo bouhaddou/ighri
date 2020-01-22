@@ -3,9 +3,11 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\PrePersist;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\VedioRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Vedio
 {
@@ -27,7 +29,7 @@ class Vedio
     private $content;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="text")
      */
     private $lien;
 
@@ -41,6 +43,33 @@ class Vedio
      */
     private $datepub;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $type;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $valider;
+    
+
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function prePersist()
+    {
+        if(empty($this->datepub))
+        {
+            $this->datepub= new \Datetime();
+        }
+        if(empty($this->valider))
+        {
+            $this->valider= false;
+        }
+
+    }
     public function getId(): ?int
     {
         return $this->id;
@@ -102,6 +131,30 @@ class Vedio
     public function setDatepub(\DateTimeInterface $datepub): self
     {
         $this->datepub = $datepub;
+
+        return $this;
+    }
+
+    public function getType(): ?string
+    {
+        return $this->type;
+    }
+
+    public function setType(string $type): self
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    public function getValider(): ?bool
+    {
+        return $this->valider;
+    }
+
+    public function setValider(bool $valider): self
+    {
+        $this->valider = $valider;
 
         return $this;
     }

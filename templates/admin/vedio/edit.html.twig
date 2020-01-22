@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Vedio{% endblock %}
+
+{% block body %}
+<div class="container">
+  <div class="row">
+		<div class="col-md-12">
+		 <h1>Créer une nouvelle vidéo</h1>
+
+        {{ form_start(form) }}
+            {{ form_row(form.titre) }}
+            {{ form_row(form.content) }}
+            <div class="form-group">
+				<select name="typeName" class="form-control">
+					<option >Youtube</option>
+					<option >Facebook</option>
+					<option >Autre</option>
+				</select>
+            </div>
+            {{ form_row(form.lien) }}
+            {{ form_row(form.valider) }}
+            <button class="btn btn-primary">{{ button_label|default('Enregistrer') }}</button>
+        {{ form_end(form) }}
+		</div>
+	</div>
+    <a href="{{ path('vedio_index') }}">back to list</a>
+
+    {{ include('Admin/vedio/_delete_form.html.twig') }}
+</div>
+{% endblock %}

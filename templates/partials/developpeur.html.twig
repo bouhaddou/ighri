@@ -1,4 +1,4 @@
- <div class="sidebar-box ftco-animate">
+ <div class="sidebar-box ftco-animate mt-3 border">
 	<h3 class="heading text-center">Menu</h3>
 	<hr>
 	<ul class="categories">
@@ -8,7 +8,7 @@
 		<li><a href="{{ path('vediopage') }}"class="text-primary">Vedio <span>(42)</span></a></li>
 	</ul>
 </div>
-<div class="sidebar-box ftco-animate">
+<div class="sidebar-box ftco-animate border">
 	<h3 class="heading">publications récente</h3>
 	{% for TopPost in TopPosts %}
 	<div class="block-21 mb-4 d-flex">
@@ -35,20 +35,37 @@
 	</div>
 	{% endfor  %}
 </div>
-            <div class="sidebar-box ftco-animate">
+            <div class="sidebar-box ftco-animate border">
               <h3 class="heading text-center text-secondary">Les Membres de Ighri</h3>
-              <div class="tagcloud text-center">
+              <div class="">
 			{% for user in users %}
+			
 			   {% if app.user %} 
-				{% if user.id == app.user.id  %}
-				{%  else %}
-				<img width="60%" height="80px" class="img-fluid text-center mb-1" src="{{ asset("./upload/users/"~ user.avatar) }}"><br>
-				<a href="{{ path('showprofile',{'id': user.id}) }}" class="tag-cloud-link"><h5 class="text-primary">{{user.getFullname}}</h5></a><br>
-				{% endif %}
-			{% else %}
-				<img width="60%" height="80px" class="img-fluid text-center mb-1" src="{{ asset("./upload/users/"~ user.avatar) }}"><br>
-				<a href="{{ path('showprofile',{'id': user.id}) }}" class="tag-cloud-link"><h5 class="text-primary">{{user.getFullname}}</h5></a><br>
-				
+						{% if user.id == app.user.id  %}
+						<hr>
+						{%  else %}
+						<hr>
+						<div class="row">
+							<div class="col-3">
+								<img  class=" avatar-pr p-2" src="{{ asset("./upload/users/"~ user.avatar) }}">
+							</div>
+							<div class="col">
+								<h5 class="text-dark"><strong>{{user.getFullname}}</strong></h5>
+								<a class="btn btn-info small" href="{{ path('showprofile',{'id': user.id}) }}">Voir Profile</a>
+							</div>
+						</div>
+						{% endif %}
+				{% else %}
+				<hr>
+				<div class="row">
+					<div class="col-3">
+						<img  class="avatar-pr " src="{{ asset("./upload/users/"~ user.avatar) }}">
+					</div>
+					<div class="col">
+						<h5 class="text-dark"><strong>{{user.getFullname}}</strong></h5>
+						<a class="btn btn-info small" href="{{ path('showprofile',{'id': user.id}) }}">Voir Profile</a>
+					</div>
+				</div>
 			{% endif %}
 				{% endfor %}
               </div>

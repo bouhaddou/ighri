@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Posts;
 use App\Entity\Vedio;
 use App\Form\PostType;
+use App\Form\VedioType;
 use App\Entity\Comments;
 use App\Form\CommentType;
 use App\Service\Pagination;
@@ -82,18 +83,51 @@ class PostController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/post/vedio/new", name="vedio_new")
+     */
+    public function indexvedionew(Request $request)
+    {
+            $vedio = new Vedio();
+            $form = $this->createForm(VedioType::class, $vedio);
+            $form->handleRequest($request);
+            if ($form->isSubmitted() && $form->isValid()) {
+                $entityManager = $this->getDoctrine()->getManager();
+                $vedio->setAuthor($this->getUser());
+                $type = $request->get("typeName");
+                $vedio->setType($type);
+                $entityManager->persist($vedio);
+                $entityManager->flush();
+                return $this->redirectToRoute('vediopage');
+            }
+        return $this->render('home/newVedio.html.twig', [
+            'form' => $form->createView()
+        ]);
+    }
      /**
      * @Route("/post/vedio/{page<\d+>?1}", name="vediopage")
      */
-    public function indexvedio(Pagination $pagination, $page)
+    public function indexvedio(Pagination $pagination, $page,Request $request)
     {
         $pagination->setEntityClass(Vedio::class)
             ->setPage($page)
             ->setLimit(12);
-
+           
+            $vedio = new Vedio();
+            $form = $this->createForm(VedioType::class, $vedio);
+            $form->handleRequest($request);
+            if ($form->isSubmitted() && $form->isValid()) {
+                $entityManager = $this->getDoctrine()->getManager();
+                $vedio->setAuthor($this->getUser());
+                $type = $request->get("typeName");
+                $vedio->setType($type);
+                $entityManager->persist($vedio);
+                $entityManager->flush();
+                return $this->redirectToRoute('vediopage');
+            }
         return $this->render('home/vedio.html.twig', [
             'pagination' => $pagination,
-            
+            'form' => $form->createView()
         ]);
     }
 
