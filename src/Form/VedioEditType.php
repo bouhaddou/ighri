@@ -25,10 +25,10 @@ class VedioEditType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-        ->add('titre',TextType::class,$this->getConfig("Titre (*) :","Tapez le Titre de vedio ",true))
+        ->add('titre',TextType::class,$this->getConfig("Titre (*) :","Tapez le Titre de vidéo ",true))
         ->add('content',TextareaType::class,$this->getConfig("Introduction :","Tapez super introduction",false))
-        ->add('lien',TextareaType::class,$this->getConfig("lien de Vedio (youtube) :","Tapez le lien de vedio ",true))
-        ->add('valider',CheckboxType::class,$this->getConfig("Valider la vedio ","Validation de la vedio ",false) )
+        ->add('lien',TextareaType::class,$this->getConfig("lien de vidéo (youtube) :","Tapez le lien de vidéo ",true))
+        ->add('valider',CheckboxType::class,$this->getConfig("Valider la vidéo ","Validation de la vidéo ",false) )
         ;
     }
 

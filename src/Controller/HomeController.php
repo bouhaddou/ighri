@@ -10,6 +10,7 @@ use App\Entity\Compteur;
 use App\Form\SafranType;
 use App\Form\CommentHomeType;
 use App\Repository\CompteurRepository;
+use App\Repository\VedioRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
 use Egulias\EmailValidator\Warning\Comment;
@@ -23,8 +24,9 @@ class HomeController extends AbstractController
     /**
      * @Route("/", name="homepage")
      */
-    public function index(ObjectManager $manger,Request $request,CompteurRepository $repo)
+    public function index(ObjectManager $manger,Request $request,CompteurRepository $repo,VedioRepository $vedioRepository )
     {
+        
         $posts =$manger->createQuery(
             'SELECT  p
             FROM App\Entity\Posts p
@@ -123,7 +125,8 @@ class HomeController extends AbstractController
             'compteur' => $compteur,
             'form' => $forms,
             'TopPosts' => $result,
-            'users' => $resultUsers
+            'users' => $resultUsers,
+            'vedios' => $vedioRepository->findAll(),
         ]);
     }
 

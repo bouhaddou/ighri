@@ -40,10 +40,10 @@
 								<a class="nav-link" href="#">  <span class="sr-only">Mes informations</span></a>
 							</li>
 							<li class="nav-item active ">
-								<a class="nav-link" href="#"> Vous avez <span class="text-danger">{{ user.posts | length  }}</span> Annonces </a>
+								<a class="nav-link" href="#"> Vous avez <span class="text-danger">{{ user.posts | length  }}</span> publications </a>
 							</li>
 							<li class="nav-item active ">
-								<a class="nav-link " href="{{ path('edit_password')  }}"> <span class="text-info">Edit password </span></a>
+								<a class="nav-link " href="{{ path('edit_password')  }}"> <span class="text-info">Modifier le Mot de passe </span></a>
 							</li>
 							<li class="nav-item dropdown ">
 								<a class="nav-link dropdown-toggle text-info" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -58,6 +58,7 @@
 								</a>
 								<div class="dropdown-menu " aria-labelledby="dropdown04">
 									{% if app.user %}
+										<a class="dropdown-item" href="{{ path('account_ProfileEdit',{'id': user.id }) }}">Modification de Profile</a>
 										<a class="dropdown-item" href="{{ path('account_logout') }}">Déconnexion</a>
 									{% else %}
 										<a href="{{ path('account_login') }}" class="dropdown-item">Connexion</a>
@@ -96,7 +97,7 @@
 			<div class="col-md-12 col-sm-12 col-xs-12">
 				<div class="text-center posts">
 					<h2>Mes posts </h2>
-					<p class="lead">  Toutes mes postes Toutes mes postes Toutes mes postes Toutes mes postes Toutes mes postes</p>
+					<p class="lead">  Toutes les  publications de  {{ user.getFullname }}</p>
 				</div>
 			</div>
 		</div>

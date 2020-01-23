@@ -10,13 +10,13 @@
 {% include "home/menu.html.twig" with { xz : 'contact'  }  %}
 	<div class="container">
 		<h5 class="text-center mt-4">
-			Création d'un Nouveau Poste</h5>
+			Créer une publication</h5>
 		{{ form_start(form) }}
 
 		{{ form_widget(form) }}
 		<button type="button" id="add_image" class="btn btn-info"><i class="fas fa-plus"></i> Ajouter image</button>
 		<br><br>
-		<button type="submit" class="btn btn-primary mt-2"> <i class="fas fa-plus"></i> Enregistrer un Poste</button>
+		<button type="submit" class="btn btn-primary mt-2"> <i class="fas fa-plus"></i> Enregistrer la publication</button>
 		<input type="hidden" id="compteur" value="0">
 		<a href="" class="btn btn-danger mt-2"><i class="fas fa-long-arrow-alt-left"></i> Retour</a>
 		{{ form_end(form) }}
@@ -25,7 +25,7 @@
 
 {%  block _post_images_widget %}
 	<p class="">
-		vous pouvez ajouter votre images ici !</p>
+		vous pouvez ajouter vos images ici !</p>
 
 	{{ form_widget(form) }}
 

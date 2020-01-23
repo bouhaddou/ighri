@@ -1,9 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Tous les Utilisateurs!
+{% block title %}Modifier le mot de passe
 {% endblock %}
 
 {% block body %}
+{% set xz = ''  %}
+{% include "home/menu.html.twig" with { xz : 'profile'  }  %}
+
 	<div class="container">
 		<h6 class="mt-4 text-center">
 				Modifier votre  Profile!!</h6>

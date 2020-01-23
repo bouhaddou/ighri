@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Entity\Updatepass;
 use App\Form\CouvertureType;
+use App\Form\EditProfileType;
 use App\Form\RegisterType;
 use App\Form\UpdatepassType;
 use Symfony\Component\HttpFoundation\Request;
@@ -183,4 +184,37 @@ class AccountController extends AbstractController
             'form' => $form->createView()
         ]);
     }
+
+     /**
+     * @Route("/register/Edit/{id}/profil", name="account_ProfileEdit")
+     */
+    public function registerEditProfil(Request $request,User $user)
+    {
+
+        $form = $this->createForm(EditProfileType::class, $user);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) { 
+            $em = $this->getDoctrine()->getManager();
+            $file = $form['avatar']->getData();
+            $filename = md5(uniqid()) . '.' . $file->guessExtension();
+            $file->move($this->getParameter('upload_directory'), $filename);
+
+             $user->setAvatar($filename)
+                    ->setFirstname($form['firstname']->getData())
+                    ->setLastname($form['lastname']->getData())
+                    ->setSlug($form['slug']->getData())
+                    ->setContent($form['content']->getData());
+            $em->persist($user);
+            $em->flush();
+            $this->addFlash(
+                'success',
+                ' Votre  profile a été bien modifier  '
+            );
+            return $this->redirectToRoute('showprofileuser',['id' => (string) $user->getId()]);
+        }
+        return $this->render('account/EditRegistration.html.twig', [
+            'form' => $form->createView()
+        ]);
+    }
+
 }

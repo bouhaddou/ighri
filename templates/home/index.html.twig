@@ -7,6 +7,38 @@
 
 <section id="home-section" class="hero">
 	<div class="home-slider owl-carousel">
+		<div class="slider-item" style="background-size: cover; background-image:url('{{ asset("./images/igh.jpg") }}');">
+			<div class="overlay"></div>
+			<div class="container">
+				<div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
+
+					<div class="col-sm-12 ftco-animate text-center">
+						<h4 class="mb-2 text-light font-weight-bold text">IGHRI TALIOUINE OFFICIEL </h4>
+						<h4 class="subheading mb-4">Bienvenue dans notre site de safran taliouine bio 100%</h4>
+						<p>
+							<a href="{{ path('postpage') }}" class="btn btn-primary">savoir plus -></a>
+						</p>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<div class="slider-item" style="background-size: cover; background-image:url('{{ asset("./images/ig.jpg") }}');">
+			<div class="overlay"></div>
+			<div class="container">
+				<div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
+
+					<div class="col-sm-12 ftco-animate text-center">
+						<h4 class="mb-2 text-light font-weight-bold text">IGHRI TALIOUINE OFFICIEL </h4>
+						<h4 class="subheading mb-4">Bienvenue dans notre site de safran taliouine bio 100%</h4>
+						<p>
+							<a href="{{ path('postpage') }}" class="btn btn-primary">savoir plus -></a>
+						</p>
+					</div>
+
+				</div>
+			</div>
+		</div>
 		<div class="slider-item" style="background-size: cover; background-image:url('{{ asset("./images/ighrii.png") }}');">
 			<div class="overlay"></div>
 			<div class="container">
@@ -196,7 +228,7 @@
 	
 	</div>
 </section>
-
+  {% include "partials/sliderVedio.html.twig" %}
 <section class="  ">
 	<div class="container bg-ligth">
 		<div class="row">
@@ -219,6 +251,7 @@
         </div>
 		</div>
 </section>
+  {% include "partials/slider.html.twig" %}
 <hr>
 <section class="ftco-section ftco-category ftco-no-pt mt5">
 	<div class="container">

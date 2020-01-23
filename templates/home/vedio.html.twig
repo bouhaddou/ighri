@@ -1,7 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Tous Les Posts
-{% endblock %}
+{% block title %}vidéos de Ighri{% endblock %}
  {% block stylesheets %}
      
          <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet">
@@ -14,21 +13,21 @@
 {% include "home/menu.html.twig" with { xz : 'ighri'  }  %}
 
 <div class="container gallery-container">
-	<h1>Les vedios de ighri </h1>
+	<h1>Les vidéos de ighri </h1>
     <div class="row">
 	<div class="col-md-10 offset-md-1">
 	<div class="row">
 			<div class=" col-md-3 mt-1  text-center">
-				<a class="dropdown-item" href="{{ path('imagepage') }}" ><i class="far fa-image text-"></i>   Photos ighri</a>
+				<a class="dropdown-item" href="{{ path('imagepage') }}" ><i class="far fa-image text-"></i>   Photos de ighri</a>
 			</div>
 			<div class="col-md-3 mt-1 text-center">
-				<a class="dropdown-item" href="{{ path('vedio_new') }}" ><i class="far fa-image "></i> Ajouter vedio </a>
+				<a class="dropdown-item" href="{{ path('vedio_new') }}" ><i class="far fa-image "></i>  Ajouter une vidéos </a>
 			</div>
 			<div class="col-md-3 mt-1 text-center">
-				<a class="dropdown-item" href="{{ path('zafranpage') }}" ><i class="fab fa-pagelines text-"></i> Produits Ighri</a>
+				<a class="dropdown-item" href="{{ path('zafranpage') }}" ><i class="fab fa-pagelines text-"></i> Safran  Taliouine</a>
 			</div>
 			<div class="col-md-3 mt-1 text-center">
-				<a class="dropdown-item" href="{{ path('zafranpage') }}" ><i class="fab fa-pagelines text-"></i> Créer un publication</a>
+				<a class="dropdown-item" href="{{ path('zafranpage') }}" ><i class="fab fa-pagelines text-"></i> Créer une publication</a>
 			</div>
 	</div>
 	</div>
@@ -37,19 +36,21 @@
 		<div class="row">
 			 {% for vedio in pagination.getData %}
 			  {% if vedio.valider == true %}
-			 	<div class="col-sm-12 col-md-12 col-xs-12 ">
+			 	<div class="col-sm-12 col-md-12 col-xs-12  mb-5">
 					<h5 class="text-center">{{ vedio.titre }}</h5>
 			 		{% if vedio.type == "Youtube" %}
-						<iframe width="640" height="360" src="//www.youtube.com/embed/{{vedio.lien|trim|slice(32,300)|trim }}" 
+						<iframe style="max-height: 360px;max-height: 360px;" width="100%" height="360" src="//www.youtube.com/embed/{{vedio.lien|trim|slice(32,300)|trim }}" 
 							frameborder="0" allowfullscreen>
 						</iframe> 
 					{% elseif vedio.type == "Facebook"   %}
+					<div class="" style="max-height: 360px;max-width: 100%;">
 						{{ vedio.lien | raw}}
 
-						{% if '</iframe>' in vedio.lien %}
-						{% else %}
-						</iframe>
-						{% endif %}
+							{% if '</iframe>' in vedio.lien %}
+							{% else %}
+							</iframe>
+							{% endif %}
+					</div>
 					{% else %}
 
 					{% endif %}
