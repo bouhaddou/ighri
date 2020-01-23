@@ -14,7 +14,7 @@
 	<div class="block-21 mb-4 d-flex">
 		<a class="blog-img mr-4" style="background-image: url({{ asset("./upload/posts/"~ TopPost.avatar) }}"></a>
 		<div class="text">
-			<h3 class="heading-1"><a href="#">{{ TopPost.content|slice(0,70)|raw  }}</a></h3>
+			<h3 class="heading-1"><a href="{{ path('showpostpage',{'id': TopPost.id }) }}">{{ TopPost.content|slice(0,70)|raw  }}</a></h3>
 			<div class="meta">
 				<span class="clearfix" style="font-size: 13px; line-height: 0em;">
 						{{ TopPost.datepub | date('d-m-Y') }} <i class="far fa-clock"></i>

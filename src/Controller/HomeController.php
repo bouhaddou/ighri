@@ -32,6 +32,7 @@ class HomeController extends AbstractController
             FROM App\Entity\Posts p
             ORDER BY p.id DESC '
         )->setMaxResults(5)->getResult();
+        
         $compteur = $repo->findOneBy(['id' => 1 ]);
         
         if(is_null($compteur))

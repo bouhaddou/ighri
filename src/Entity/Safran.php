@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\PrePersist;
 use Doctrine\ORM\Mapping\HasLifecycleCallbacks;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\SafranRepository")
@@ -26,6 +27,10 @@ class Safran
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\File(
+     *     mimeTypes = {"image/jpeg","image/gif","image/png"},
+     *     mimeTypesMessage = "Please upload a valid Image"
+     * )
      */
     private $avatar;
 

@@ -5,12 +5,9 @@
 {% set xz = ''  %}
 {% include "home/menu.html.twig" with { xz : 'accuiel'  }  %}
 {% set idf = 0 %}
-<div >
-<div class="container">
-    <div class="row" >
-        <div class="col-md-2">
-
-        </div>
+<div style="background-color: #e9ebee;color: #1d2129;">
+<div class="container" >
+    <div class="row"  >
         <div class="col-md-8 style="background: url({{ asset('/images/ighriiii.jpg') }}) ;background-size: cover;" ">
             <div class="card mt-3">
                 <div class="card-header">
@@ -29,8 +26,8 @@
                     </div>
             </div>
         </div>
-        <div class="col-md-3">
-
+        <div class="col-md-4">
+            {% include "partials/developpeur.html.twig"  %}
         </div>
     </div>
 </div>

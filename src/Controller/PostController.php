@@ -28,12 +28,45 @@ class PostController extends AbstractController
         $pagination->setEntityClass(Posts::class)
                     ->setPage($page)
                     ->setLimit(10);
+                    $posts =$manger->createQuery(
+                        'SELECT  p
+                        FROM App\Entity\Posts p
+                        ORDER BY p.id DESC '
+                    )->setMaxResults(15)->getResult();
 
         $forms = [];
         foreach ( $pagination->getData() as $post ){
             $entity = new Comments();
             array_push($forms,$this->createForm(CommentHomeType::class, $entity)->createView());
         }
+           //---------------------------------------------users
+           $rows = $manger->createQuery('SELECT COUNT(u.id) 
+           FROM App\Entity\User u')
+           ->getSingleScalarResult();
+   
+           // calculate a random offset
+           $offs = max(0, rand(0, $rows - 8 - 1));
+           //Get the first $n rows(users) starting from a random point
+           $queryUser = $manger->createQuery('
+           SELECT DISTINCT u
+           FROM App\Entity\User u')
+           ->setMaxResults(8)
+           ->setFirstResult($offs);
+           $resultUsers = $queryUser->getResult(); 
+
+           $rows = $manger->createQuery('SELECT COUNT(p.id) 
+           FROM App\Entity\Posts p')
+           ->getSingleScalarResult();
+   
+           // calculate a random offset
+           $offset = max(0, rand(0, $rows - 8 - 1));
+           //Get the first $n rows(users) starting from a random point
+           $query = $manger->createQuery('
+           SELECT DISTINCT p
+           FROM App\Entity\Posts p ')
+           ->setMaxResults(8)
+           ->setFirstResult($offset);
+           $result = $query->getResult(); 
 
         if($request->isMethod("POST")){
             $comt = new Comments();
@@ -52,7 +85,10 @@ class PostController extends AbstractController
         }
         return $this->render('post/ArticlePost.html.twig',[
             'pagination' => $pagination,
-            'form' => $forms
+            'posts' => $posts,
+            'form' => $forms,
+            'TopPosts' => $result,
+            'users' => $resultUsers
         ]);
 }
 
