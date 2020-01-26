@@ -65,11 +65,13 @@
 					</div>
 					<div class="col-md-12 bg-white " >
 						<div class="row mt-1 mb-1" style="font-size: 11px;">
-							<div class="col text-center fb-share-button pt-2"><i class="fas fa-thumbs-up  "></i> J'aime</div>
+						<div class="fb-like col  pt-2" data-href="https://ighri.com/annonce/{{ post.id }}" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="false"></div>
 							<div id="commentbtn{{post.id}}" class="col  text-center pt-2 "><a  class="a-link" > {{ post.comments | length }} <i class="fas fa-comments"></i> Commenter</a></div>
 							<div class="fb-share-button col text-center pt-2" data-href="https://ighri.com/annonce/{{ post.id }}" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fighri.com%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Partager</a></div>
 						</div> <hr  class="m-1 p-0 h2"/>
 					</div>
+					<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v5.0&appId=714655039060030&autoLogAppEvents=1"></script>
 					{% if app.user %}
 					<div id="commenter{{post.id}}" style="border-bottom: #999;" class="col-12 mb-1 mt-0 bg-white">
                         <div class="row">							
