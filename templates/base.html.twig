@@ -36,13 +36,31 @@
 
     </head>
     <body>
-       
+       <script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId            : 'your-app-id',
+      autoLogAppEvents : true,
+      xfbml            : true,
+      version          : 'v5.0'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
       
 
         {% block body %}{% endblock %}
 
         {% block javascripts %}{% endblock %}
-
+     <div id="fb-root"></div>
+        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v5.0"></script>
         <script src="{{ asset('js/jquery.min.js') }}"></script>
         <script src="{{ asset('js/jquery-migrate-3.0.1.min.js') }}"></script>
         <script src="{{ asset('js/popper.min.js') }}"></script>
@@ -60,5 +78,7 @@
         <script src="{{ asset('js/google-map.js') }}"></script>
         <script src="{{ asset('js/main.js') }}"></script>
         <script src="{{ asset('js/sitejequery.js') }}"></script>
+        <script src="{{ asset('js/sitejequery.js') }}"></script>
+       
     </body>
 </html>
