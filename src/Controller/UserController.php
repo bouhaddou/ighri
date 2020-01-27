@@ -3,26 +3,16 @@
 namespace App\Controller;
 
 use App\Entity\User;
-use App\Entity\Posts;
-use Symfony\Component\Routing\Annotation\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use App\Form\UserType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * @Route("/user")
+ */
 class UserController extends AbstractController
 {
-
-
-    /**
-     * @Route("/users/{id}", name="showprofile")
-     * 
-     */
-    public function showprofile( $id)
-    {
-        $em = $this->getDoctrine()->getRepository(User::class);
-        $users = $em->findOneBy(['id' => $id]);
-        
-        return $this->render('user/profile.html.twig', [
-            'user' => $users
-        ]);
-    }
+    
 }

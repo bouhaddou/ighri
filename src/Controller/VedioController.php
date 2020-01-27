@@ -13,7 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Doctrine\Common\Persistence\ObjectManager;
 
 /**
- * @Route("/vedio")
+ * @Route("/Admin/vedio")
  */
 class VedioController extends AbstractController
 {
