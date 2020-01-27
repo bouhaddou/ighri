@@ -92,18 +92,6 @@ class PostController extends AbstractController
         ]);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
     /**
      * @Route("/post/image/{page<\d+>?1}", name="imagepage")
      */

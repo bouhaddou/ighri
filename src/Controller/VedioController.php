@@ -13,12 +13,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Doctrine\Common\Persistence\ObjectManager;
 
 /**
- * @Route("/Admin/vedio")
+ * @Route("/admin")
  */
 class VedioController extends AbstractController
 {
     /**
-     * @Route("/", name="vedio_index", methods={"GET"})
+     * @Route("/vedio", name="vedio_index", methods={"GET"})
      */
     public function index(VedioRepository $vedioRepository,ObjectManager $manger): Response
     {
@@ -33,7 +33,7 @@ class VedioController extends AbstractController
 
 
     /**
-     * @Route("/{id}", name="vedio_show", methods={"GET"})
+     * @Route("/vedio/{id}", name="vedio_show", methods={"GET"})
      */
     public function show(Vedio $vedio,ObjectManager $manger): Response
     {
@@ -46,7 +46,7 @@ class VedioController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="vedio_edit", methods={"GET","POST"})
+     * @Route("/vedio/{id}/edit", name="vedio_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Vedio $vedio): Response
     {
@@ -70,7 +70,7 @@ class VedioController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="vedio_delete", methods={"DELETE"})
+     * @Route("/vedio/{id}", name="vedio_delete", methods={"DELETE"})
      */
     public function delete(Request $request, Vedio $vedio): Response
     {
