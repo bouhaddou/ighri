@@ -24,7 +24,7 @@ class VedioController extends AbstractController
     {
         $contact = $manger->createQuery(" SELECT count(c) FROM App\Entity\Contact c WHERE c.valide = false ")->getSingleScalarResult();
         
-        return $this->render('Admin/vedio/index.html.twig', [
+        return $this->render('admin/vedio/index.html.twig', [
             'vedios' => $vedioRepository->findAll(),
             'stats'  => compact('contact')
         ]);
@@ -39,7 +39,7 @@ class VedioController extends AbstractController
     {
         $contact = $manger->createQuery(" SELECT count(c) FROM App\Entity\Contact c WHERE c.valide = false ")->getSingleScalarResult();
         
-        return $this->render('Admin/vedio/show.html.twig', [
+        return $this->render('admin/vedio/show.html.twig', [
             'vedio' => $vedio,
             'stats'  => compact('contact')
         ]);
@@ -63,7 +63,7 @@ class VedioController extends AbstractController
         }
 
 
-        return $this->render('Admin/vedio/edit.html.twig', [
+        return $this->render('admin/vedio/edit.html.twig', [
             'vedio' => $vedio,
             'form' => $form->createView(),
         ]);
