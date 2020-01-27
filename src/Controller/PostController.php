@@ -27,12 +27,12 @@ class PostController extends AbstractController
     {
         $pagination->setEntityClass(Posts::class)
                     ->setPage($page)
-                    ->setLimit(10);
+                    ->setLimit(30);
                     $posts =$manger->createQuery(
                         'SELECT  p
                         FROM App\Entity\Posts p
                         ORDER BY p.id DESC '
-                    )->setMaxResults(15)->getResult();
+                    )->setMaxResults(30)->getResult();
 
         $forms = [];
         foreach ( $pagination->getData() as $post ){
@@ -45,12 +45,12 @@ class PostController extends AbstractController
            ->getSingleScalarResult();
    
            // calculate a random offset
-           $offs = max(0, rand(0, $rows - 8 - 1));
+           $offs = max(0, rand(0, $rows - 15 - 1));
            //Get the first $n rows(users) starting from a random point
            $queryUser = $manger->createQuery('
            SELECT DISTINCT u
            FROM App\Entity\User u')
-           ->setMaxResults(8)
+           ->setMaxResults(15)
            ->setFirstResult($offs);
            $resultUsers = $queryUser->getResult(); 
 
@@ -59,12 +59,12 @@ class PostController extends AbstractController
            ->getSingleScalarResult();
    
            // calculate a random offset
-           $offset = max(0, rand(0, $rows - 8 - 1));
+           $offset = max(0, rand(0, $rows - 15 - 1));
            //Get the first $n rows(users) starting from a random point
            $query = $manger->createQuery('
            SELECT DISTINCT p
            FROM App\Entity\Posts p ')
-           ->setMaxResults(8)
+           ->setMaxResults(15)
            ->setFirstResult($offset);
            $result = $query->getResult(); 
 
@@ -134,6 +134,12 @@ class PostController extends AbstractController
                 $vedio->setType($type);
                 $entityManager->persist($vedio);
                 $entityManager->flush();
+                $this->addFlash(
+                    'success',
+                    " votre publication a été enregistré en attendant l'approbation de l'administration <br>
+                     تم حفظ المنشور في انتظار موافقة الإدارة"
+                );
+                 
                 return $this->redirectToRoute('vediopage');
             }
         return $this->render('home/newVedio.html.twig', [
@@ -147,7 +153,7 @@ class PostController extends AbstractController
     {
         $pagination->setEntityClass(Vedio::class)
             ->setPage($page)
-            ->setLimit(12);
+            ->setLimit(20);
            
             $vedio = new Vedio();
             $form = $this->createForm(VedioType::class, $vedio);
@@ -168,7 +174,7 @@ class PostController extends AbstractController
     }
 
     /**
-     * @Route("/annonce/{id}", name="showpostpage")
+     * @Route("/publication/{id}", name="showpostpage")
      */
     public function showpost(Posts $post,$id,Request $request,ObjectManager $manager)
     {
@@ -186,7 +192,7 @@ class PostController extends AbstractController
             $manager->flush();
             $this->addFlash(
                 'success',
-                ' vous avez commenter avec success merci bien'
+                ' vous avez commenter avec succès merci bien'
             );
             return  $this->redirectToRoute("showpostpage", array('id' => $post->getId()));
 
@@ -260,7 +266,7 @@ class PostController extends AbstractController
             $em->flush();
             $this->addFlash(
                 'success',
-                ' vous avez publier une annonce  avec success merci bien :) '
+                '  votre  publication a été  enregisterer  avec succès merci  '
             );
             return  $this->redirectToRoute("showpostpage", array('id' => $post->getId()));
 
@@ -302,7 +308,7 @@ class PostController extends AbstractController
             $em->flush();
             $this->addFlash(
                 'success',
-                ' votre  annonces de ighri à été  modifier  avec success   '
+                ' votre  publication de ighri à été  modifiée  avec succès   '
             );
            return  $this->redirectToRoute("showpostpage",array('id'=> $post->getId()));
         }
@@ -326,7 +332,7 @@ class PostController extends AbstractController
         $em->flush();
         $this->addFlash(
             'danger',
-            ' votre annonce  à été bien supprimer  '
+            ' votre publication  à été bien supprimée  '
         );
 
         return  $this->redirectToRoute("postpage");

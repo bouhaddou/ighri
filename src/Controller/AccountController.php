@@ -75,7 +75,7 @@ class AccountController extends AbstractController
              $em->flush();
              $this->addFlash(
                 'success',
-                ' vous êtes  inscrit avec success merci bien de votre temps  super d\'être avec nous '
+                "  l'inscription a été  effectuée avec succès.  "
             );
              return $this->redirectToRoute('account_login');
          }
@@ -97,6 +97,10 @@ class AccountController extends AbstractController
             $user->setPasswordUser($pass);
             $em->persist($user);
             $em->flush();
+            $this->addFlash(
+                'success',
+                "  l'inscription a été  modifiée avec succès.  "
+            );
             return $this->redirectToRoute('account_login');
         }
         return $this->render('account/registerEdit.html.twig', [
@@ -139,8 +143,9 @@ class AccountController extends AbstractController
             $em->flush();
             $this->addFlash(
                 'success',
-                ' votre photo de couverture à été modifiée avec success  '
+                ' votre  couverture à été modifiée avec succès  '
             );
+        
             return $this->redirectToRoute('showprofileuser', array('id' => $id));
         }
         return $this->render('account/couvert.html.twig', [
@@ -174,7 +179,7 @@ class AccountController extends AbstractController
                $em->flush();
                $this->addFlash(
                     'success',
-                    'votre mot de passe à  été modifiée avec success'
+                    'votre mot de passe à  été modifiée avec succès'
             );
             return $this->redirectToRoute('homepage');
             }
@@ -208,7 +213,7 @@ class AccountController extends AbstractController
             $em->flush();
             $this->addFlash(
                 'success',
-                ' Votre  profile a été bien modifier  '
+                ' Votre  profile a été  modifiée avec succès  '
             );
             return $this->redirectToRoute('showprofileuser',['id' => (string) $user->getId()]);
         }

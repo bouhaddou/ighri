@@ -30,7 +30,7 @@ class ContactController extends AbstractController
             $em->flush();
             $this->addFlash(
                 'success',
-                ' vous   Message à été  envoyer  avec success merci bien pour votre temps   '
+                ' Votre Message à été envoyé avec succès merci bien pour votre temps   '
             );
             return $this->redirectToRoute("contactpage");
         }

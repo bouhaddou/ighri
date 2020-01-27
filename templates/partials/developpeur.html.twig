@@ -1,11 +1,11 @@
  <div class="sidebar-box ftco-animate mt-3 border">
-	<h3 class="heading text-center" style="border-bottom: 1px solid #ccc;">Menu</h3>
-	<hr>
+	<h3 class="heading text-center border p-2" >Menu</h3>
+
 	<ul class="categories">
-		<li><a href=" {{ path('presentationpage') }} " class="text-primary">Ighri <span> </span></a></li>
-		<li><a href="{{  path('postpage') }}"class="text-primary">Publication  <span>({{ posts| length }})</span></a></li>
+		<li><a href=" {{ path('presentationpage') }} " class="text-primary">IGHRI <i class="fas fa-cat"></i> <span> </span></a></li>
+		<li><a href="{{  path('postpage') }}"class="text-primary">Publications  <span>({{ posts| length }})</span></a></li>
 		<li><a  href="{{ path('imagepage') }}"class="text-primary">Images <span>(37)</span></a></li>
-		<li><a href="{{ path('vediopage') }}"class="text-primary">Vedio <span>(42)</span></a></li>
+		<li><a href="{{ path('vediopage') }}"class="text-primary">Vidéos <span>(42)</span></a></li>
 	</ul>
 </div>
 <div class="sidebar-box ftco-animate border">
@@ -36,7 +36,7 @@
 	{% endfor  %}
 </div>
             <div class="sidebar-box ftco-animate border">
-              <h3 class="heading text-center text-secondary">Les Membres de Ighri</h3>
+              <h3 class=" text-center text-dark lead">les utilisateurs de Site</h3>
               <div class="">
 			{% for user in users %}
 			

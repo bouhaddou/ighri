@@ -45,7 +45,7 @@ class AdminPostController extends AbstractController
 
         $this->addFlash(
             'danger',
-            ' le poste à été bien supprimer correctement '
+            ' le poste à été bien supprimée correctement '
         );
 
         return  $this->redirectToRoute("admin_post_index");
