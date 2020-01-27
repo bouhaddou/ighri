@@ -143,22 +143,10 @@ class PostController extends AbstractController
         $pagination->setEntityClass(Vedio::class)
             ->setPage($page)
             ->setLimit(20);
-           
-            $vedio = new Vedio();
-            $form = $this->createForm(VedioType::class, $vedio);
-            $form->handleRequest($request);
-            if ($form->isSubmitted() && $form->isValid()) {
-                $entityManager = $this->getDoctrine()->getManager();
-                $vedio->setAuthor($this->getUser());
-                $type = $request->get("typeName");
-                $vedio->setType($type);
-                $entityManager->persist($vedio);
-                $entityManager->flush();
-                return $this->redirectToRoute('vediopage');
-            }
+        
         return $this->render('home/vedio.html.twig', [
             'pagination' => $pagination,
-            'form' => $form->createView()
+           
         ]);
     }
 
