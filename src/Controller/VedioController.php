@@ -48,13 +48,14 @@ class VedioController extends AbstractController
     /**
      * @Route("/vedios/{id}/edit", name="vedio_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Vedio $vedio): Response
+    public function edit(Request $request, Vedio $vedio,ObjectManager $manger): Response
     {
+        $contact = $manger->createQuery(" SELECT count(c) FROM App\Entity\Contact c WHERE c.valide = false ")->getSingleScalarResult();
+        
         $form = $this->createForm(VedioEditType::class, $vedio);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
-            $vedio->setAuthor($this->getUser());
             $type = $request->get("typeName");
             $vedio->setType($type);
             $entityManager->persist($vedio);
@@ -65,6 +66,7 @@ class VedioController extends AbstractController
 
         return $this->render('admin/vedio/edit.html.twig', [
             'vedio' => $vedio,
+            'stats'  => compact('contact'),
             'form' => $form->createView(),
         ]);
     }
