@@ -33,7 +33,7 @@ class VedioController extends AbstractController
 
 
     /**
-     * @Route("/vedios/{id}", name="vedio_show", methods={"GET"})
+     * @Route("/vedios/{id}/show", name="vedio_show", methods={"GET"})
      */
     public function show(Vedio $vedio,ObjectManager $manger): Response
     {
