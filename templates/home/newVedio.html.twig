@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Vedio{% endblock %}
+{% block title %}Nouvelle  vidéo{% endblock %}
 
 {% block body %}
 {% set xz = ''  %}
@@ -21,7 +21,7 @@
 				</select>
             </div>
             {{ form_row(form.lien) }}
-            <button class="btn btn-primary">{{ button_label|default('Enregistrer') }}</button>
+            <button type="submit" class="btn btn-primary">{{ button_label|default('Enregistrer') }}</button>
         {{ form_end(form) }}
 		</div>
 	</div>

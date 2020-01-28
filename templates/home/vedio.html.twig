@@ -23,7 +23,7 @@
 				</div>
 				<div class="col-md-3 mt-1 text-center">
 					{% if app.user %}
-					<a class="dropdown-item" href="{{ path('vedio_new') }}" ><i class="far fa-image "></i>  Ajouter une vidéos </a>
+					<a class="dropdown-item" href="{{ path('postVedioNew') }}" ><i class="far fa-image "></i>  Ajouter une vidéo </a>
 					{% else %}
 					<a class="dropdown-item" href="{{ path('account_login') }}" ><i class="far fa-user "></i>  connexion </a>
 					{% endif %}

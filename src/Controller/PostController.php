@@ -108,7 +108,7 @@ class PostController extends AbstractController
     }
 
     /**
-     * @Route("/post/vedio/new", name="vedio_new")
+     * @Route("/post/vedio/new", name="postVedioNew")
      */
     public function indexvedionew(Request $request)
     {
@@ -120,7 +120,6 @@ class PostController extends AbstractController
                 $vedio->setAuthor($this->getUser());
                 $type = $request->get("typeName");
                 $vedio->setType($type);
-               
                 $entityManager->persist($vedio);
                 $entityManager->flush();
                 $this->addFlash(
