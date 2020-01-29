@@ -65,9 +65,9 @@
 					</div>
 					<div class="col-md-12 bg-white " >
 						<div class="row mt-1 mb-1" style="font-size: 11px;">
-						<div class="fb-like col  pt-2" data-href="https://ighri.com/annonce/{{ post.id }}" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="false"></div>
-							<div id="commentbtn{{post.id}}" class="col  text-center pt-2 "><a  class="a-link" > {{ post.comments | length }} <i class="fas fa-comments"></i> Commenter</a></div>
-							<div class="fb-share-button col text-center pt-2" data-href="https://ighri.com/annonce/{{ post.id }}" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fighri.com%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Partager</a></div>
+						<div class="fb-like col  pt-2" data-href="https://ighri.com/publication/{{ post.id }}" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="false"></div>
+							<div id="commentbtn{{post.id}}" class="col  text-center pt-2 "><button  class=" btn btn-link " > {{ post.comments | length }} <i class="fas fa-comments text-primary"></i> Commenter</button></div>
+							<div class="fb-share-button col text-center pt-2" data-href="https://ighri.com/publication/{{ post.id }}" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fighri.com%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Partager</a></div>
 						</div> <hr  class="m-1 p-0 h2"/>
 					</div>
 					<div id="fb-root"></div>

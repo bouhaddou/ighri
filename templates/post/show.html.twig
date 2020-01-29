@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Tous Les Posts{% endblock %}
+{% block title %}{{ posts.titre }}{% endblock %}
 
 {% block body %}
 {% set xz = ''  %}
@@ -13,11 +13,11 @@
 			<div class="col-md-9 ftco-animate text-center">
 				<p class="breadcrumbs">
 					<span class="mr-2">
-						<h1>{{ posts.titre}}</h1>
+						
 					</span>
 					
 				</p>
-				<h6 class="mb-0  lead text-light">Bienvenu dans notre site de safran taliouine bio 100%</h6>
+				<h2 class="mb-4 bg-secondary"> <span class="text-primary">{{ posts.titre}}</span> </h2>
 			</div>
 		</div>
 	</div>
