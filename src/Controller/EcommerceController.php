@@ -8,14 +8,13 @@ use Symfony\Component\Routing\Annotation\Route;
 class EcommerceController extends AbstractController
 {
     /**
-     * @Route("/ecommerce", name="ecommercepage")
+     * @Route("/produits", name="produitspage")
      */
     public function index()
     {
-        return $this->render('ecommerce/index.html.twig', [
-            'controller_name' => 'EcommerceController',
-        ]);
+        return $this->render('produits/index.html.twig', [ ]);
     }
+    
     /**
      * @Route("/ecommerce/festival", name="festivalpage")
      */
