@@ -2,10 +2,14 @@
 
 namespace App\Controller;
 
-use App\Repository\CategorieRepository;
+use App\Entity\Produits;
+use App\Service\Pagination;
 use App\Repository\ProduitsRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Repository\CategorieRepository;
+use Symfony\Component\HttpFoundation\Request;
+use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
     /**
      * @Route("/produits")
@@ -21,23 +25,30 @@ class EcommerceController extends AbstractController
     }
     
     /**
-     * @Route("/All", name="AllProduits")
+     * @Route("/All/{page<\d+>?1}", name="AllProduits")
      */
-    public function details(CategorieRepository $categorie)
-    {
+    public function AllProduits(CategorieRepository $categorie,Pagination $pagination,$page,ObjectManager $manger,Request $request)
+    { 
+        $pagination->setEntityClass(Produits::class)
+                    ->setPage($page)
+                    ->setLimit(30);
+
         return $this->render('produits/pages/produits.html.twig', [ 
             'categories' => $categorie->findAll(),
+            'pagination' => $pagination
         ]);
     }
     
-
     /**
-     * @Route("/ecommerce/festival", name="festivalpage")
+     * @Route("/details/{id}", name="DetailsProduits")
      */
-    public function indexfestival()
-    {
-        return $this->render('ecommerce/festival.html.twig', [
-            'controller_name' => 'EcommerceController',
+    public function DetailsProduits(ProduitsRepository $produit,$id,ObjectManager $manger,Request $request)
+    { 
+        return $this->render('produits/pages/produit-single.html.twig', [ 
+            'produit' => $produit->findOneBy([ 'id' => $id])
+            
         ]);
     }
+
+    
 }

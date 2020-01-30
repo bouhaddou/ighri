@@ -17,7 +17,7 @@ class Ventes
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\clients", inversedBy="ventes")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Clients", inversedBy="ventes")
      * @ORM\JoinColumn(nullable=false)
      */
     private $client;

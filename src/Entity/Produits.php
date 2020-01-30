@@ -54,7 +54,7 @@ class Produits
     private $informations;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\categorie", inversedBy="produits")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Categorie", inversedBy="produits")
      * @ORM\JoinColumn(nullable=false)
      */
     private $categories;
@@ -68,6 +68,11 @@ class Produits
      * @ORM\OneToMany(targetEntity="App\Entity\Ventes", mappedBy="produit")
      */
     private $ventes;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $image;
 
     public function __construct()
     {
@@ -234,6 +239,18 @@ class Produits
                 $vente->setProduit(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(string $image): self
+    {
+        $this->image = $image;
 
         return $this;
     }

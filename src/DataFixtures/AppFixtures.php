@@ -6,6 +6,8 @@ use Faker\Factory;
 use App\Entity\User;
 use App\Entity\Image;
 use App\Entity\Posts;
+use App\Entity\Produits;
+use App\Entity\Categorie;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -21,56 +23,31 @@ class AppFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
        $faker =Factory::create('FR-fr');
-       $users= [];
-       $genres=['male','female'];
-
-       for( $k=0;$k<=10;$k++)
-       {
-           $user = new User();
-
-           $genre=$faker->randomElement($genres);
-           $picture = 'http://randomuser.me/api/portraits/';
-           $picturesID =$faker->numberBetween(1,99). '.jpg';
-           $picture = $picture.($genre =='male' ? 'men/' : 'women/').$picturesID;
-           $content ='<p>' . join('</p> <p>',$faker->paragraphs(3)) .'</p>';
-           $pass= $this->encoder->encodePassword($user,'password');
-           $user->setFirstname($faker->username)
-                ->setLastname($faker->lastname)
-                ->setEmail($faker->email)
-                ->setSlug($faker->sentence())
-                ->setContent($content)
-                ->setAvatar($picture)
-                ->setPasswordUser($pass);
-            $manager->persist($user);
-           $users[]=$user;
-       }
-        for( $i=1; $i<=30; $i++)
+       for( $i=1; $i<=10; $i++)
         { 
-        $post =new Posts();
+            $categorie =new Categorie();
+            $designation= $faker->sentence();
+            $content ='<p>' . join('</p><p>',$faker->paragraphs(3)) .'</p>';
+            $titre= $faker->sentence();
+            $categorie->setDesignation($titre)
+                 ->setContent($content);
+            $manager->persist($categorie);
 
-        $titre= $faker->sentence();
-        $avatar= $faker->imageUrl(1000,300);
-        $content ='<p>' . join('</p><p>',$faker->paragraphs(3)) .'</p>';
-        $date= $faker->dateTime($max = 'now', $timezone = null);
-        $user=$users[mt_rand(0,count($users) - 1 )];
-
-        $post->setTitre($titre)
-              ->setAvatar($avatar)
-              ->setDatepub($date)
-              ->setAuthor($user)
-              ->setContent($content);
-        for($j=1; $j<=mt_rand(2,5); $j++)
-        {
-            $image =new Image();
-
-            $image->setUrl($faker->imageUrl())
-                    ->setCaption($faker->sentence())
-                    ->setPosts($post);
-            $manager->persist($image);
-
-        }
-
-        $manager->persist($post);
+            for( $k=1; $k<=mt_rand(1,20); $k++)
+            {
+                $content ='<p>' . join('</p><p>',$faker->paragraphs(2)) .'</p>';
+                $avatar= "http://lorempixel.com/640/480/";
+                $produit = new Produits();
+                $produit->setReference("prodtuit")
+                        ->setSlug($faker->slug)
+                        ->setContent($content)
+                        ->setPoids(mt_rand(20,200))
+                        ->setPrix(mt_rand(5,20))
+                        ->setImage($avatar)
+                        ->setCategories($categorie);
+                        $manager->persist($produit);
+            } 
+           
         }
         $manager->flush();
 
