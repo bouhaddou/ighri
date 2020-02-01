@@ -1,0 +1,44 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Categorie index{% endblock %}
+
+{% block body %}
+<div style="margin: 0px 80px;" class="">
+    <h1 class="mt-3 mb-3 text-center">Gestion des Catégories</h1>
+    <a href="{{ path('categorie_new') }}">Créer une nouvelle Catégorie</a>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Designation</th>
+                <th>Content</th>
+                <th>Image</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for categorie in paginations.getData %}
+            <tr>
+                <td>{{ categorie.id }}</td>
+                <td>{{ categorie.designation }}</td>
+                <td>{{ categorie.content|slice(0,200)|raw }}</td>
+                <td>{{ categorie.image }}</td>
+                <td>
+                    <a href="{{ path('categorie_show', {'id': categorie.id}) }}">show</a>
+                    <a href="{{ path('categorie_edit', {'id': categorie.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+    <div class="d-flex justify-content-center">
+        {{ paginations.display() }}
+    </div>
+</div>
+{% endblock %}

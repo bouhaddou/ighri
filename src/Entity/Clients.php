@@ -43,6 +43,26 @@ class Clients
      */
     private $ventes;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $maison;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $pays;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $postal;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $password;
+
     public function __construct()
     {
         $this->ventes = new ArrayCollection();
@@ -128,6 +148,54 @@ class Clients
                 $vente->setClient(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getMaison(): ?string
+    {
+        return $this->maison;
+    }
+
+    public function setMaison(?string $maison): self
+    {
+        $this->maison = $maison;
+
+        return $this;
+    }
+
+    public function getPays(): ?string
+    {
+        return $this->pays;
+    }
+
+    public function setPays(string $pays): self
+    {
+        $this->pays = $pays;
+
+        return $this;
+    }
+
+    public function getPostal(): ?int
+    {
+        return $this->postal;
+    }
+
+    public function setPostal(?int $postal): self
+    {
+        $this->postal = $postal;
+
+        return $this;
+    }
+
+    public function getPassword(): ?string
+    {
+        return $this->password;
+    }
+
+    public function setPassword(string $password): self
+    {
+        $this->password = $password;
 
         return $this;
     }

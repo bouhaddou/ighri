@@ -27,9 +27,11 @@ class AppFixtures extends Fixture
         { 
             $categorie =new Categorie();
             $designation= $faker->sentence();
+            $avatar= "http://lorempixel.com/640/480/";
             $content ='<p>' . join('</p><p>',$faker->paragraphs(3)) .'</p>';
             $titre= $faker->sentence();
             $categorie->setDesignation($titre)
+                        ->setImage($avatar)
                  ->setContent($content);
             $manager->persist($categorie);
 

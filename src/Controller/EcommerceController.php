@@ -75,11 +75,11 @@ class EcommerceController extends AbstractController
     /**
      * @Route("/details/{id}", name="DetailsProduits")
      */
-    public function DetailsProduits(ProduitsRepository $produit,SessionInterface $session,$id,CategorieRepository $categorie)
+    public function DetailsProduits(ProduitsRepository $produits,SessionInterface $session,$id,CategorieRepository $categorie)
     { 
         $panier = $session->get('panier',[]);
         return $this->render('produits/pages/produit-single.html.twig', [ 
-            'produit' => $produit->findOneBy([ 'id' => $id]),
+            'produit' => $produits->findOneBy([ 'id' => $id]),
             'categories' => $categorie->findAll(),
             'count' => count($panier)
         ]);

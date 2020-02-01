@@ -25,7 +25,17 @@
 				Vedio
 				</a>
 			</li>
-			
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				Ecommerce
+				</a>
+				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+				<a class="dropdown-item" href="{{ path('categorie_index')  }}">Catégorie</a>
+				<a class="dropdown-item" href="{{ path('produits_index') }}">produits</a>
+				<div class="dropdown-divider"></div>
+				<a class="dropdown-item" href="#">Ventes</a>
+				</div>
+     		</li>
 			<li class="nav-item">
 				<a class="nav-link" href="{{ path('admin_comment') }}"><i class="fas fa-user text-danger"></i> Commentaires</a>
 			</li>

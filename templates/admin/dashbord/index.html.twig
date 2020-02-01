@@ -5,22 +5,42 @@
 {% block body %}
   
     <div class="row mt-4 mr-3 ml-3   ">
-        <div class="col bg-success p-2 ml-2 mr-2 rounded">
+        <div class="col bg-success p-2 ml-2 mr-2 rounded mt-3">
             <div class="row ">
-                <div class="col "><i class="fas fa-users fa-5x text-danger"></i></div>
-                <div class="col"><h3>{{ stats.user  }} Utilisateurs</h3></div>
+                <div class="col-md-4"><i class="fas fa-users fa-5x text-danger"></i></div>
+                <div class="col-md-8"><h3>{{ stats.user  }} Gestion Utilisateurs</h3></div>
             </div>
         </div>
-        <div class="col bg-info p-2 ml-2 mr-2 rounded">
+        <div class="col bg-info p-2 ml-2 mr-2 rounded mt-3">
             <div class="row ">
-                 <div class="col "><i class="fas fa-users fa-5x text-primary"></i></div>
-                <div class="col"><h3>{{ stats.post  }} annonces Postées</h3></div>
+                 <div class="col-md-4 "><i class="fas fa-users fa-5x text-primary"></i></div>
+                <div class="col-md-8"><h3>{{ stats.post  }} annonces Postées</h3></div>
             </div>
         </div>
-        <div class="col bg-danger p-2 ml-2 mr-2 rounded">
+        <div class="col bg-danger p-2 ml-2 mr-2 rounded mt-3">
             <div class="row ">
-                <div class="col"><i class="fas fa-users fa-5x text-secondary"></i></div>
-                <div class="col"> <h3>{{ stats.comment  }} Avis</h3></div>
+                <div class="col-md-4"><i class="fas fa-users fa-5x text-secondary"></i></div>
+                <div class="col-md-8"> <h3>{{ stats.comment  }} Gestion Avis</h3></div>
+            </div>
+        </div>
+    </div>
+     <div class="row mt-4 mr-3 ml-3   ">
+        <div class="col bg-info p-2 ml-2 mr-2 rounded mt-3">
+            <div class="row ">
+                 <div class="col-md-4 "><i class="fas fa-users fa-5x text-primary"></i></div>
+                <div class="col-md-8"><h3>{{ stats.post  }} Gestion Catégorie</h3></div>
+            </div>
+        </div>
+        <div class="col bg-danger p-2 ml-2 mr-2 rounded mt-3">
+            <div class="row ">
+                <div class="col-md-4"><i class="fas fa-users fa-5x text-secondary"></i></div>
+                <div class="col-md-8"> <h3>{{ stats.comment  }} Gestion Produits</h3></div>
+            </div>
+        </div>
+        <div class="col bg-danger p-2 ml-2 mr-2 rounded mt-3">
+            <div class="row ">
+                <div class="col-md-4"><i class="fas fa-users fa-5x text-secondary"></i></div>
+                <div class="col-md-8"> <h3>{{ stats.comment  }} Gestion Ventes</h3></div>
             </div>
         </div>
     </div>

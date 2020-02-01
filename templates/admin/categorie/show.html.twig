@@ -1,0 +1,36 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Categorie{% endblock %}
+
+{% block body %}
+   <div class="container">
+        <h1 class="mt-3 mb-3 text-center">Créer une Catégorie</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ categorie.id }}</td>
+            </tr>
+            <tr>
+                <th>Designation</th>
+                <td>{{ categorie.designation }}</td>
+            </tr>
+            <tr>
+                <th>Content</th>
+                <td>{{ categorie.content }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>{{ categorie.image }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary" href="{{ path('categorie_index') }}">Retour</a>
+
+    <a class="btn btn-success" href="{{ path('categorie_edit', {'id': categorie.id}) }}">edit</a>
+
+    {{ include('admin/categorie/_delete_form.html.twig') }}
+</div>
+{% endblock %}

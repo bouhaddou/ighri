@@ -1,0 +1,15 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Modification de  Produit{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1 class="text-center mt-3 mb-3">Modification de  Produit</h1>
+
+    {{ include('admin/produits/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a class="btn btn-danger" href="{{ path('produits_index') }}">Retour</a>
+
+    {{ include('admin/produits/_delete_form.html.twig') }}
+</div>
+{% endblock %}
