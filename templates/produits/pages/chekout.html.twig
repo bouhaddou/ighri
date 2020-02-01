@@ -1,0 +1,180 @@
+
+    {% extends 'base.html.twig' %}
+
+{% block title %}carte des produit
+{% endblock %}
+
+{% block body %}
+
+{% include "produits/partials/navbar.html.twig"  %}
+ <div class="hero-wrap hero-bread" style="background-image: url('images/bg_1.jpg');">
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center">
+          	<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Checkout</span></p>
+            <h1 class="mb-0 bread">Checkout</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="ftco-section">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-xl-7 ftco-animate">
+						<form action="#" class="billing-form">
+							<h3 class="mb-4 billing-heading">Détails de facturation</h3>
+	          	<div class="row align-items-end">
+	          		<div class="col-md-12">
+	                <div class="form-group">
+	                	<label for="firstname">Nom Complet</label>
+	                  <input type="text" class="form-control" placeholder="">
+	                </div>
+	              </div>
+                <div class="w-100"></div>
+		            <div class="col-md-12">
+		            	<div class="form-group">
+		            		<label for="country">État / Pays</label>
+		            		<div class="select-wrap">
+		                  <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+		                  <select name="" id="" class="form-control">
+                          <option value="Morocco" selected>Moroc</option>
+                           <option value="France">France</option>
+		                  	{% include "produits/partials/country.html.twig" %}
+		                  </select>
+		                </div>
+		            	</div>
+		            </div>
+		            <div class="w-100"></div>
+		            <div class="col-md-6">
+		            	<div class="form-group">
+	                	<label for="streetaddress">Numéro et nom de rue * </label>
+	                  <input type="text" class="form-control" placeholder="Numéro de maison et nom de rue">
+	                </div>
+		            </div>
+		            <div class="col-md-6">
+		            	<div class="form-group">
+	                  <input type="text" class="form-control" placeholder="Appartement, suite, unité, etc.: (facultatif)">
+	                </div>
+		            </div>
+		            <div class="w-100"></div>
+		            <div class="col-md-6">
+		            	<div class="form-group">
+	                	<label for="towncity">Ville</label>
+	                  <input type="text" class="form-control" placeholder="">
+	                </div>
+		            </div>
+		            <div class="col-md-6">
+		            	<div class="form-group">
+		            		<label for="postcodezip">Code postal  *</label>
+	                  <input type="text" class="form-control" placeholder="">
+	                </div>
+		            </div>
+		            <div class="w-100"></div>
+		            <div class="col-md-6">
+	                <div class="form-group">
+	                	<label for="phone">Téléphone</label>
+	                  <input type="text" class="form-control" placeholder="">
+	                </div>
+	              </div>
+	              <div class="col-md-6">
+	                <div class="form-group">
+	                	<label for="emailaddress"> Addresse Email</label>
+	                  <input type="text" class="form-control" placeholder="">
+	                </div>
+                </div>
+                <div class="col-md-12">
+	                <div class="form-group">
+	                	<label for="emailaddress"> Mot de Passe de compte</label>
+	                  <input type="password" class="form-control" placeholder="">
+	                </div>
+                </div>
+                <div class="w-100"></div>
+     
+	            </div>
+	          </form><!-- END -->
+					</div>
+					<div class="col-xl-5">
+	          <div class="row mt-5 pt-3">
+	          	<div class="col-md-12 d-flex mb-5">
+	          		<div class="cart-detail cart-total p-3 p-md-4">
+	          			<h3 class="billing-heading mb-4">Cart Total</h3>
+	          			<p class="d-flex">
+		    						<span>Subtotal</span>
+		    						<span>$20.60</span>
+		    					</p>
+		    					<p class="d-flex">
+		    						<span>Delivery</span>
+		    						<span>$0.00</span>
+		    					</p>
+		    					<p class="d-flex">
+		    						<span>Discount</span>
+		    						<span>$3.00</span>
+		    					</p>
+		    					<hr>
+		    					<p class="d-flex total-price">
+		    						<span>Total</span>
+		    						<span>$17.60</span>
+		    					</p>
+								</div>
+	          	</div>
+	          	<div class="col-md-12">
+	          		<div class="cart-detail p-3 p-md-4">
+	          			<h3 class="billing-heading mb-4">Mode de paiement</h3>
+									<div class="form-group">
+										<div class="col-md-12">
+											<div class="radio">
+											   <label><input type="radio" name="optradio" class="mr-2"> Virement bancaire </label>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-md-12">
+											<div class="radio">
+											   <label><input type="radio" name="optradio" class="mr-2"> Paiements par chèque</label>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-md-12">
+											<div class="radio">
+											   <label><input type="radio" name="optradio" class="mr-2"> Paypal<img class="img " src="{{ asset('/produits/logo_paypal_moyens_paiement_fr.jpg') }}"></label>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-md-12">
+											<div class="checkbox">
+                                            <p>Vos données personnelles seront utilisées pour le traitement de votre commande, vous accompagner au cours de votre visite du site web, et pour d’autres raisons décrites dans notre politique de confidentialité.</p>
+											   <label><input type="checkbox" value="" class="mr-2">  J’ai lu et j’accepte les conditions générales *</label>
+											</div>
+										</div>
+									</div>
+									<p><a href="#"class="btn btn-primary py-3 px-4">Commander</a></p>
+								</div>
+	          	</div>
+	          </div>
+          </div> <!-- .col-md-8 -->
+        </div>
+      </div>
+    </section> <!-- .section -->
+
+		<section class="ftco-section ftco-no-pt ftco-no-pb py-5 bg-light">
+      <div class="container py-4">
+        <div class="row d-flex justify-content-center py-5">
+          <div class="col-md-6">
+          	<h2 style="font-size: 22px;" class="mb-0">Subcribe to our Newsletter</h2>
+          	<span>Get e-mail updates about our latest shops and special offers</span>
+          </div>
+          <div class="col-md-6 d-flex align-items-center">
+            <form action="#" class="subscribe-form">
+              <div class="form-group d-flex">
+                <input type="text" class="form-control" placeholder="Enter email address">
+                <input type="submit" value="Subscribe" class="submit px-3">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    {% endblock %}

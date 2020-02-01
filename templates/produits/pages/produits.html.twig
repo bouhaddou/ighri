@@ -98,7 +98,7 @@
      <div class="col-lg-9 ftco-animate ">
         {% include "produits/partials/produitType.html.twig" %}
           <div class="d-flex justify-content-center mb-5">
-            {% if pagination.getData != null %}
+            {% if produits != null %}
               {{ pagination.display()  }}
               {% endif %}
         </div>

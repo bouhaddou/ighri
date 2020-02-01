@@ -33,7 +33,7 @@ class HomeController extends AbstractController
             ORDER BY p.id DESC '
         )->setMaxResults(5)->getResult();
         
-        $compteur = $repo->findOneBy(['id' => 2 ]);
+        $compteur = $repo->findOneBy(['id' => 3 ]);
         
         if(is_null($compteur))
         {

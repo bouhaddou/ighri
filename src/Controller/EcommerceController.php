@@ -2,59 +2,86 @@
 
 namespace App\Controller;
 
+use App\Entity\Contact;
 use App\Entity\Produits;
+use App\Form\ContactType;
 use App\Service\Pagination;
 use App\Repository\ProduitsRepository;
 use App\Repository\CategorieRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
- $php2js = new Produits();
-  
-   
-    
-    /**
+/**
      * @Route("/produits")
      */
 class EcommerceController extends AbstractController
 {
-     
-
     /**
      * @Route("/", name="produitspage")
      */
-    public function index(CategorieRepository $categorie)
+    public function index(CategorieRepository $categorie,SessionInterface $session,ObjectManager $manager)
     {
+        $panier = $session->get('panier',[]);
+        
+         //---------------------------------------------categorie
+         $rows = $manager->createQuery('SELECT COUNT(c.id) FROM App\Entity\Categorie c')->getSingleScalarResult();
+         // calculate a random offset
+         $offs = max(0, rand(0, $rows - 4 - 1));
+         //Get the first $n rows(users) starting from a random point
+         $queryUser = $manager->createQuery('SELECT DISTINCT c FROM App\Entity\Categorie c')
+                               ->setMaxResults(4)
+                               ->setFirstResult($offs);
+         $categorieSpeciale = $queryUser->getResult(); 
+
+        //---------------------------------------------categorie
+        $rows = $manager->createQuery('SELECT COUNT(p.id) FROM App\Entity\Produits p')->getSingleScalarResult();
+        // calculate a random offset
+        $offs = max(0, rand(0, $rows - 9 - 1));
+        //Get the first $n rows(users) starting from a random point
+        $queryUser = $manager->createQuery('SELECT DISTINCT p FROM App\Entity\Produits p')
+                                ->setMaxResults(9)
+                                ->setFirstResult($offs);
+        $produitsSpeciale = $queryUser->getResult(); 
+       
         return $this->render('produits/pages/index.html.twig', [ 
             'categories' => $categorie->findAll(),
+            'catSpeciale' => $categorieSpeciale,
+            'produits' => $produitsSpeciale,
+            'count' => count($panier)
         ]);
     }
     
     /**
      * @Route("/All/{page<\d+>?1}", name="AllProduits")
      */
-    public function AllProduits(CategorieRepository $categorie,Pagination $pagination,$page,ObjectManager $manger,Request $request)
+    public function AllProduits(CategorieRepository $categorie,SessionInterface $session,Pagination $pagination,$page,ObjectManager $manger,Request $request)
     { 
+        $panier = $session->get('panier',[]);
         $pagination->setEntityClass(Produits::class)
                     ->setPage($page)
                     ->setLimit(20);
 
         return $this->render('produits/pages/produits.html.twig', [ 
             'categories' => $categorie->findAll(),
-            'produits' => $pagination->getData()
+            'produits' => $pagination->getData(),
+            'pagination' => $pagination,
+            'count' => count($panier)
         ]);
     }
     
     /**
      * @Route("/details/{id}", name="DetailsProduits")
      */
-    public function DetailsProduits(ProduitsRepository $produit,$id,CategorieRepository $categorie)
+    public function DetailsProduits(ProduitsRepository $produit,SessionInterface $session,$id,CategorieRepository $categorie)
     { 
+        $panier = $session->get('panier',[]);
         return $this->render('produits/pages/produit-single.html.twig', [ 
             'produit' => $produit->findOneBy([ 'id' => $id]),
             'categories' => $categorie->findAll(),
+            'count' => count($panier)
         ]);
     }
 
@@ -62,25 +89,106 @@ class EcommerceController extends AbstractController
     /**
      * @Route("/Categorie/{id}/produit", name="SearcheProduits")
      */
-    public function SearchByCategorie(ProduitsRepository $produits,$id,CategorieRepository $categorie)
+    public function SearchByCategorie(ProduitsRepository $produits,SessionInterface $session,$id,CategorieRepository $categorie)
     { 
+        $panier = $session->get('panier',[]);
         $result=$categorie->findOneBy([ 'id' => $id]);
-            dd($produits->findProduitByCategorie( $result));
         return $this->render('produits/pages/produitParCategorie.html.twig', [ 
             'categories' => $categorie->findAll(),
-            'produits' => $produits->findProduitByCategorie( $result)
+            'produits' => $produits->findProduitByCategorie( $result),
+            'count' => count($panier)
+        ]);
+    }
+
+    /**
+     * @Route("/cart", name="cart_page")
+     */
+    public function cartpage(SessionInterface $session,ProduitsRepository $produits,CategorieRepository $categorie)
+    { 
+        $panier = $session->get('panier',[]);
+        $panierdata =[];
+        foreach($panier as $id => $quantity)
+        {
+            $panierdata[] = [
+                "produit" => $produits->find($id),
+                "quantite" => $quantity
+            ];
+        }
+        return $this->render('produits/pages/cart.html.twig', [ 
+            'categories' => $categorie->findAll(),
+            'produits' => $panierdata,
+            'count' => count($panier)
         ]);
     }
 
      /**
-     * @Route("/cart/{id}/produit", name="CartProduits")
+     * @Route("/cart/{id}/produit", name="Cartadd")
      */
-    public function CartProduit(ProduitsRepository $produits,$id,ObjectManager $manager)
+    public function add(SessionInterface $session,$id)
     { 
-        
-        $php2js=$produits->findOneBy([ 'id' => $id]);
-        $manager->persist($php2js);
-        return $this->redirectToRoute('dd');
+       $panier = $session->get('panier',[]);
+       if(empty($panier[$id]))
+       {
+        $panier[$id] = 1;
+       }else{
+        $panier[$id]++;
+       }
+       $session->set('panier',$panier);
+      return  $this->redirectToRoute('cart_page');
+    }
+
+    /**
+     * @Route("/cart/{id}/remove", name="cart_remove")
+     */
+    public function remove(SessionInterface $session,$id)
+    { 
+       $panier = $session->get('panier',[]);
+
+       if(!empty($panier[$id]))
+       {
+       unset($panier[$id]);
+       }
+       $session->set('panier',$panier);
+      return  $this->redirectToRoute('cart_page');
     }
     
+    /**
+     * @Route("/chekout", name="chekout_page")
+     */
+    public function chekoutpage(SessionInterface $session,CategorieRepository $categorie)
+    { 
+        $panier = $session->get('panier',[]);
+        return $this->render('produits/pages/chekout.html.twig', [ 
+            'categories' => $categorie->findAll(),
+            'count' => count($panier)
+        ]);
+    }
+
+    /**
+     * @Route("/contact_produit", name="produitContact")
+     */
+    public function produitContact( Request $request,SessionInterface $session,CategorieRepository $categorie)
+    {
+        $panier = $session->get('panier',[]);
+        $contact = new Contact();
+        $form=$this->createForm(ContactType::class,$contact);
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid())
+        {
+            $em = $this->getDoctrine()->getManager();
+            $contact->setValide(false);
+            $em->persist($contact);
+            $em->flush();
+            $this->addFlash(
+                'success',
+                ' Votre Message à été envoyé avec succès merci bien pour votre temps   '
+            );
+            return $this->redirectToRoute("produitContact");
+        }
+        return $this->render('produits/pages/contact.html.twig', [
+            'form' => $form->createView(),
+            'categories' => $categorie->findAll(),
+            'count' => count($panier)
+        ]);
+    }
 }
