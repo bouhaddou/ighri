@@ -42,7 +42,7 @@
             </tr>
             <tr>
                 <th>Image</th>
-                <td>{{ produit.image }}</td>
+              <td><img class="img-fluid w-100" style="max-height: 90px;max-width: 100px;" src="{{ asset("/produits/produit/"~ produit.image ) }}"  </td>
             </tr>
         </tbody>
     </table>

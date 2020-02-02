@@ -48,19 +48,25 @@
 						<span class="{% if xz == 'accuiel' %} text-danger {% endif %}" >	Accuiel </span>
 					</a>
 				</li>
-		
-				<li class="nav-item ">
-                    <a href=" {{ path('presentationpage') }} " class="nav-link">
-						<i class="fas fa-camera-retro text-primary"></i>	
-						<span class="{% if xz == 'Presentation' %} text-danger  {% endif %}" > Presentation</span>
-					</a>
+					<li class="nav-item dropdown ">
+						<a class="nav-link dropdown-toggle" id="dropdown05" data-toggle="dropdown05" 
+						aria-haspopup="true" aria-expanded="false">
+							<i class="fas fa-shopping-cart text-primary"></i> <span class="" >	BOUTIQUE </span>
+						</a>
+						<div class="dropdown-menu" aria-labelledby="dropdown05">
+							{% for categorie in categories %}
+              					<a class="dropdown-item" href="{{ path('SearcheProduits',{ 'id': categorie.id }) }}">{{ categorie.designation }}</a>
+							{% endfor %}
+						</div>
 				</li>
+			
 				<li class="nav-item dropdown {% if xz == 'ighri' %} active {% endif %}">
 						<a class="nav-link dropdown-toggle"  id="dropdown03" data-toggle="dropdown03" 
 						aria-haspopup="true" aria-expanded="false">
 							<i class="fas fa-cat text-primary"></i> <span class="" >	Ighri </span>
 						</a>
 						<div class="dropdown-menu" aria-labelledby="dropdown03">
+							<a class="dropdown-item" href="{{  path('presentationpage') }}" > <i class="fas fa-cat text-light"></i> Présentation</a>
 							<a class="dropdown-item" href="{{  path('postpage') }}" > <i class="fas fa-cat text-light"></i> Ighri taliouine</a>
 							<a class="dropdown-item" href="{{ path('zafranpage') }}" ><i class="fas fa-tree text-light"></i> Safran Ighri</a>
 							<a class="dropdown-item" href="{{ path('agriculepage') }}" ><i class="fas fa-tree text-light"></i> Agriculture Ighri</a>

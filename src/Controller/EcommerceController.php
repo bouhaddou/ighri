@@ -29,14 +29,14 @@ class EcommerceController extends AbstractController
          //---------------------------------------------categorie
          $rows = $manager->createQuery('SELECT COUNT(c.id) FROM App\Entity\Categorie c')->getSingleScalarResult();
          // calculate a random offset
-         $offs = max(0, rand(0, $rows - 4 - 1));
+         $offs = max(0, rand(0, $rows - 5 - 1));
          //Get the first $n rows(users) starting from a random point
          $queryUser = $manager->createQuery('SELECT DISTINCT c FROM App\Entity\Categorie c')
-                               ->setMaxResults(4)
+                               ->setMaxResults(5)
                                ->setFirstResult($offs);
          $categorieSpeciale = $queryUser->getResult(); 
 
-        //---------------------------------------------categorie
+        //---------------------------------------------produits
         $rows = $manager->createQuery('SELECT COUNT(p.id) FROM App\Entity\Produits p')->getSingleScalarResult();
         // calculate a random offset
         $offs = max(0, rand(0, $rows - 9 - 1));
@@ -57,31 +57,43 @@ class EcommerceController extends AbstractController
     /**
      * @Route("/All/{page<\d+>?1}", name="AllProduits")
      */
-    public function AllProduits(CategorieRepository $categorie,SessionInterface $session,Pagination $pagination,$page,ObjectManager $manger,Request $request)
+    public function AllProduits(ObjectManager $manager, CategorieRepository $categorie,SessionInterface $session,Pagination $pagination,$page,ObjectManager $manger,Request $request)
     { 
         $panier = $session->get('panier',[]);
         $pagination->setEntityClass(Produits::class)
                     ->setPage($page)
                     ->setLimit(20);
+    $cat =$manager->createQuery(
+            'SELECT  p
+            FROM App\Entity\Categorie p
+            ORDER BY p.id DESC '
+        )->setMaxResults(3)->getResult();
 
         return $this->render('produits/pages/produits.html.twig', [ 
             'categories' => $categorie->findAll(),
             'produits' => $pagination->getData(),
             'pagination' => $pagination,
-            'count' => count($panier)
+            'count' => count($panier),
+            'cats' => $cat
         ]);
     }
     
     /**
      * @Route("/details/{id}", name="DetailsProduits")
      */
-    public function DetailsProduits(ProduitsRepository $produits,SessionInterface $session,$id,CategorieRepository $categorie)
+    public function DetailsProduits(ObjectManager $manager, ProduitsRepository $produits,SessionInterface $session,$id,CategorieRepository $categorie)
     { 
+        $cat =$manager->createQuery(
+            'SELECT  p
+            FROM App\Entity\Produits p
+            ORDER BY p.id DESC '
+             )->setMaxResults(12)->getResult();
         $panier = $session->get('panier',[]);
         return $this->render('produits/pages/produit-single.html.twig', [ 
             'produit' => $produits->findOneBy([ 'id' => $id]),
             'categories' => $categorie->findAll(),
-            'count' => count($panier)
+            'count' => count($panier),
+            'produits' => $cat,
         ]);
     }
 
@@ -89,14 +101,21 @@ class EcommerceController extends AbstractController
     /**
      * @Route("/Categorie/{id}/produit", name="SearcheProduits")
      */
-    public function SearchByCategorie(ProduitsRepository $produits,SessionInterface $session,$id,CategorieRepository $categorie)
+    public function SearchByCategorie(ProduitsRepository $produits,SessionInterface $session,$id,CategorieRepository $categorie,ObjectManager $manager)
     { 
+        $cat =$manager->createQuery(
+            'SELECT  p
+            FROM App\Entity\Categorie p
+            ORDER BY p.id DESC '
+        )->setMaxResults(3)->getResult();
+
         $panier = $session->get('panier',[]);
         $result=$categorie->findOneBy([ 'id' => $id]);
         return $this->render('produits/pages/produitParCategorie.html.twig', [ 
             'categories' => $categorie->findAll(),
             'produits' => $produits->findProduitByCategorie( $result),
-            'count' => count($panier)
+            'count' => count($panier),
+            'cats' => $cat
         ]);
     }
 
@@ -152,17 +171,7 @@ class EcommerceController extends AbstractController
       return  $this->redirectToRoute('cart_page');
     }
     
-    /**
-     * @Route("/chekout", name="chekout_page")
-     */
-    public function chekoutpage(SessionInterface $session,CategorieRepository $categorie)
-    { 
-        $panier = $session->get('panier',[]);
-        return $this->render('produits/pages/chekout.html.twig', [ 
-            'categories' => $categorie->findAll(),
-            'count' => count($panier)
-        ]);
-    }
+    
 
     /**
      * @Route("/contact_produit", name="produitContact")

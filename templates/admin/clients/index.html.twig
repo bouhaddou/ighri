@@ -1,0 +1,51 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Clients index{% endblock %}
+
+{% block body %}
+<div style="margin: 0px 80px;" class="">
+    <h1 class="mt-3 mb-3 text-center">Gestion des Clients</h1>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>NomComplet</th>
+                <th>Email</th>
+                <th>Tele</th>
+                <th>Adresse</th>
+                <th>Maison</th>
+                <th>Pays</th>
+                <th>Postal</th>
+                <th>Password</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for client in paginations.getData %}
+            <tr>
+                <td>{{ client.id }}</td>
+                <td>{{ client.nomComplet }}</td>
+                <td>{{ client.email }}</td>
+                <td>{{ client.tele }}</td>
+                <td>{{ client.adresse }}</td>
+                <td>{{ client.maison }}</td>
+                <td>{{ client.pays }}</td>
+                <td>{{ client.postal }}</td>
+                <td>{{ client.password }}</td>
+                <td>
+                    <a href="{{ path('clients_show', {'id': client.id}) }}">show</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <div class="d-flex justify-content-center">
+        {{ paginations.display() }}
+    </div>
+</div>
+{% endblock %}

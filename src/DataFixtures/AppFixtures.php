@@ -23,7 +23,7 @@ class AppFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
        $faker =Factory::create('FR-fr');
-       for( $i=1; $i<=10; $i++)
+       for( $i=1; $i<=1; $i++)
         { 
             $categorie =new Categorie();
             $designation= $faker->sentence();
@@ -35,7 +35,7 @@ class AppFixtures extends Fixture
                  ->setContent($content);
             $manager->persist($categorie);
 
-            for( $k=1; $k<=mt_rand(1,20); $k++)
+            for( $k=1; $k<=1; $k++)
             {
                 $content ='<p>' . join('</p><p>',$faker->paragraphs(2)) .'</p>';
                 $avatar= "http://lorempixel.com/640/480/";

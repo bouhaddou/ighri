@@ -11,6 +11,7 @@ use App\Form\CommentType;
 use App\Service\Pagination;
 use App\Form\CommentHomeType;
 use App\Repository\PostsRepository;
+use App\Repository\CategorieRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Routing\Annotation\Route;
@@ -23,7 +24,7 @@ class PostController extends AbstractController
     /**
      * @Route("/post/{page<\d+>?1}", name="postpage")
      */
-    public function index(Pagination $pagination,$page,ObjectManager $manger,Request $request)
+    public function index(Pagination $pagination,$page,ObjectManager $manger,Request $request,CategorieRepository $categorie)
     {
         $pagination->setEntityClass(Posts::class)
                     ->setPage($page)
@@ -88,14 +89,16 @@ class PostController extends AbstractController
             'posts' => $posts,
             'form' => $forms,
             'TopPosts' => $result,
-            'users' => $resultUsers
+            'users' => $resultUsers,
+            'categories' => $categorie->findAll(),
+
         ]);
 }
 
     /**
      * @Route("/post/image/{page<\d+>?1}", name="imagepage")
      */
-    public function indeximage(Pagination $pagination, $page)
+    public function indeximage(Pagination $pagination, $page,CategorieRepository $categorie)
     {
         $pagination->setEntityClass(Posts::class)
             ->setPage($page)
@@ -103,6 +106,7 @@ class PostController extends AbstractController
 
         return $this->render('home/image.html.twig', [
             'pagination' => $pagination,
+            'categories' => $categorie->findAll(),
             
         ]);
     }
@@ -110,7 +114,7 @@ class PostController extends AbstractController
     /**
      * @Route("/post/vedio/new", name="postVedioNew")
      */
-    public function indexvedionew(Request $request)
+    public function indexvedionew(Request $request,CategorieRepository $categorie)
     {
             $vedio = new Vedio();
             $form = $this->createForm(VedioType::class, $vedio);
@@ -131,19 +135,22 @@ class PostController extends AbstractController
                 return $this->redirectToRoute('vediopage');
             }
         return $this->render('home/newVedio.html.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'categories' => $categorie->findAll(),
+
         ]);
     }
      /**
      * @Route("/post/vedio/{page<\d+>?1}", name="vediopage")
      */
-    public function indexvedio(Pagination $pagination, $page,Request $request)
+    public function indexvedio(Pagination $pagination, $page,Request $request,CategorieRepository $categorie)
     {
         $pagination->setEntityClass(Vedio::class)
             ->setPage($page)
             ->setLimit(20);
         
         return $this->render('home/vedio.html.twig', [
+            'categories' => $categorie->findAll(),
             'pagination' => $pagination,
            
         ]);
@@ -152,7 +159,7 @@ class PostController extends AbstractController
     /**
      * @Route("/publication/{id}", name="showpostpage")
      */
-    public function showpost(Posts $post,$id,Request $request,ObjectManager $manager)
+    public function showpost(Posts $post,$id,Request $request,ObjectManager $manager,CategorieRepository $categorie)
     {
         $coment = new Comments();
         $form = $this->createForm(CommentType::class,$coment); 
@@ -205,7 +212,8 @@ class PostController extends AbstractController
             'posts' => $posts,
             'form' => $form->createView(),
             'TopPosts' => $result,
-            'users' => $resultUsers
+            'categories' => $categorie->findAll(),
+            'users' => $resultUsers,
         ]);
     }
 
@@ -213,7 +221,7 @@ class PostController extends AbstractController
      * @Route("/posts/new", name="newpostpage")
      * @IsGranted("ROLE_USER")
      */
-    public function newpost(Request $request)
+    public function newpost(Request $request,CategorieRepository $categorie)
     {
         $post = new Posts();
        
@@ -249,7 +257,8 @@ class PostController extends AbstractController
         }
 
         return $this->render('post/AdPost.html.twig', [
-            'form' => $form->createView()
+            'categories' => $categorie->findAll(),
+            'form' => $form->createView(),
         ]);
     }
 
@@ -257,7 +266,7 @@ class PostController extends AbstractController
      * @Route("/posts/{id}/edit", name="editpostpage")
      * @IsGranted("ROLE_USER")
      */
-    public function editpost(Request $request,Posts $post)
+    public function editpost(Request $request,Posts $post,CategorieRepository $categorie)
     {
 
         $form = $this->createForm(PostType::class, $post);
@@ -290,7 +299,9 @@ class PostController extends AbstractController
         }
 
         return $this->render('post/edit.html.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'categories' => $categorie->findAll(),
+
         ]);
     }
 

@@ -8,32 +8,40 @@
 {% include "produits/partials/navbar.html.twig"  %}
     <section id="home-section" class="hero">
 		  <div class="home-slider owl-carousel">
-	      <div class="slider-item" style="background-image: url( {{ asset('/produits/images/bg_1.jpg') }} );">
+	      <div class="slider-item" style="background-image: url( {{ asset('/produits/safran23.jpg') }} );">
 	      	<div class="overlay"></div>
 	        <div class="container">
 	          <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
 
 	            <div class="col-md-12 ftco-animate text-center">
-	              <h1 class="mb-2">We serve Fresh Vegestables &amp; Fruits</h1>
-	              <h2 class="subheading mb-4">We deliver organic vegetables &amp; fruits</h2>
-	              <p><a href="#" class="btn btn-primary">View Details</a></p>
+	              <h1 class="mb-2">SAFRAN DE TALIOUINE  &amp; BIO</h1>
+	              <p><a href="#" class="btn btn-primary">Achetez maintenant</a></p>
 	            </div>
 
 	          </div>
 	        </div>
 	      </div>
 
-	      <div class="slider-item" style="background-image: url( {{ asset('/produits/images/bg_2.jpg') }});">
+	      <div class="slider-item" style="background-image: url( {{ asset('/produits/safran.jpg') }});">
+	      	<div class="overlay"></div>
+	        <div class="container">
+	          <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
+	            <div class="col-sm-12 ftco-animate text-center">
+	              <h1 class="mb-2">SAFRAN DE TALIOUINE  &amp; BIO</h1>
+	               <p><a href="#" class="btn btn-primary">Achetez maintenant</a></p>
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+        <div class="slider-item" style="background-image: url( {{ asset('/produits/argan.jpg') }});">
 	      	<div class="overlay"></div>
 	        <div class="container">
 	          <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
 
 	            <div class="col-sm-12 ftco-animate text-center">
-	              <h1 class="mb-2">100% Fresh &amp; Organic Foods</h1>
-	              <h2 class="subheading mb-4">We deliver organic vegetables &amp; fruits</h2>
-	              <p><a href="#" class="btn btn-primary">View Details</a></p>
+	              <h1 class="mb-2">ARGANE DE AWLOZE MAROC  &amp; BIO</h1>
+	               <p><a href="#" class="btn btn-primary">Achetez maintenant</a></p>
 	            </div>
-
 	          </div>
 	        </div>
 	      </div>
@@ -56,7 +64,7 @@
           <div class="col-md-3 text-center d-flex align-self-stretch ftco-animate">
             <div class="media block-6 services mb-md-0 mb-4">
               <div class="icon bg-color-2 d-flex justify-content-center align-items-center mb-2">
-            		<span class="flaticon-diet"></span>
+            		<span class=""><img width="100px" src="{{ asset('/upload/images/zafran.png') }}"></span>
               </div>
               <div class="media-body">
                 <h3 class="heading">Bio & Equitable</h3>
@@ -95,7 +103,8 @@
 					<div class="col-md-8">
 						<div class="row">
 							<div class="col-md-6 order-md-last align-items-stretch d-flex">
-								<div class="category-wrap-2 ftco-animate img align-self-stretch d-flex" style="background-image: url( {{ asset('/produits/images/category.jpg') }});">
+								<div class="category-wrap-2 ftco-animate img align-self-stretch d-flex" 
+                style="background-image: url( {{ asset('/produits/categorie/'~  cycle(catSpeciale[0].image,1) ) }});">
 									<div class="text text-center">
 										<h2>Produits bio en ligne</h2>
 										<p>Protégez la santé de chaque maison</p>
@@ -104,41 +113,39 @@
 								</div>
 							</div>
 							<div class="col-md-6">
-								<div class="category-wrap ftco-animate img mb-4 d-flex align-items-end" style="background-image: url( {{ asset('/produits/images/category-1.jpg') }});">
+								<div class="category-wrap ftco-animate img mb-4 d-flex align-items-end" 
+                style="background-image: url( {{ asset('/produits/categorie/'~  cycle(catSpeciale[1].image,1) ) }});">
 									<div class="text px-3 py-1">
-										<h2 class="mb-0"><a href="{{ path('SearcheProduits',{ 'id': cycle(catSpeciale[0].id,2) }) }}">{{  cycle(catSpeciale[0].designation,2) }}</a></h2>
+										<h2 class="mb-0"><a href="{{ path('SearcheProduits',{ 'id': cycle(catSpeciale[1].id,1) }) }}">{{  cycle(catSpeciale[0].designation,2) }}</a></h2>
 									</div>
 								</div>
-								<div class="category-wrap ftco-animate img d-flex align-items-end" style="background-image: url( {{ asset('/produits/images/category-2.jpg') }});">
+								<div class="category-wrap ftco-animate img d-flex align-items-end" 
+                style="background-image: url( {{ asset('/produits/categorie/'~  cycle(catSpeciale[2].image,1) ) }});">
 									<div class="text px-3 py-1">
-										<h2 class="mb-0"><a href="{{ path('SearcheProduits',{ 'id': cycle(catSpeciale[1].id,1) }) }}">{{  cycle(catSpeciale[1].designation,2) }}</a></h2>
+										<h2 class="mb-0"><a href="{{ path('SearcheProduits',{ 'id': cycle(catSpeciale[2].id,1) }) }}">{{  cycle(catSpeciale[1].designation,2) }}</a></h2>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-
 					<div class="col-md-4">
-						<div class="category-wrap ftco-animate img mb-4 d-flex align-items-end" style="background-image: url( {{ asset('/produits/images/category-3.jpg') }});">
+						<div class="category-wrap ftco-animate img mb-4 d-flex align-items-end" 
+            style="background-image: url( {{ asset('/produits/categorie/'~  cycle(catSpeciale[3].image,2) ) }});">
 							<div class="text px-3 py-1">
-								<h2 class="mb-0"><a href="{{ path('SearcheProduits',{ 'id': cycle(catSpeciale[2].id,1) }) }}">{{  cycle(catSpeciale[2].designation,2) }}</a></h2>
+								<h2 class="mb-0"><a href="{{ path('SearcheProduits',{ 'id': cycle(catSpeciale[3].id,1) }) }}">{{  cycle(catSpeciale[2].designation,2) }}</a></h2>
 							</div>		
 						</div>
-						<div class="category-wrap ftco-animate img d-flex align-items-end" style="background-image: url( {{ asset('/produits/images/category-4.jpg') }});">
+						<div class="category-wrap ftco-animate img d-flex align-items-end" 
+            style="background-image: url( {{ asset('/produits/categorie/'~  cycle(catSpeciale[4].image,1) ) }});">
 							<div class="text px-3 py-1">
-							
-								<h2 class="mb-0"><a href="{{ path('SearcheProduits',{ 'id': cycle(catSpeciale[3].id,1) }) }}">{{  cycle(catSpeciale[3].designation,2) }}</a></h2>
+								<h2 class="mb-0"><a href="{{ path('SearcheProduits',{ 'id': cycle(catSpeciale[4].id,1) }) }}">{{  cycle(catSpeciale[3].designation,2) }}</a></h2>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 	</section>
-
 		{% include "produits/partials/produitType.html.twig" %}
-    
-
-
     <section class="ftco-section testimony-section">
       <div class="container">
         <div class="row justify-content-center mb-5 pb-3">
@@ -165,7 +172,6 @@
                   </div>
                 </div>
               </div>
-             
               <div class="item">
                 <div class="testimony-wrap p-4 pb-5">
                   <div class="user-img mb-5" style="background-image: url( {{ asset('/produits/images/person_1.jpg') }})">
@@ -185,11 +191,7 @@
         </div>
       </div>
     </section>
-
     <hr>
-
-
-
 	<section class="ftco-section ftco-no-pt ftco-no-pb py-5 bg-light">
       <div class="container py-4">
         <div class="row d-flex justify-content-center py-5">

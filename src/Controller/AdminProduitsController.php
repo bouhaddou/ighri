@@ -45,13 +45,18 @@ class AdminProduitsController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($produit);
-            $entityManager->flush();
-
+            $file = $form['image']->getData();
+            $filename = md5(uniqid()) . '.' . $file->guessExtension();
+            $file->move($this->getParameter('upload_directory_produit'), $filename);
+            $produit->setImage($filename);
+            $manger->persist($produit);
+            $manger->flush();
+            $this->addFlash(
+                'success',
+                ' votre  Produit à été Ajouter avec succès  '
+            );
             return $this->redirectToRoute('produits_index');
         }
-
         return $this->render('admin/produits/new.html.twig', [
             'produit' => $produit,
             'form' => $form->createView(),
@@ -83,7 +88,16 @@ class AdminProduitsController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+            $file = $form['image']->getData();
+            $filename = md5(uniqid()) . '.' . $file->guessExtension();
+            $file->move($this->getParameter('upload_directory_produit'), $filename);
+            $produit->setImage($filename);
+            $manger->persist($produit);
+            $manger->flush();
+            $this->addFlash(
+                'success',
+                ' votre  Produit à été Modifier avec succès  '
+            );
 
             return $this->redirectToRoute('produits_index');
         }

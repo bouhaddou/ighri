@@ -1,0 +1,87 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Clients{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1 class="mt-3 mb-3 text-center">  Client</h1>
+    <div class="row">
+        <div class="col-md-5">
+            <table class="table ">
+                <tbody>
+                    <tr>
+                        <th>Id</th>
+                        <td>{{ client.id }}</td>
+                    </tr>
+                    <tr>
+                        <th>NomComplet</th>
+                        <td>{{ client.nomComplet }}</td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td>{{ client.email }}</td>
+                    </tr>
+                    <tr>
+                        <th>Tele</th>
+                        <td>{{ client.tele }}</td>
+                    </tr>
+                    <tr>
+                        <th>Adresse</th>
+                        <td>{{ client.adresse }}</td>
+                    </tr>
+                    <tr>
+                        <th>Maison</th>
+                        <td>{{ client.maison }}</td>
+                    </tr>
+                    <tr>
+                        <th>Pays</th>
+                        <td>{{ client.pays }}</td>
+                    </tr>
+                    <tr>
+                        <th>Postal</th>
+                        <td>{{ client.postal }}</td>
+                    </tr>
+                    <tr>
+                        <th>Password</th>
+                        <td>{{ client.password }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-7">
+          
+            <table class="table ">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>image</th>
+                        <th>Prix</th>
+                        <th>Quantité</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% set Montant = 0 %}
+                {% for vente in client.ventes %}
+                    <tr>
+                        <td>{{ vente.produit.id }}</td>
+                        <td><img class="img-fluid w-100" style="max-height: 50px;max-width: 50px; border-radius: 40px;" src="{{ asset("/produits/produit/"~ vente.produit.image ) }}"</td>
+                        <td>{{ vente.produit.prix }}.00 $</td>
+                        <td>{{ vente.poids }}</td>
+                        {% set total = vente.produit.prix * vente.poids %}
+                        <td>{{ total }}.00 $</td>
+                    </tr>
+                    {% set Montant = Montant + total %}
+                {% endfor %}
+                    <tr class="border mt-5">
+                        <td class="text-center h3" colspan="4">Montant  à Payer</td>
+                        <td class="text-center h3">{{ Montant }}.00 $</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <a class="btn btn-danger mt-3" href="{{ path('clients_index') }}">Retour</a>
+    {{ include('admin/clients/_delete_form.html.twig') }}
+</div>
+{% endblock %}

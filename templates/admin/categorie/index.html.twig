@@ -21,8 +21,8 @@
             <tr>
                 <td>{{ categorie.id }}</td>
                 <td>{{ categorie.designation }}</td>
-                <td>{{ categorie.content|slice(0,200)|raw }}</td>
-                <td>{{ categorie.image }}</td>
+                <td>{{ categorie.content|slice(0,100)|raw }}</td>
+                <td><img class="img-fluid w-100" style="max-height: 50px;max-width: 50px; border-radius: 40px;" src="{{ asset("/produits/categorie/"~ categorie.image ) }}"</td>
                 <td>
                     <a href="{{ path('categorie_show', {'id': categorie.id}) }}">show</a>
                     <a href="{{ path('categorie_edit', {'id': categorie.id}) }}">edit</a>

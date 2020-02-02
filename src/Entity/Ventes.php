@@ -23,7 +23,7 @@ class Ventes
     private $client;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\produits", inversedBy="ventes")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Produits", inversedBy="ventes")
      * @ORM\JoinColumn(nullable=false)
      */
     private $produit;
@@ -37,6 +37,16 @@ class Ventes
      * @ORM\Column(type="float")
      */
     private $poids;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $ModePaiement;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $valider;
 
     public function getId(): ?int
     {
@@ -87,6 +97,30 @@ class Ventes
     public function setPoids(float $poids): self
     {
         $this->poids = $poids;
+
+        return $this;
+    }
+
+    public function getModePaiement(): ?string
+    {
+        return $this->ModePaiement;
+    }
+
+    public function setModePaiement(string $ModePaiement): self
+    {
+        $this->ModePaiement = $ModePaiement;
+
+        return $this;
+    }
+
+    public function getValider(): ?bool
+    {
+        return $this->valider;
+    }
+
+    public function setValider(bool $valider): self
+    {
+        $this->valider = $valider;
 
         return $this;
     }

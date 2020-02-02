@@ -9,6 +9,7 @@ use App\Entity\Comments;
 use App\Entity\Compteur;
 use App\Form\SafranType;
 use App\Form\CommentHomeType;
+use App\Repository\CategorieRepository;
 use App\Repository\CompteurRepository;
 use App\Repository\VedioRepository;
 use Symfony\Component\HttpFoundation\Request;
@@ -24,7 +25,7 @@ class HomeController extends AbstractController
     /**
      * @Route("/", name="homepage")
      */
-    public function index(ObjectManager $manger,Request $request,CompteurRepository $repo,VedioRepository $vedioRepository )
+    public function index(CategorieRepository $categorie, ObjectManager $manger,Request $request,CompteurRepository $repo,VedioRepository $vedioRepository )
     {
         
         $posts =$manger->createQuery(
@@ -33,7 +34,7 @@ class HomeController extends AbstractController
             ORDER BY p.id DESC '
         )->setMaxResults(5)->getResult();
         
-        $compteur = $repo->findOneBy(['id' => 8 ]);
+        $compteur = $repo->findOneBy(['id' => 7 ]);
         
         if(is_null($compteur))
         {
@@ -118,9 +119,6 @@ class HomeController extends AbstractController
         ->setMaxResults(6)
         ->setFirstResult($offs);
         $resultUsers = $queryUser->getResult(); 
-
-     
-    
         return $this->render('home/index.html.twig',[
             'posts' => $posts,
             'compteur' => $compteur,
@@ -128,38 +126,35 @@ class HomeController extends AbstractController
             'TopPosts' => $result,
             'users' => $resultUsers,
             'vedios' => $vedioRepository->findAll(),
+            'categories' => $categorie->findAll(),
         ]);
     }
-
-
-
-
-
-
-
-
-
-
 
     /**
      * @Route("/presentation", name="presentationpage")
      */
-    public function presentation()
+    public function presentation(CategorieRepository $categorie)
     {
-        return $this->render('home/presentation.html.twig');
+        return $this->render('home/presentation.html.twig',[
+            'categories' => $categorie->findAll(),
+
+        ]);
     }
     /**
      * @Route("/agricule", name="agriculepage")
      */
-    public function agricule()
+    public function agricule(CategorieRepository $categorie)
     {
-        return $this->render('home/agricule.html.twig');
+        return $this->render('home/agricule.html.twig',[
+            'categories' => $categorie->findAll(),
+
+        ]);
     }
     
     /**
      * @Route("/zafran", name="zafranpage")
      */
-    public function zafran(Request $request,ObjectManager $manger)
+    public function zafran(Request $request,ObjectManager $manger,CategorieRepository $categorie)
     {  
         $em = $this->getDoctrine()->getRepository(Safran::class);
         $saf = $em->findAll();
@@ -213,15 +208,18 @@ class HomeController extends AbstractController
             'posts' => $posts,
             'form' => $form->createView(),
             'TopPosts' => $result,
+            'categories' => $categorie->findAll(),
             ]);
     }
 
     /**
      * @Route("/association", name="associationpage")
      */
-    public function indexassociation()
+    public function indexassociation(CategorieRepository $categorie)
     {
-        return $this->render('home/association.html.twig');
+        return $this->render('home/association.html.twig',[
+            'categories' => $categorie->findAll(),
+        ]);
     }
      
 }

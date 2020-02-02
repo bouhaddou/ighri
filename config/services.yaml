@@ -8,6 +8,8 @@ parameters:
     upload_directory_post: '%kernel.project_dir%/public/upload/posts/'
     upload_directory_image: '%kernel.project_dir%/public/upload/images/'
     upload_directory_safran: '%kernel.project_dir%/public/upload/safran/'
+    upload_directory_categorie: '%kernel.project_dir%/public/produits/categorie/'
+    upload_directory_produit: '%kernel.project_dir%/public/produits/produit/'
 
 services:
     # default configuration for services in *this* file

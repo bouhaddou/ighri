@@ -1,0 +1,45 @@
+ <div class="sidebar-box">
+              <form action="#" class="search-form">
+                <div class="form-group">
+                  <span class="icon ion-ios-search"></span>
+                  <input type="text" class="form-control" placeholder="Rechercher...">
+                </div>
+              </form>
+            </div>
+            <div class="sidebar-box ftco-animate">
+            	<h3 class="heading">Produits</h3>
+              <ul class="categories">
+              {% for categorie in categories %}
+                <li><a href="{{ path('SearcheProduits',{ 'id': categorie.id }) }}" class=" a-link">{{ categorie.designation | slice(0,20)  }} <span>({{ categorie.produits | length }})</span></a></li>
+			  {% endfor %}
+              </ul>
+            </div>
+
+            <div class="sidebar-box ftco-animate">
+              <h3 class="heading">Recent Blog</h3>
+              {% set i = 0 %}
+            {% for categorie in cats %}
+            {% set i = i + 1 %}
+              <div class="block-21 mb-4 d-flex">
+                <a class="blog-img mr-4" style="background-image: url( {{ asset('/produits/categorie/'~ categorie.image ) }});"></a>
+                <div class="text">
+                  <h3 class="heading-1"><a href="#">{{ categorie.content|slice(0,80) }}</a></h3>
+                  <div class="meta">
+                    <div><a href="#"><span class="icon-calendar"></span> April 09, 2019</a></div>
+                  </div>
+                </div>
+              </div>
+              {% if i == 2 %}
+                 {% set break = 1 %}
+              {% endif %}
+             {% endfor %}
+            </div>
+
+            <div class="sidebar-box ftco-animate">
+              <h3 class="heading">Catégories</h3>
+              <div class="tagcloud">
+              {% for categorie in categories %}
+                <a href="#" class="tag-cloud-link">{{ categorie.designation }}</a>
+              {% endfor %}
+              </div>
+            </div>

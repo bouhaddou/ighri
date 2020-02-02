@@ -44,9 +44,17 @@ class AdminCategorieController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($categorie);
-            $entityManager->flush();
+
+            $file = $form['image']->getData();
+            $filename = md5(uniqid()) . '.' . $file->guessExtension();
+            $file->move($this->getParameter('upload_directory_categorie'), $filename);
+            $categorie->setImage($filename);
+            $manger->persist($categorie);
+            $manger->flush();
+            $this->addFlash(
+                'success',
+                ' votre  catégorie à été Ajouter avec succès  '
+            );
 
             return $this->redirectToRoute('categorie_index');
         }
@@ -81,7 +89,17 @@ class AdminCategorieController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+            $file = $form['image']->getData();
+            $filename = md5(uniqid()) . '.' . $file->guessExtension();
+            $file->move($this->getParameter('upload_directory_categorie'), $filename);
+            $categorie->setImage($filename);
+            $manger->persist($categorie);
+            $manger->flush();
+            $this->addFlash(
+                'success',
+                ' votre  catégorie à été Modifier avec succès  '
+            );
+
 
             return $this->redirectToRoute('categorie_index');
         }

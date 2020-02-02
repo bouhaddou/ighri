@@ -25,6 +25,13 @@
 				Vedio
 				</a>
 			</li>
+			
+			<li class="nav-item">
+				<a class="nav-link" href="{{ path('admin_comment') }}"><i class="fas fa-user text-danger"></i> Commentaires</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{{ path('admin_contact') }}"><i class="fas fa-sms text-danger"></i> Notification <span class="badge badge-danger text-light p-1">{{ xz.contact  }} </span></a>
+			</li>
 			<li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				Ecommerce
@@ -33,15 +40,10 @@
 				<a class="dropdown-item" href="{{ path('categorie_index')  }}">Catégorie</a>
 				<a class="dropdown-item" href="{{ path('produits_index') }}">produits</a>
 				<div class="dropdown-divider"></div>
-				<a class="dropdown-item" href="#">Ventes</a>
+				<a class="dropdown-item" href="{{ path('clients_index')  }}">Clients</a>
 				</div>
      		</li>
-			<li class="nav-item">
-				<a class="nav-link" href="{{ path('admin_comment') }}"><i class="fas fa-user text-danger"></i> Commentaires</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="{{ path('admin_contact') }}"><i class="fas fa-sms text-danger"></i> Notification <span class="badge badge-danger text-light p-1">{{ xz.contact  }} </span></a>
-			</li>
+			
 		</ul>
 		<ul class="navbar-nav navbar-right">
 		 <li><a href="{{ path('homepage') }}" class="text-info"><i class="fas fa-exchange-alt"></i> Retour au site</a></li>
