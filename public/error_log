@@ -1,0 +1,187 @@
+[26-Jan-2020 15:34:13 America/New_York] PHP Fatal error:  Uncaught Symfony\Component\Dotenv\Exception\PathException: Unable to read the "/home/ighrqmjc/ighri/.env" environment file. in /home/ighrqmjc/ighri/vendor/symfony/dotenv/Dotenv.php:489
+Stack trace:
+#0 /home/ighrqmjc/ighri/vendor/symfony/dotenv/Dotenv.php(65): Symfony\Component\Dotenv\Dotenv->doLoad(false, Array)
+#1 /home/ighrqmjc/ighri/vendor/symfony/dotenv/Dotenv.php(85): Symfony\Component\Dotenv\Dotenv->load('/home/ighrqmjc/...')
+#2 /home/ighrqmjc/ighri/config/bootstrap.php(17): Symfony\Component\Dotenv\Dotenv->loadEnv('/home/ighrqmjc/...')
+#3 /home/ighrqmjc/ighri/public/index.php(7): require('/home/ighrqmjc/...')
+#4 {main}
+  thrown in /home/ighrqmjc/ighri/vendor/symfony/dotenv/Dotenv.php on line 489
+[26-Jan-2020 15:35:54 America/New_York] PHP Fatal error:  Uncaught Symfony\Component\Dotenv\Exception\PathException: Unable to read the "/home/ighrqmjc/ighri/.env" environment file. in /home/ighrqmjc/ighri/vendor/symfony/dotenv/Dotenv.php:489
+Stack trace:
+#0 /home/ighrqmjc/ighri/vendor/symfony/dotenv/Dotenv.php(65): Symfony\Component\Dotenv\Dotenv->doLoad(false, Array)
+#1 /home/ighrqmjc/ighri/vendor/symfony/dotenv/Dotenv.php(85): Symfony\Component\Dotenv\Dotenv->load('/home/ighrqmjc/...')
+#2 /home/ighrqmjc/ighri/config/bootstrap.php(17): Symfony\Component\Dotenv\Dotenv->loadEnv('/home/ighrqmjc/...')
+#3 /home/ighrqmjc/ighri/public/index.php(7): require('/home/ighrqmjc/...')
+#4 {main}
+  thrown in /home/ighrqmjc/ighri/vendor/symfony/dotenv/Dotenv.php on line 489
+[26-Jan-2020 15:36:36 America/New_York] PHP Fatal error:  Uncaught Symfony\Component\Dotenv\Exception\PathException: Unable to read the "/home/ighrqmjc/ighri/.env" environment file. in /home/ighrqmjc/ighri/vendor/symfony/dotenv/Dotenv.php:489
+Stack trace:
+#0 /home/ighrqmjc/ighri/vendor/symfony/dotenv/Dotenv.php(65): Symfony\Component\Dotenv\Dotenv->doLoad(false, Array)
+#1 /home/ighrqmjc/ighri/vendor/symfony/dotenv/Dotenv.php(85): Symfony\Component\Dotenv\Dotenv->load('/home/ighrqmjc/...')
+#2 /home/ighrqmjc/ighri/config/bootstrap.php(17): Symfony\Component\Dotenv\Dotenv->loadEnv('/home/ighrqmjc/...')
+#3 /home/ighrqmjc/ighri/public/index.php(7): require('/home/ighrqmjc/...')
+#4 {main}
+  thrown in /home/ighrqmjc/ighri/vendor/symfony/dotenv/Dotenv.php on line 489
+[26-Jan-2020 15:36:47 America/New_York] PHP Notice:  Undefined index: APP_DEBUG in /home/ighrqmjc/ighri/public/index.php on line 9
+[26-Jan-2020 15:36:47 America/New_York] PHP Fatal error:  Uncaught Error: Class 'App\Kernel' not found in /home/ighrqmjc/ighri/public/index.php:23
+Stack trace:
+#0 {main}
+  thrown in /home/ighrqmjc/ighri/public/index.php on line 23
+[26-Jan-2020 15:37:29 America/New_York] PHP Notice:  Undefined index: APP_DEBUG in /home/ighrqmjc/ighri/public/index.php on line 9
+[26-Jan-2020 15:37:29 America/New_York] PHP Fatal error:  Uncaught Error: Class 'App\Kernel' not found in /home/ighrqmjc/ighri/public/index.php:23
+Stack trace:
+#0 {main}
+  thrown in /home/ighrqmjc/ighri/public/index.php on line 23
+[26-Jan-2020 15:38:08 America/New_York] PHP Warning:  require(/home/ighrqmjc/ighri../ighri/config/bootstrap.php): failed to open stream: No such file or directory in /home/ighrqmjc/ighri/public/index.php on line 7
+[26-Jan-2020 15:38:08 America/New_York] PHP Fatal error:  require(): Failed opening required '/home/ighrqmjc/ighri../ighri/config/bootstrap.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/ighrqmjc/ighri/public/index.php on line 7
+[26-Jan-2020 15:38:22 America/New_York] PHP Fatal error:  Uncaught Symfony\Component\Dotenv\Exception\PathException: Unable to read the "/home/ighrqmjc/ighri/.env" environment file. in /home/ighrqmjc/ighri/vendor/symfony/dotenv/Dotenv.php:489
+Stack trace:
+#0 /home/ighrqmjc/ighri/vendor/symfony/dotenv/Dotenv.php(65): Symfony\Component\Dotenv\Dotenv->doLoad(false, Array)
+#1 /home/ighrqmjc/ighri/vendor/symfony/dotenv/Dotenv.php(85): Symfony\Component\Dotenv\Dotenv->load('/home/ighrqmjc/...')
+#2 /home/ighrqmjc/ighri/config/bootstrap.php(17): Symfony\Component\Dotenv\Dotenv->loadEnv('/home/ighrqmjc/...')
+#3 /home/ighrqmjc/ighri/public/index.php(7): require('/home/ighrqmjc/...')
+#4 {main}
+  thrown in /home/ighrqmjc/ighri/vendor/symfony/dotenv/Dotenv.php on line 489
+[26-Jan-2020 15:38:24 America/New_York] PHP Fatal error:  Uncaught Symfony\Component\Dotenv\Exception\PathException: Unable to read the "/home/ighrqmjc/ighri/.env" environment file. in /home/ighrqmjc/ighri/vendor/symfony/dotenv/Dotenv.php:489
+Stack trace:
+#0 /home/ighrqmjc/ighri/vendor/symfony/dotenv/Dotenv.php(65): Symfony\Component\Dotenv\Dotenv->doLoad(false, Array)
+#1 /home/ighrqmjc/ighri/vendor/symfony/dotenv/Dotenv.php(85): Symfony\Component\Dotenv\Dotenv->load('/home/ighrqmjc/...')
+#2 /home/ighrqmjc/ighri/config/bootstrap.php(17): Symfony\Component\Dotenv\Dotenv->loadEnv('/home/ighrqmjc/...')
+#3 /home/ighrqmjc/ighri/public/index.php(7): require('/home/ighrqmjc/...')
+#4 {main}
+  thrown in /home/ighrqmjc/ighri/vendor/symfony/dotenv/Dotenv.php on line 489
+[26-Jan-2020 15:38:33 America/New_York] PHP Notice:  Undefined index: APP_DEBUG in /home/ighrqmjc/ighri/public/index.php on line 9
+[26-Jan-2020 15:38:33 America/New_York] PHP Fatal error:  Uncaught Error: Class 'App\Kernel' not found in /home/ighrqmjc/ighri/public/index.php:23
+Stack trace:
+#0 {main}
+  thrown in /home/ighrqmjc/ighri/public/index.php on line 23
+[26-Jan-2020 15:39:10 America/New_York] PHP Notice:  Undefined index: APP_DEBUG in /home/ighrqmjc/ighri/public/index.php on line 9
+[26-Jan-2020 15:39:10 America/New_York] PHP Fatal error:  Uncaught Error: Class 'App\Kernel' not found in /home/ighrqmjc/ighri/public/index.php:23
+Stack trace:
+#0 {main}
+  thrown in /home/ighrqmjc/ighri/public/index.php on line 23
+[26-Jan-2020 15:39:22 America/New_York] PHP Warning:  require(/home/ighrqmjc/ighri/../../ighri/config/bootstrap.php): failed to open stream: No such file or directory in /home/ighrqmjc/ighri/public/index.php on line 7
+[26-Jan-2020 15:39:22 America/New_York] PHP Fatal error:  require(): Failed opening required '/home/ighrqmjc/ighri/../../ighri/config/bootstrap.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/ighrqmjc/ighri/public/index.php on line 7
+[26-Jan-2020 15:39:25 America/New_York] PHP Warning:  require(/home/ighrqmjc/ighri/../../ighri/config/bootstrap.php): failed to open stream: No such file or directory in /home/ighrqmjc/ighri/public/index.php on line 7
+[26-Jan-2020 15:39:25 America/New_York] PHP Fatal error:  require(): Failed opening required '/home/ighrqmjc/ighri/../../ighri/config/bootstrap.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/ighrqmjc/ighri/public/index.php on line 7
+[26-Jan-2020 15:39:33 America/New_York] PHP Fatal error:  Uncaught Symfony\Component\Dotenv\Exception\PathException: Unable to read the "/home/ighrqmjc/ighri/.env" environment file. in /home/ighrqmjc/ighri/vendor/symfony/dotenv/Dotenv.php:489
+Stack trace:
+#0 /home/ighrqmjc/ighri/vendor/symfony/dotenv/Dotenv.php(65): Symfony\Component\Dotenv\Dotenv->doLoad(false, Array)
+#1 /home/ighrqmjc/ighri/vendor/symfony/dotenv/Dotenv.php(85): Symfony\Component\Dotenv\Dotenv->load('/home/ighrqmjc/...')
+#2 /home/ighrqmjc/ighri/config/bootstrap.php(17): Symfony\Component\Dotenv\Dotenv->loadEnv('/home/ighrqmjc/...')
+#3 /home/ighrqmjc/ighri/public/index.php(7): require('/home/ighrqmjc/...')
+#4 {main}
+  thrown in /home/ighrqmjc/ighri/vendor/symfony/dotenv/Dotenv.php on line 489
+[26-Jan-2020 15:39:42 America/New_York] PHP Warning:  require(/home/ighrqmjc/ighri/../config/bootstrap.php): failed to open stream: No such file or directory in /home/ighrqmjc/ighri/public/index.php on line 7
+[26-Jan-2020 15:39:42 America/New_York] PHP Fatal error:  require(): Failed opening required '/home/ighrqmjc/ighri/../config/bootstrap.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/ighrqmjc/ighri/public/index.php on line 7
+[26-Jan-2020 15:40:00 America/New_York] PHP Fatal error:  Uncaught Symfony\Component\Dotenv\Exception\PathException: Unable to read the "/home/ighrqmjc/ighri/.env" environment file. in /home/ighrqmjc/ighri/vendor/symfony/dotenv/Dotenv.php:489
+Stack trace:
+#0 /home/ighrqmjc/ighri/vendor/symfony/dotenv/Dotenv.php(65): Symfony\Component\Dotenv\Dotenv->doLoad(false, Array)
+#1 /home/ighrqmjc/ighri/vendor/symfony/dotenv/Dotenv.php(85): Symfony\Component\Dotenv\Dotenv->load('/home/ighrqmjc/...')
+#2 /home/ighrqmjc/ighri/config/bootstrap.php(17): Symfony\Component\Dotenv\Dotenv->loadEnv('/home/ighrqmjc/...')
+#3 /home/ighrqmjc/ighri/public/index.php(7): require('/home/ighrqmjc/...')
+#4 {main}
+  thrown in /home/ighrqmjc/ighri/vendor/symfony/dotenv/Dotenv.php on line 489
+[26-Jan-2020 15:43:59 America/New_York] PHP Fatal error:  Uncaught Symfony\Component\Dotenv\Exception\PathException: Unable to read the "/home/ighrqmjc/ighri/.env" environment file. in /home/ighrqmjc/ighri/vendor/symfony/dotenv/Dotenv.php:489
+Stack trace:
+#0 /home/ighrqmjc/ighri/vendor/symfony/dotenv/Dotenv.php(65): Symfony\Component\Dotenv\Dotenv->doLoad(false, Array)
+#1 /home/ighrqmjc/ighri/vendor/symfony/dotenv/Dotenv.php(85): Symfony\Component\Dotenv\Dotenv->load('/home/ighrqmjc/...')
+#2 /home/ighrqmjc/ighri/config/bootstrap.php(17): Symfony\Component\Dotenv\Dotenv->loadEnv('/home/ighrqmjc/...')
+#3 /home/ighrqmjc/ighri/public/index.php(7): require('/home/ighrqmjc/...')
+#4 {main}
+  thrown in /home/ighrqmjc/ighri/vendor/symfony/dotenv/Dotenv.php on line 489
+[02-Feb-2020 18:38:54 America/New_York] PHP Warning:  require(/home/ighrqmjc/ighri/vendor/autoload.php): failed to open stream: No such file or directory in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:38:54 America/New_York] PHP Fatal error:  require(): Failed opening required '/home/ighrqmjc/ighri/vendor/autoload.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:38:55 America/New_York] PHP Warning:  require(/home/ighrqmjc/ighri/vendor/autoload.php): failed to open stream: No such file or directory in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:38:55 America/New_York] PHP Fatal error:  require(): Failed opening required '/home/ighrqmjc/ighri/vendor/autoload.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:39:09 America/New_York] PHP Warning:  require(/home/ighrqmjc/ighri/vendor/autoload.php): failed to open stream: No such file or directory in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:39:09 America/New_York] PHP Fatal error:  require(): Failed opening required '/home/ighrqmjc/ighri/vendor/autoload.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:39:09 America/New_York] PHP Warning:  require(/home/ighrqmjc/ighri/vendor/autoload.php): failed to open stream: No such file or directory in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:39:09 America/New_York] PHP Fatal error:  require(): Failed opening required '/home/ighrqmjc/ighri/vendor/autoload.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:39:17 America/New_York] PHP Warning:  require(/home/ighrqmjc/ighri/vendor/autoload.php): failed to open stream: No such file or directory in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:39:17 America/New_York] PHP Fatal error:  require(): Failed opening required '/home/ighrqmjc/ighri/vendor/autoload.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:39:18 America/New_York] PHP Warning:  require(/home/ighrqmjc/ighri/vendor/autoload.php): failed to open stream: No such file or directory in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:39:18 America/New_York] PHP Fatal error:  require(): Failed opening required '/home/ighrqmjc/ighri/vendor/autoload.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:39:23 America/New_York] PHP Warning:  require(/home/ighrqmjc/ighri/vendor/autoload.php): failed to open stream: No such file or directory in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:39:23 America/New_York] PHP Fatal error:  require(): Failed opening required '/home/ighrqmjc/ighri/vendor/autoload.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:39:23 America/New_York] PHP Warning:  require(/home/ighrqmjc/ighri/vendor/autoload.php): failed to open stream: No such file or directory in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:39:23 America/New_York] PHP Fatal error:  require(): Failed opening required '/home/ighrqmjc/ighri/vendor/autoload.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:39:23 America/New_York] PHP Warning:  require(/home/ighrqmjc/ighri/vendor/autoload.php): failed to open stream: No such file or directory in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:39:23 America/New_York] PHP Fatal error:  require(): Failed opening required '/home/ighrqmjc/ighri/vendor/autoload.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:39:23 America/New_York] PHP Warning:  require(/home/ighrqmjc/ighri/vendor/autoload.php): failed to open stream: No such file or directory in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:39:23 America/New_York] PHP Fatal error:  require(): Failed opening required '/home/ighrqmjc/ighri/vendor/autoload.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:39:23 America/New_York] PHP Warning:  require(/home/ighrqmjc/ighri/vendor/autoload.php): failed to open stream: No such file or directory in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:39:23 America/New_York] PHP Fatal error:  require(): Failed opening required '/home/ighrqmjc/ighri/vendor/autoload.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:39:23 America/New_York] PHP Warning:  require(/home/ighrqmjc/ighri/vendor/autoload.php): failed to open stream: No such file or directory in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:39:23 America/New_York] PHP Fatal error:  require(): Failed opening required '/home/ighrqmjc/ighri/vendor/autoload.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:39:23 America/New_York] PHP Warning:  require(/home/ighrqmjc/ighri/vendor/autoload.php): failed to open stream: No such file or directory in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:39:23 America/New_York] PHP Fatal error:  require(): Failed opening required '/home/ighrqmjc/ighri/vendor/autoload.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:39:24 America/New_York] PHP Warning:  require(/home/ighrqmjc/ighri/vendor/autoload.php): failed to open stream: No such file or directory in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:39:24 America/New_York] PHP Fatal error:  require(): Failed opening required '/home/ighrqmjc/ighri/vendor/autoload.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:39:24 America/New_York] PHP Warning:  require(/home/ighrqmjc/ighri/vendor/autoload.php): failed to open stream: No such file or directory in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:39:24 America/New_York] PHP Fatal error:  require(): Failed opening required '/home/ighrqmjc/ighri/vendor/autoload.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:39:24 America/New_York] PHP Warning:  require(/home/ighrqmjc/ighri/vendor/autoload.php): failed to open stream: No such file or directory in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:39:24 America/New_York] PHP Fatal error:  require(): Failed opening required '/home/ighrqmjc/ighri/vendor/autoload.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:40:09 America/New_York] PHP Warning:  require(/home/ighrqmjc/ighri/vendor/autoload.php): failed to open stream: No such file or directory in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:40:09 America/New_York] PHP Fatal error:  require(): Failed opening required '/home/ighrqmjc/ighri/vendor/autoload.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:40:09 America/New_York] PHP Warning:  require(/home/ighrqmjc/ighri/vendor/autoload.php): failed to open stream: No such file or directory in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:40:09 America/New_York] PHP Fatal error:  require(): Failed opening required '/home/ighrqmjc/ighri/vendor/autoload.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:40:16 America/New_York] PHP Warning:  require(/home/ighrqmjc/ighri/vendor/autoload.php): failed to open stream: No such file or directory in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:40:16 America/New_York] PHP Fatal error:  require(): Failed opening required '/home/ighrqmjc/ighri/vendor/autoload.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:40:16 America/New_York] PHP Warning:  require(/home/ighrqmjc/ighri/vendor/autoload.php): failed to open stream: No such file or directory in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:40:16 America/New_York] PHP Fatal error:  require(): Failed opening required '/home/ighrqmjc/ighri/vendor/autoload.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:40:16 America/New_York] PHP Warning:  require(/home/ighrqmjc/ighri/vendor/autoload.php): failed to open stream: No such file or directory in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:40:16 America/New_York] PHP Fatal error:  require(): Failed opening required '/home/ighrqmjc/ighri/vendor/autoload.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:40:16 America/New_York] PHP Warning:  require(/home/ighrqmjc/ighri/vendor/autoload.php): failed to open stream: No such file or directory in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:40:16 America/New_York] PHP Fatal error:  require(): Failed opening required '/home/ighrqmjc/ighri/vendor/autoload.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:40:16 America/New_York] PHP Warning:  require(/home/ighrqmjc/ighri/vendor/autoload.php): failed to open stream: No such file or directory in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:40:16 America/New_York] PHP Fatal error:  require(): Failed opening required '/home/ighrqmjc/ighri/vendor/autoload.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:40:16 America/New_York] PHP Warning:  require(/home/ighrqmjc/ighri/vendor/autoload.php): failed to open stream: No such file or directory in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:40:16 America/New_York] PHP Fatal error:  require(): Failed opening required '/home/ighrqmjc/ighri/vendor/autoload.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:40:16 America/New_York] PHP Warning:  require(/home/ighrqmjc/ighri/vendor/autoload.php): failed to open stream: No such file or directory in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:40:16 America/New_York] PHP Fatal error:  require(): Failed opening required '/home/ighrqmjc/ighri/vendor/autoload.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:40:16 America/New_York] PHP Warning:  require(/home/ighrqmjc/ighri/vendor/autoload.php): failed to open stream: No such file or directory in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:40:16 America/New_York] PHP Fatal error:  require(): Failed opening required '/home/ighrqmjc/ighri/vendor/autoload.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:40:16 America/New_York] PHP Warning:  require(/home/ighrqmjc/ighri/vendor/autoload.php): failed to open stream: No such file or directory in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:40:16 America/New_York] PHP Fatal error:  require(): Failed opening required '/home/ighrqmjc/ighri/vendor/autoload.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:40:16 America/New_York] PHP Warning:  require(/home/ighrqmjc/ighri/vendor/autoload.php): failed to open stream: No such file or directory in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:40:16 America/New_York] PHP Fatal error:  require(): Failed opening required '/home/ighrqmjc/ighri/vendor/autoload.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:40:16 America/New_York] PHP Warning:  require(/home/ighrqmjc/ighri/vendor/autoload.php): failed to open stream: No such file or directory in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:40:16 America/New_York] PHP Fatal error:  require(): Failed opening required '/home/ighrqmjc/ighri/vendor/autoload.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:40:16 America/New_York] PHP Warning:  require(/home/ighrqmjc/ighri/vendor/autoload.php): failed to open stream: No such file or directory in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:40:16 America/New_York] PHP Fatal error:  require(): Failed opening required '/home/ighrqmjc/ighri/vendor/autoload.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:40:16 America/New_York] PHP Warning:  require(/home/ighrqmjc/ighri/vendor/autoload.php): failed to open stream: No such file or directory in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:40:16 America/New_York] PHP Fatal error:  require(): Failed opening required '/home/ighrqmjc/ighri/vendor/autoload.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:40:16 America/New_York] PHP Warning:  require(/home/ighrqmjc/ighri/vendor/autoload.php): failed to open stream: No such file or directory in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:40:16 America/New_York] PHP Fatal error:  require(): Failed opening required '/home/ighrqmjc/ighri/vendor/autoload.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/ighrqmjc/ighri/config/bootstrap.php on line 5
+[02-Feb-2020 18:54:38 America/New_York] PHP Notice:  Undefined index: APP_DEBUG in /home/ighrqmjc/ighri/public/index.php on line 9
+[02-Feb-2020 18:54:38 America/New_York] PHP Fatal error:  Uncaught Error: Class 'App\Kernel' not found in /home/ighrqmjc/ighri/public/index.php:23
+Stack trace:
+#0 {main}
+  thrown in /home/ighrqmjc/ighri/public/index.php on line 23
+[02-Feb-2020 18:55:14 America/New_York] PHP Notice:  Undefined index: APP_DEBUG in /home/ighrqmjc/ighri/public/index.php on line 9
+[02-Feb-2020 18:55:14 America/New_York] PHP Fatal error:  Uncaught Error: Class 'App\Kernel' not found in /home/ighrqmjc/ighri/public/index.php:23
+Stack trace:
+#0 {main}
+  thrown in /home/ighrqmjc/ighri/public/index.php on line 23
+[02-Feb-2020 18:57:56 America/New_York] PHP Fatal error:  Uncaught RuntimeException: Please run "composer require symfony/dotenv" to load the ".env" files configuring the application. in /home/ighrqmjc/ighri/config/bootstrap.php:14
+Stack trace:
+#0 /home/ighrqmjc/ighri/public/index.php(7): require()
+#1 {main}
+  thrown in /home/ighrqmjc/ighri/config/bootstrap.php on line 14
+[02-Feb-2020 18:58:34 America/New_York] PHP Fatal error:  Uncaught RuntimeException: Please run "composer require symfony/dotenv" to load the ".env" files configuring the application. in /home/ighrqmjc/ighri/config/bootstrap.php:14
+Stack trace:
+#0 /home/ighrqmjc/ighri/public/index.php(7): require()
+#1 {main}
+  thrown in /home/ighrqmjc/ighri/config/bootstrap.php on line 14
+[02-Feb-2020 18:58:43 America/New_York] PHP Fatal error:  Uncaught RuntimeException: Please run "composer require symfony/dotenv" to load the ".env" files configuring the application. in /home/ighrqmjc/ighri/config/bootstrap.php:14
+Stack trace:
+#0 /home/ighrqmjc/ighri/public/index.php(7): require()
+#1 {main}
+  thrown in /home/ighrqmjc/ighri/config/bootstrap.php on line 14
+[02-Feb-2020 18:59:39 America/New_York] PHP Fatal error:  Uncaught Error: Class 'ComposerAutoloaderInit4d5d2aa312590c2e5607d7a78b3984b5' not found in /home/ighrqmjc/ighri/vendor/autoload.php:7
+Stack trace:
+#0 /home/ighrqmjc/ighri/config/bootstrap.php(5): require()
+#1 /home/ighrqmjc/ighri/public/index.php(7): require('/home/ighrqmjc/...')
+#2 {main}
+  thrown in /home/ighrqmjc/ighri/vendor/autoload.php on line 7

@@ -27,13 +27,10 @@ class EcommerceController extends AbstractController
         $panier = $session->get('panier',[]);
         
          //---------------------------------------------categorie
-         $rows = $manager->createQuery('SELECT COUNT(c.id) FROM App\Entity\Categorie c')->getSingleScalarResult();
-         // calculate a random offset
-         $offs = max(0, rand(0, $rows - 5 - 1));
+       
          //Get the first $n rows(users) starting from a random point
          $queryUser = $manager->createQuery('SELECT DISTINCT c FROM App\Entity\Categorie c')
-                               ->setMaxResults(5)
-                               ->setFirstResult($offs);
+                               ->setMaxResults(5);
          $categorieSpeciale = $queryUser->getResult(); 
 
         //---------------------------------------------produits

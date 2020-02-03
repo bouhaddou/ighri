@@ -127,8 +127,3 @@ iframe {
     font-size: initial;
 }
 
-.hoverbtn a:hover{
-    color: blue;
-    background-color: white;
-    cursor: pointer;
-}

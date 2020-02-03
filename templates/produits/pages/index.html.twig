@@ -104,7 +104,7 @@
 						<div class="row">
 							<div class="col-md-6 order-md-last align-items-stretch d-flex">
 								<div class="category-wrap-2 ftco-animate img align-self-stretch d-flex" 
-                style="background-image: url( {{ asset('/produits/categorie/'~  cycle(catSpeciale[0].image,1) ) }});">
+                style="background-image: url( {{ asset('/produits/categorie/'~  cycle(catSpeciale[0].image,0) ) }});">
 									<div class="text text-center">
 										<h2>Produits bio en ligne</h2>
 										<p>Protégez la santé de chaque maison</p>
@@ -116,13 +116,13 @@
 								<div class="category-wrap ftco-animate img mb-4 d-flex align-items-end" 
                 style="background-image: url( {{ asset('/produits/categorie/'~  cycle(catSpeciale[1].image,1) ) }});">
 									<div class="text px-3 py-1">
-										<h2 class="mb-0"><a href="{{ path('SearcheProduits',{ 'id': cycle(catSpeciale[1].id,1) }) }}">{{  cycle(catSpeciale[0].designation,2) }}</a></h2>
+										<h2 class="mb-0"><a href="{{ path('SearcheProduits',{ 'id': cycle(catSpeciale[1].id,1) }) }}">{{  cycle(catSpeciale[1].designation,1) }}</a></h2>
 									</div>
 								</div>
 								<div class="category-wrap ftco-animate img d-flex align-items-end" 
                 style="background-image: url( {{ asset('/produits/categorie/'~  cycle(catSpeciale[2].image,1) ) }});">
 									<div class="text px-3 py-1">
-										<h2 class="mb-0"><a href="{{ path('SearcheProduits',{ 'id': cycle(catSpeciale[2].id,1) }) }}">{{  cycle(catSpeciale[1].designation,2) }}</a></h2>
+										<h2 class="mb-0"><a href="{{ path('SearcheProduits',{ 'id': cycle(catSpeciale[2].id,1) }) }}">{{  cycle(catSpeciale[2].designation,1) }}</a></h2>
 									</div>
 								</div>
 							</div>
@@ -130,15 +130,15 @@
 					</div>
 					<div class="col-md-4">
 						<div class="category-wrap ftco-animate img mb-4 d-flex align-items-end" 
-            style="background-image: url( {{ asset('/produits/categorie/'~  cycle(catSpeciale[3].image,2) ) }});">
+            style="background-image: url( {{ asset('/produits/categorie/'~  cycle(catSpeciale[3].image,1) ) }});">
 							<div class="text px-3 py-1">
-								<h2 class="mb-0"><a href="{{ path('SearcheProduits',{ 'id': cycle(catSpeciale[3].id,1) }) }}">{{  cycle(catSpeciale[2].designation,2) }}</a></h2>
+								<h2 class="mb-0"><a href="{{ path('SearcheProduits',{ 'id': cycle(catSpeciale[3].id,1) }) }}">{{  cycle(catSpeciale[3].designation,1) }}</a></h2>
 							</div>		
 						</div>
 						<div class="category-wrap ftco-animate img d-flex align-items-end" 
-            style="background-image: url( {{ asset('/produits/categorie/'~  cycle(catSpeciale[4].image,1) ) }});">
+            style="background-image: url( {{ asset('/produits/categorie/'~  cycle(catSpeciale[4].image,4) ) }});">
 							<div class="text px-3 py-1">
-								<h2 class="mb-0"><a href="{{ path('SearcheProduits',{ 'id': cycle(catSpeciale[4].id,1) }) }}">{{  cycle(catSpeciale[3].designation,2) }}</a></h2>
+								<h2 class="mb-0"><a href="{{ path('SearcheProduits',{ 'id': cycle(catSpeciale[4].id,1) }) }}">{{  cycle(catSpeciale[4].designation,1) }}</a></h2>
 							</div>
 						</div>
 					</div>

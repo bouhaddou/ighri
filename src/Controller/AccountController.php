@@ -10,6 +10,8 @@ use App\Form\RegisterType;
 use App\Form\UpdatepassType;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
+use App\Repository\CategorieRepository;
+use App\Repository\UserRepository;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Form\FormError;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
@@ -38,7 +40,8 @@ class AccountController extends AbstractController
       
         return $this->render('account/login.html.twig', [
             'hasError' => $error !== null,
-            'username' => $username
+            'username' => $username,
+            
         ]);
     }
 
@@ -80,13 +83,14 @@ class AccountController extends AbstractController
              return $this->redirectToRoute('account_login');
          }
         return $this->render('account/register.html.twig',[
-            'form' => $form->createView()
+            'form' => $form->createView(),
+           
         ]);
     }
     /**
      * @Route("/register/{id}", name="account_registerEdit")
      */
-    public function registerEdit(Request $request,User $user)
+    public function registerEdit(Request $request,User $user,CategorieRepository $categorie)
     {
         $form = $this->createForm(RegisterType::class, $user);
         $form->handleRequest($request);
@@ -104,7 +108,8 @@ class AccountController extends AbstractController
             return $this->redirectToRoute('account_login');
         }
         return $this->render('account/registerEdit.html.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'categories' => $categorie->findAll(),
         ]);
     }
 
@@ -112,21 +117,20 @@ class AccountController extends AbstractController
      * @Route("/profil/{id}", name="showprofileuser")
      * @IsGranted("ROLE_USER")
      */
-    public function showprofile($id,Request $request)
+    public function showprofile($id,Request $request,CategorieRepository $categorie,UserRepository $users)
     {
-        $em = $this->getDoctrine()->getRepository(User::class);
-        $user = $em->findOneBy(['id' => $id]);
-
-        
-        return $this->render('account/profile.html.twig', [
-            'user' => $user
+        $user = $users->findOneBy(['id' => $id]);
+        return $this->render('account/profile.html.twig', [ 
+            'categories' => $categorie->findAll(),
+            'user' => $user,
+           
         ]);
     }
     /**
      * @Route("/profil/{id}/couvert", name="edit_couvert")
      * @IsGranted("ROLE_USER")
      */
-    public function editcouvert($id, Request $request)
+    public function editcouvert($id, Request $request,CategorieRepository $categorie)
     {
         $em = $this->getDoctrine()->getRepository(User::class);
         $user = $em->findOneBy(['id' => $id]);
@@ -150,7 +154,8 @@ class AccountController extends AbstractController
         }
         return $this->render('account/couvert.html.twig', [
             'user' => $user,
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'categories' => $categorie->findAll(),
         ]);
     }
 
@@ -158,7 +163,7 @@ class AccountController extends AbstractController
      * @Route("/account/editpass", name="edit_password")
      * @IsGranted("ROLE_USER")
      */
-    public function editpasse( Request $request)
+    public function editpasse( Request $request,CategorieRepository $categorie)
     {
         $updatepassword = new Updatepass();
         $user= $this->getUser();
@@ -186,14 +191,15 @@ class AccountController extends AbstractController
         }
         return $this->render('account/update_password.html.twig', [
             'user' => $user,
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'categories' => $categorie->findAll(),
         ]);
     }
 
      /**
      * @Route("/register/Edit/{id}/profil", name="account_ProfileEdit")
      */
-    public function registerEditProfil(Request $request,User $user)
+    public function registerEditProfil(Request $request,User $user,CategorieRepository $categorie)
     {
 
         $form = $this->createForm(EditProfileType::class, $user);
@@ -218,7 +224,8 @@ class AccountController extends AbstractController
             return $this->redirectToRoute('showprofileuser',['id' => (string) $user->getId()]);
         }
         return $this->render('account/EditRegistration.html.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'categories' => $categorie->findAll(),
         ]);
     }
 
